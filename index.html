@@ -1,0 +1,3104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Reveal.js slides with Emacs org-mode + Tailwind CSS</title>
+<meta name="author" content="Saul S.L."/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/blood.css" id="theme"/>
+
+<link rel="stylesheet" href="./plugin_extra/customcontrols/style.css"/>
+
+<link rel="stylesheet" href="./personal/css/icustom.css"/>
+
+<link rel="stylesheet" href="./plugin_extra/drawer/drawer.css"/>
+
+<link rel="stylesheet" href="./plugin_extra/pointer/pointer.css"/>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<meta name="description" content="Reveal.js+Tailwind_CSS demo">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Reveal.js slides with Emacs org-mode + Tailwind CSS</h1><p class="subtitle"></p>
+<h2 class="author">Saul S.L.</h2><h2 class="date">2024-09-14</h2>
+</section>
+<section>
+<section id="slide-orgf3227a0">
+<h2 id="orgf3227a0">Foreword</h2>
+<i class="fas fa-comment text-6xl textCol-link"></i>
+</section>
+<section id="slide-orgde1a24b" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orgde1a24b">Foreword</h4>
+<p class="lg:text-base sm:text-lg border border-transparent rounded-2xl bg-a">
+The purpose of this presentation is to show how a  <a href="https://revealjs.com/speaker-view/" class="lg:text-base sm:text-lg border border-transparent rounded-2xl bg-a">reveal.js</a> presentation can be customized using <a href="https://tailwindcss.com/">Tailwind CSS</a>. The presentation was created from an Emacs org-mode file using <a href="https://github.com/yjwen/org-reveal">org-reveal</a>.
+</p>
+
+<div class="h-content-07 border border-transparent rounded-3xl lg:text-sm sm:text-base flex bg-b" id="orga2761e2">
+<ul class="flex-list flex-grow justify-evenly">
+<li>Press F1 to learn  how to navigate the presentation. Also use the buttons on the bottom left corner.</li>
+<li>Since not all the customizations were possible using Tailwind utilities, a custom CSS and JS files were created.</li>
+<li>A <span class="underline">must</span> for adapting this presentation to your needs is to check the <a href="https://github.com/yjwen/org-reveal/blob/master/Readme.org">Readme</a> file for the org-reveal package.</li>
+<li>For those not familiar with reveal.js it is recommended to see the demo presentation on the link above to learn more about its capabilities.</li>
+<li>Also check Tailwind <a href="https://tailwindcss.com/docs/installation">documentation</a> to learn more about the utilities for customization since not all are covered here.</li>
+
+</ul>
+
+</div>
+<p class="text-right pr-10">
+<i>Thank you!</i>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org92d121f">
+<h2 id="org92d121f">Tailwind utilities</h2>
+<i class="fas fa-cogs text-6xl textCol-link"></i>
+</section>
+</section>
+<section>
+<section id="slide-org743ac5f">
+<h3 id="org743ac5f">Lists</h3>
+<i class="fas fa-list text-5xl textCol-link"></i>
+</section>
+<section id="slide-org3ed8eaa" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="org3ed8eaa">Default</h4>
+<ul class="bg-b border border-transparent rounded-3xl">
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+<li>Donec vitae dolor.</li>
+<li>Phasellus purus.</li>
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+
+</ul>
+</section>
+<section id="slide-org001491a" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="org001491a">Inside</h4>
+<ul class="bg-b border border-transparent rounded-3xl list-inside">
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+<li>Donec vitae dolor.</li>
+<li>Phasellus purus.</li>
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+
+</ul>
+</section>
+<section id="slide-orge881850" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orge881850">Outside</h4>
+<ul class="bg-b border border-transparent rounded-3xl list-outside">
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+<li>Donec vitae dolor.</li>
+<li>Phasellus purus.</li>
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-org8c76b78">
+<h3 id="org8c76b78">Text size</h3>
+<i class="fas fa-text-height text-5xl textCol-link"></i>
+</section>
+<section id="slide-orgf11bda1" class="h-slide bg-a border border-transparent border rounded-2xl title-sm">
+<h4 id="orgf11bda1">Table of  text utilities for font size</h4>
+<div class="h-content flex flex-col justify-evenly justify-items-center border border-transparent rounded-3xl bg-b" id="org38f9b90">
+<table id="org2378396" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="text-xs border border-collapse">
+<caption class="t-above"><span class="table-number">Table 1:</span> Text utilities to change the  font size</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Utility</th>
+<th scope="col" class="org-left">Font size</th>
+<th scope="col" class="org-right">Px</th>
+<th scope="col" class="org-left">Line  height</th>
+<th scope="col" class="org-right">Px</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">text-xs</td>
+<td class="org-left">0.75rem</td>
+<td class="org-right">12</td>
+<td class="org-left">1rem</td>
+<td class="org-right">16</td>
+</tr>
+
+<tr>
+<td class="org-left">text-sm</td>
+<td class="org-left">0.875rem</td>
+<td class="org-right">14</td>
+<td class="org-left">1.25rem</td>
+<td class="org-right">20</td>
+</tr>
+
+<tr>
+<td class="org-left">text-base</td>
+<td class="org-left">1rem</td>
+<td class="org-right">16</td>
+<td class="org-left">1.5rem</td>
+<td class="org-right">24</td>
+</tr>
+
+<tr>
+<td class="org-left">text-lg</td>
+<td class="org-left">1.125rem</td>
+<td class="org-right">18</td>
+<td class="org-left">1.75rem</td>
+<td class="org-right">28</td>
+</tr>
+
+<tr>
+<td class="org-left">text-xl</td>
+<td class="org-left">1.25rem</td>
+<td class="org-right">20</td>
+<td class="org-left">1.75rem</td>
+<td class="org-right">28</td>
+</tr>
+
+<tr>
+<td class="org-left">text-2xl</td>
+<td class="org-left">1.5rem</td>
+<td class="org-right">24</td>
+<td class="org-left">2rem</td>
+<td class="org-right">32</td>
+</tr>
+
+<tr>
+<td class="org-left">text-3xl</td>
+<td class="org-left">1.875rem</td>
+<td class="org-right">30</td>
+<td class="org-left">2.25rem</td>
+<td class="org-right">36</td>
+</tr>
+
+<tr>
+<td class="org-left">text-4xl</td>
+<td class="org-left">2.25rem</td>
+<td class="org-right">36</td>
+<td class="org-left">2.5rem</td>
+<td class="org-right">40</td>
+</tr>
+
+<tr>
+<td class="org-left">text-5xl</td>
+<td class="org-left">3rem</td>
+<td class="org-right">48</td>
+<td class="org-left">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">text-6xl</td>
+<td class="org-left">3.75rem</td>
+<td class="org-right">60</td>
+<td class="org-left">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">text-7xl</td>
+<td class="org-left">4.5rem</td>
+<td class="org-right">72</td>
+<td class="org-left">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">text-8xl</td>
+<td class="org-left">6rem</td>
+<td class="org-right">96</td>
+<td class="org-left">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">text-9xl</td>
+<td class="org-left">8rem</td>
+<td class="org-right">128</td>
+<td class="org-left">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</section>
+<section id="slide-org5e68b6f" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="org5e68b6f">Size: extra small until  6 extra large</h4>
+<div class="h-content flex flex-col justify-evenly border border-transparent rounded-3xl bg-b" id="orgb303c75">
+<ul class="text-xs w-full" style="margin-left: 1rem;">
+<li><b>Extra small:</b> <code>text-xs</code></li>
+
+</ul>
+
+<ul class="text-sm w-full" style="margin-left: 1rem;">
+<li><b>Small:</b> <code>text-sm</code></li>
+
+</ul>
+
+<ul class="text-base w-full" style="margin-left: 1rem;">
+<li><b>Base:</b> <code>text-base</code></li>
+
+</ul>
+
+<ul class="text-lg w-full" style="margin-left: 1rem;">
+<li><b>Large:</b> <code>text-lg</code></li>
+
+</ul>
+
+<ul class="text-xl w-full" style="margin-left: 1rem;">
+<li><b>Extra large:</b> <code>text-xl</code></li>
+
+</ul>
+
+<ul class="text-2xl w-full" style="margin-left: 1rem;">
+<li><b>2 Extra large:</b> <code>text-2xl</code></li>
+
+</ul>
+
+<ul class="text-3xl w-full" style="margin-left: 1rem;">
+<li><b>3 Extra large:</b> <code>text-3xl</code></li>
+
+</ul>
+
+<ul class="text-4xl w-full" style="margin-left: 0.5rem;">
+<li><b>4 Extra large:</b> <code>text-4xl</code></li>
+
+</ul>
+
+<ul class="text-5xl w-full" style="margin-left: 0.5rem;">
+<li><b>5 Extra large:</b> <code>text-5xl</code></li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-org1b76762" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="org1b76762">Size: 6 and 7 Extra large</h4>
+<div class="h-content flex flex-col justify-evenly border border-transparent rounded-3xl bg-b" id="org63b400a">
+<ul class="text-6xl w-full" style="margin-left: 0.2rem;">
+<li><b>6 Extra large:</b> <code>text-6xl</code></li>
+
+</ul>
+
+<ul class="text-7xl w-full" style="margin-left: 0;">
+<li><b>7 Extra large:</b> <code>text-7xl</code></li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-orgb497cba" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orgb497cba">Size: 8 Extra large</h4>
+<div class="h-content flex flex-col justify-evenly border border-transparent rounded-3xl bg-b" id="org331c82d">
+<ul class="text-8xl w-full" style="margin-left: 0;">
+<li><code>text-8xl</code></li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-orga41e514" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orga41e514">Size: 9 Extra large</h4>
+<div class="h-content flex flex-col justify-evenly border border-transparent rounded-3xl bg-b" id="org37d89e6">
+<ul class="text-9xl w-full" style="margin-left: 0;">
+<li><code>text-9xl</code></li>
+
+</ul>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org037f70e">
+<h3 id="org037f70e">Line height</h3>
+<i class="fas fa-ruler-vertical text-6xl textCol-link"></i>
+</section>
+<section id="slide-orgcee2310" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orgcee2310">Default</h4>
+<div class="h-content border border-transparent rounded-3xl bg-b" id="org4f58f15">
+<ul>
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-org4a159a6" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="org4a159a6">Leading normal</h4>
+<div class="h-content border border-transparent rounded-3xl bg-b" id="org0444907">
+<ul class="leading-normal">
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-orgf83a088" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orgf83a088">Leading relaxed</h4>
+<div class="h-content border border-transparent rounded-3xl bg-b" id="orgb3c124f">
+<ul class="leading-relaxed">
+<li>Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.</li>
+<li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+
+</ul>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org90b7b79">
+<h3 id="org90b7b79">Font weight</h3>
+<i class="fas fa-bold text-5xl textCol-link"></i>
+</section>
+<section id="slide-org935392c" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="org935392c">Default</h4>
+<ul>
+<li>The quick brown fox jumps over the lazy dog.</li>
+
+</ul>
+</section>
+<section id="slide-orga2ce918" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orga2ce918">Font weight 200 - 900</h4>
+<div class="h-content flex flex-col justify-evenly justify-items-center border border-transparent rounded-3xl text-base bg-b" id="org14ed54f">
+<ul class="font-thin">
+<li>[200] <i>Thin:</i> The quick brown fox jumps over the lazy dog.</li>
+
+</ul>
+
+<ul class="font-light">
+<li>[300] <i>Light:</i> The quick brown fox jumps over the lazy dog.</li>
+
+</ul>
+
+<ul class="font-normal">
+<li>[400] <i>Normal:</i> The quick brown fox jumps over the lazy dog.</li>
+
+</ul>
+
+<ul class="font-medium">
+<li>[500] <i>Medium:</i> The quick brown fox jumps over the lazy dog.</li>
+
+</ul>
+
+<ul class="font-semibold">
+<li>[600] <i>Semi bold:</i> The quick brown fox jumps over the lazy dog.</li>
+
+</ul>
+
+<ul class="font-bold">
+<li>[700] <i>Bold:</i> The quick brown fox jumps over the lazy dog.</li>
+
+</ul>
+
+<ul class="font-extrabold">
+<li>[800] <i>Extra bold:</i> The quick brown fox jumps over the lazy dog.</li>
+
+</ul>
+
+<ul class="font-black">
+<li>[900] <i>Black:</i> The quick brown fox jumps over the lazy dog.</li>
+
+</ul>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org96e7f1a">
+<h3 id="org96e7f1a">Visibility</h3>
+<i class="fas fa-eye text-5xl textCol-link"></i>
+</section>
+<section id="slide-orge191c89" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="orge191c89">Invisible elements</h4>
+<div class="flex flex-row flex-wrap gap-4 max-w-full h-content" id="orgde77f3e">
+<div class="border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:invisible duration-200 delay-100 ease-in bg-a" id="orgd89c82b">
+
+<div id="org6125eff" class="figure">
+<p><img src="personal/images/landscape-1.jpg" alt="landscape-1.jpg" class="sm:h-44 lg:h-28" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Landscape 1</p>
+</div>
+
+</div>
+
+<div class="border border-transparent rounded-3xl max-w-flex-05 bg-b" id="orgf6f7bd2">
+<p class="flex-list flex-grow justify-evenly flex-wrap">
+Hover over any of the image boxes to make it invisible
+</p>
+
+</div>
+
+<div class="border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:invisible duration-200 delay-100 ease-in bg-b" id="orgfbbffb2">
+
+<div id="orgddf5a33" class="figure">
+<p><img src="personal/images/landscape-2.jpg" alt="landscape-2.jpg" class="sm:h-44 lg:h-28" />
+</p>
+<p><span class="figure-number">Figure 2: </span>Landscape 2</p>
+</div>
+
+</div>
+
+<div class="border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:invisible duration-200 delay-100 ease-in bg-a" id="org1bb069a">
+
+<div id="org3110465" class="figure">
+<p><img src="personal/images/landscape-3.jpg" alt="landscape-3.jpg" class="sm:h-44 lg:h-28" />
+</p>
+<p><span class="figure-number">Figure 3: </span>Landscape 3</p>
+</div>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org9f3c06c" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org9f3c06c">Hidden elements</h4>
+<div class="flex flex-row flex-wrap gap-4 max-w-full h-content" id="org82c76f5">
+<div class="border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:hidden duration-500 delay-200 ease-in-out bg-a" id="orgdebb157">
+
+<div id="org782420f" class="figure">
+<p><img src="personal/images/landscape-1.jpg" alt="landscape-1.jpg" class="sm:h-44 lg:h-28" />
+</p>
+<p><span class="figure-number">Figure 4: </span>Landscape 1</p>
+</div>
+
+</div>
+
+<div class="border border-transparent rounded-3xl max-w-flex-05 bg-b" id="org046eb5c">
+<p class="flex-list flex-grow justify-evenly flex-wrap">
+Hover over any of the image boxes to hide them. This causes the layout to change
+</p>
+
+</div>
+
+<div class="border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:hidden duration-500 delay-1200 ease-in-out bg-b" id="org2abfc73">
+
+<div id="org4593cc1" class="figure">
+<p><img src="personal/images/landscape-2.jpg" alt="landscape-2.jpg" class="sm:h-44 lg:h-28" />
+</p>
+<p><span class="figure-number">Figure 5: </span>Landscape 2</p>
+</div>
+
+</div>
+
+<div class="border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:hidden duration-500 delay-200 ease-in-out bg-a" id="orgdeedcc9">
+
+<div id="org682b0a2" class="figure">
+<p><img src="personal/images/landscape-3.jpg" alt="landscape-3.jpg" class="sm:h-44 lg:h-28" />
+</p>
+<p><span class="figure-number">Figure 6: </span>Landscape 3</p>
+</div>
+
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgbb59f70">
+<h3 id="orgbb59f70">Padding</h3>
+<i class="fas fa-expand-arrows-alt text-5xl textCol-link"></i>
+</section>
+<section id="slide-orgb5bf0b7" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="orgb5bf0b7">Syntax</h4>
+<div class="h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly bg-b" id="orgd9324de">
+<div class="border border rounded-2xl transparent bg-a text-lg text-center h-content-01 w-2/5 mx-auto p-2" id="org7fefd0f">
+<p>
+p&lt;direction&gt;-&lt;size&gt;
+</p>
+
+</div>
+
+<div class="h-content-03 flex text-base" id="orge301cd8">
+<ul class="flex-list flex-grow justify-evenly">
+<li><b>Direction:</b>  top [t], bottom [b], left [l], right [r], x-axis[x], y-axis [y]</li>
+<li><b>Size:</b> 0, 0.5, 1, 1.5, &#x2026;, 4, 5, 6, &#x2026;, 12, 14, 16, 20, 24, 28, &#x2026;, 64, 72, 80, 96
+<ul>
+<li>Where 1 = 0.25rem</li>
+<li>The same values are applicable to margins, height and width</li>
+
+</ul></li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org802369c" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org802369c">Example: None, px-4 px-6, px-10</h4>
+<div class="h-content border border-transparent rounded-3xl flex flex-row flex-wrap max-w-full items-center bg-b" id="org22467d5">
+<div class="border-2 rounded-2xl w-1/4 lg:text-xs sm:text-base h-72" id="orgc989aa9">
+<p>
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+</p>
+
+</div>
+
+<div class="border-2 rounded-2xl w-1/4 px-4 lg:text-xs sm:text-base h-72" id="org7d40674">
+<p>
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+</p>
+
+</div>
+
+<div class="border-2 rounded-2xl w-1/4 px-6 lg:text-xs sm:text-base h-72" id="orgbd1a4cb">
+<p>
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+</p>
+
+</div>
+
+<div class="border-2 rounded-2xl w-1/4 px-10 lg:text-xs sm:text-base h-72" id="org5e957cc">
+<p>
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+</p>
+
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgdcc22fd">
+<h3 id="orgdcc22fd">Margin</h3>
+<i class="fas fa-arrows-alt text-5xl textCol-link"></i>
+</section>
+<section id="slide-org256e9f2" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org256e9f2">Syntax</h4>
+<div class="h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly bg-b" id="orga83cd87">
+<div class="border border rounded-2xl transparent bg-a text-lg text-center h-content-01 w-2/5 mx-auto p-2" id="orgcfe0ef4">
+<p>
+m&lt;direction&gt;-&lt;size&gt;
+</p>
+
+</div>
+
+<div class="h-content-03 flex text-base" id="org31c087f">
+<ul class="flex-list flex-grow justify-evenly">
+<li><b>Direction:</b>  top [t], bottom [b], left [l], right [r], x-axis[x], y-axis [y], auto
+<ul>
+<li>auto: horizontally centers the element within its parent container</li>
+<li>If the direction is omitted the margin is applied to all sides</li>
+
+</ul></li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org30582e0" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org30582e0">Example: Left margin</h4>
+<div class="h-content border border-transparent rounded-3xl flex flex-wrap bg-b" id="org8736c21">
+<div class="flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 bg-a" id="org137aa4a">
+<p>
+<i>none</i>
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-1 bg-a" id="org23e7e0f">
+<p>
+ml-1
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-2 bg-a" id="org8df4f79">
+<p>
+ml-2
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-3 bg-a" id="org041a965">
+<p>
+ml-3
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-5 bg-a" id="org16534ec">
+<p>
+ml-5
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 bg-a" id="org70494ba">
+<p>
+<i>none</i>
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-10 bg-a" id="org9748e2b">
+<p>
+ml-10
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-14 bg-a" id="orgfbbeb10">
+<p>
+ml-14
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-20 bg-a" id="orge4b6a80">
+<p>
+ml-20
+</p>
+
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orge1dad3f">
+<h3 id="orge1dad3f">Border</h3>
+<i class="fas fa-border-style text-5xl textCol-link"></i>
+</section>
+<section id="slide-orgf960ae9" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="orgf960ae9">Syntax</h4>
+<div class="h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly bg-b" id="org981fa96">
+<div class="flex flex-wrap justify-evenly max-h-content-025 sm:text-base lg:text-sm content-between" id="orgee78ffd">
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="org09b254e">
+<p>
+border-&lt;side&gt;-&lt;size&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="org2354925">
+<p>
+border-&lt;style&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="org4ded09a">
+<p>
+border-&lt;color&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="org7dd8771">
+<p>
+border-&lt;color&gt;/&lt;level&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="orgdc95644">
+<p>
+rounded-&lt;radius&gt;
+</p>
+
+</div>
+
+</div>
+
+<ul class="max-h-content-045 flex flex-list flex-grow justify-evenly lg:text-sm sm:text-base">
+<li><b>Side:</b>  top [t], bottom [b], left [l], right [r]</li>
+<li><b>Size:</b> 0, 2, 4, 8px (default 1)</li>
+<li><b>Style:</b> none, dashed, dotted, double, solid (default)</li>
+<li><b>Color:</b> inherit, transparent, current, black, white, &lt;color&gt;
+<ul>
+<li>Example color: <code>border-red-400</code></li>
+
+</ul></li>
+<li><b>Level:</b> 0, 5, 10, 15, &#x2026;, 100
+<ul>
+<li>Example: <code>border-red-600/25</code></li>
+
+</ul></li>
+<li><b>Radius:</b></li>
+
+</ul>
+<div class="div" id="orgae5ab3e">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides" class="lg:text-xs sm:text-base">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Utilities</td>
+<td class="org-left">none</td>
+<td class="org-right">sm</td>
+<td class="org-right">_</td>
+<td class="org-right">md</td>
+<td class="org-right">lg</td>
+<td class="org-right">xl</td>
+<td class="org-right">2xl</td>
+<td class="org-right">3xl</td>
+<td class="org-left">full</td>
+</tr>
+
+<tr>
+<td class="org-left">rem</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">0.125</td>
+<td class="org-right">0.25</td>
+<td class="org-right">0.375</td>
+<td class="org-right">0.5</td>
+<td class="org-right">0.75</td>
+<td class="org-right">1</td>
+<td class="org-right">1.5</td>
+<td class="org-left">~inf.</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org8973121" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org8973121">Examples size and style</h4>
+<div class="h-content border border-transparent rounded-3xl flex flex-wrap justify-center items-center bg-b" id="org81090d7">
+<p>
+
+</p>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border div" id="orge532933">
+<p>
+border
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-2 div" id="org8867393">
+<p>
+border-2
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 div" id="orgb3e64cd">
+<p>
+border-4
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs h-32 w-1/5 border-8 div" id="orgced1903">
+<p>
+border-8
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 div" id="orgd32eebc">
+<p>
+border-4
+</p>
+
+<p>
+border-solid
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 border-dashed div" id="orgb7111f9">
+<p>
+border-4
+</p>
+
+<p>
+border-dashed
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 border-dotted div" id="orgea3cd75">
+<p>
+border-4
+</p>
+
+<p>
+border-dotted
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs h-32 w-1/5 border-4 border-double div" id="org36dd304">
+<p>
+border-4
+</p>
+
+<p>
+border-double
+</p>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org3067f94" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org3067f94">Examples radius and opacity</h4>
+<div class="h-content border border-transparent rounded-3xl flex flex-wrap justify-center items-center bg-b" id="orgebe49a0">
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 rounded-md bg-a" id="org8f50c3f">
+<p>
+rounded-md
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 rounded-xl bg-a" id="org4346e38">
+<p>
+rounded-xl
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 rounded-3xl bg-a" id="org06654cc">
+<p>
+rounded-3xl
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs h-32 w-1/5 border-4 rounded-full bg-a" id="orgf8b23cb">
+<p>
+rounded-full
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-8 border-red-700/80 bg-a" id="orgab2296e">
+<p>
+border-red-700/80
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-8 border-red-700/50 bg-a" id="orge548422">
+<p>
+border-red-700/50
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-8 border-red-700/20 bg-a" id="orgcdc042f">
+<p>
+border-red-700/20
+</p>
+
+</div>
+
+<div class="flex items-center justify-center text-xs h-32 w-1/5 border-8 border-transparent bg-a" id="org1e9c2cb">
+<p>
+border-transparent
+</p>
+
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org6234da4">
+<h3 id="org6234da4">Background color</h3>
+<i class="fas fa-fill-drip text-5xl textCol-link"></i>
+</section>
+<section id="slide-orgb1a1a6e" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="orgb1a1a6e">Syntax</h4>
+<div class="h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly bg-b" id="org7ac5e88">
+<div class="flex flex-wrap justify-evenly max-h-content-025 sm:text-base lg:text-sm content-between" id="org9fac404">
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="orgebd36ce">
+<p>
+bg-&lt;color&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="orgb033883">
+<p>
+border-opacity-&lt;level&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="orgca4b0ee">
+<p>
+shadow-&lt;size&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="org43db0bd">
+<p>
+bg-gradient-to-&lt;direction&gt; from-&lt;color&gt; to-&lt;color&gt;
+</p>
+
+</div>
+
+</div>
+
+<ul class="max-h-content-045 flex flex-list flex-grow justify-evenly lg:text-sm sm:text-base">
+<li><b>Color:</b> slate, gray, zinc, neutral, stone, red, orange, amber, yellow, line, green, emerald, teal, cyan, sky, blue, indigo, violet, fuchsia, pink, rose</li>
+<li><b>Level:</b> 50, 100, 200, &#x2026;, 900, 950</li>
+<li><b>Size:</b> xs, sm, md, lg, xl, 2xl</li>
+<li><b>Direction:</b> top [t], bottom [b], left [l], right [r], top-left [tl], top-right [tr], bottom-left [bl], bottom-right [br]
+<ul>
+<li>Example: <code>bg-gradient-to-r from-red-50 to-red-500</code></li>
+<li>If no 'to' or 'from' color is specified it defaults to transparent</li>
+<li>An intermediate color can be included with <code>via-&lt;color&gt;</code></li>
+
+</ul></li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-orgd90b0fd" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="orgd90b0fd">Example colors</h4>
+<div class="h-content border border-transparent rounded-3xl grid grid-cols-2 max-w-full bg-b" id="org5f0ed8d">
+<div class="mt-4" id="orgcb0737e">
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="org0bc11d3">
+<div class="text-xs w-3/12 pl-3 itext-left" id="org0dc9413">
+<p>
+Stone
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-50 w-1/12" id="org73584f1">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-100 w-1/12" id="org6eb0c15">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-200 w-1/12" id="org4c057e1">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-300 w-1/12" id="orgdb2a81a">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-400 w-1/12" id="org98590a9">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-500 w-1/12" id="orgf7f1dec">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-600 w-1/12" id="orgc9c3e66">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-700 w-1/12" id="orgb08e260">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-800 w-1/12" id="org711dc0d">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-900 w-1/12" id="orgf51be6b">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-stone-950 w-1/12" id="org9a4e185">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="orge5575b6">
+<div class="text-xs w-3/12 pl-3 itext-left" id="orge91ed57">
+<p>
+Red
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-50 w-1/12" id="orgad0fff1">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-100 w-1/12" id="orgee5e2ef">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-200 w-1/12" id="org27be3fa">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-300 w-1/12" id="org48ea370">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-400 w-1/12" id="org941a19b">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-500 w-1/12" id="org473ceed">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-600 w-1/12" id="org0ab84f7">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-700 w-1/12" id="org7e9c7fb">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-800 w-1/12" id="org3e2c7fa">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-900 w-1/12" id="orgfc7b8bc">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-red-950 w-1/12" id="org7ed7e38">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="org34fd703">
+<div class="text-xs w-3/12 pl-3 itext-left" id="orge8ab0e7">
+<p>
+Orange
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-50 w-1/12" id="org52fb207">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-100 w-1/12" id="org4ec7474">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-200 w-1/12" id="orga3a79ca">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-300 w-1/12" id="org31fbdc7">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-400 w-1/12" id="org3e1f60b">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-500 w-1/12" id="org39ab904">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-600 w-1/12" id="org4d33d22">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-700 w-1/12" id="org7fcf90a">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-800 w-1/12" id="orgb89d44a">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-900 w-1/12" id="org5dd2730">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-orange-950 w-1/12" id="org5d65997">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="orgcb3030d">
+<div class="text-xs w-3/12 pl-3 itext-left" id="org2a04a06">
+<p>
+Amber
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-50 w-1/12" id="org2c2f58c">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-100 w-1/12" id="org55d438e">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-200 w-1/12" id="org762426a">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-300 w-1/12" id="orgcbec22b">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-400 w-1/12" id="orge879ad8">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-500 w-1/12" id="org0a728a2">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-600 w-1/12" id="org7cdfecd">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-700 w-1/12" id="org6108cec">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-800 w-1/12" id="orge75754b">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-900 w-1/12" id="orgf7920dc">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-amber-950 w-1/12" id="orgeb8bdb7">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="org74c401b">
+<div class="text-xs w-3/12 pl-3 itext-left" id="orgf1f950f">
+<p>
+Lime
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-50 w-1/12" id="org6dc33ab">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-100 w-1/12" id="org8f3c899">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-200 w-1/12" id="org052913c">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-300 w-1/12" id="orgdc9dbdb">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-400 w-1/12" id="org75e3167">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-500 w-1/12" id="orgf384c33">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-600 w-1/12" id="org4219f68">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-700 w-1/12" id="org0196763">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-800 w-1/12" id="orgd380420">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-900 w-1/12" id="orge5b7dab">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-lime-950 w-1/12" id="org5e7a8d7">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="org057695d">
+<div class="text-xs w-3/12 pl-3 itext-left" id="orgc6f4f76">
+<p>
+Green
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-50 w-1/12" id="orgb293e51">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-100 w-1/12" id="org257981c">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-200 w-1/12" id="org3aeff90">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-300 w-1/12" id="org0569337">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-400 w-1/12" id="org289e553">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-500 w-1/12" id="org341e67c">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-600 w-1/12" id="org50ead2e">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-700 w-1/12" id="orged951e5">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-800 w-1/12" id="org2974779">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-900 w-1/12" id="org491ead2">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-green-950 w-1/12" id="org6030dd1">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="mt-4" id="org91639a0">
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="org9ea7f7b">
+<div class="text-xs w-3/12 pl-3 itext-left" id="org1445fa7">
+<p>
+Teal
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-50 w-1/12" id="org3fb1b2e">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-100 w-1/12" id="org2d0196d">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-200 w-1/12" id="org499ba45">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-300 w-1/12" id="org22ff585">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-400 w-1/12" id="org8a91879">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-500 w-1/12" id="orge372d9b">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-600 w-1/12" id="org26f7608">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-700 w-1/12" id="org0e006ad">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-800 w-1/12" id="orgdb0c105">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-900 w-1/12" id="org7ea68e5">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-950 w-1/12" id="orgad35db9">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="org177ee8b">
+<div class="text-xs w-3/12 pl-3 itext-left" id="org346a1a1">
+<p>
+Cyan
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-50 w-1/12" id="org0be078a">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-100 w-1/12" id="org4a0f311">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-200 w-1/12" id="org13a8a3c">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-300 w-1/12" id="org4c12763">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-400 w-1/12" id="orgd1177a7">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-500 w-1/12" id="org2c72572">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-600 w-1/12" id="orge531817">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-700 w-1/12" id="org118779c">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-800 w-1/12" id="org20e70d3">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-900 w-1/12" id="org7a9f12a">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-cyan-950 w-1/12" id="orga6729e0">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="org0c4fd99">
+<div class="text-xs w-3/12 pl-3 itext-left" id="org0cb92a9">
+<p>
+Blue
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-50 w-1/12" id="org8f8f2fc">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-100 w-1/12" id="orgeb19acd">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-200 w-1/12" id="org2622ce9">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-300 w-1/12" id="org2c5ce24">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-400 w-1/12" id="orge90431f">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-500 w-1/12" id="org82fa2be">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-600 w-1/12" id="orgcc636b0">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-700 w-1/12" id="orgcd8e79c">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-800 w-1/12" id="org03367f7">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-900 w-1/12" id="org36f2f3e">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-blue-950 w-1/12" id="orgb964430">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="org8a7d9a0">
+<div class="text-xs w-3/12 pl-3 itext-left" id="orgec8dc35">
+<p>
+Violet
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-50 w-1/12" id="org57cbfaa">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-100 w-1/12" id="org820354c">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-200 w-1/12" id="org8b14444">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-300 w-1/12" id="orga836575">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-400 w-1/12" id="org655fa32">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-500 w-1/12" id="org5666b20">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-600 w-1/12" id="orgdae9bdb">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-700 w-1/12" id="org29c94e4">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-800 w-1/12" id="orgdc6947f">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-900 w-1/12" id="orgd80d156">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-violet-950 w-1/12" id="org9ce5c0d">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="orgc1b48a2">
+<div class="text-xs w-3/12 pl-3 itext-left" id="orgd9f5d8b">
+<p>
+Teal
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-50 w-1/12" id="orgb3b49bc">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-100 w-1/12" id="org8c91368">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-200 w-1/12" id="orgced2f09">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-300 w-1/12" id="orge9dbc9c">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-400 w-1/12" id="orgf593013">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-500 w-1/12" id="org45ea7cc">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-600 w-1/12" id="org114d6d8">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-700 w-1/12" id="org18f6194">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-800 w-1/12" id="org6b21d8e">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-900 w-1/12" id="org7a1361e">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-teal-950 w-1/12" id="orgdde7744">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+<div class="flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20 items-center" id="org8aecf8b">
+<div class="text-xs w-3/12 pl-3 itext-left" id="orgd94d03d">
+<p>
+Rose
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-50 w-1/12" id="orgfa3acaa">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-100 w-1/12" id="orgbb6d93e">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-200 w-1/12" id="orgefc7d0b">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-300 w-1/12" id="org0354a37">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-400 w-1/12" id="orga709673">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-500 w-1/12" id="org41e7637">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-600 w-1/12" id="org1baf551">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-700 w-1/12" id="org4fafb25">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-800 w-1/12" id="org07e9118">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-900 w-1/12" id="org42b6038">
+<p>
+
+</p>
+
+</div>
+
+<div class="w-1/12 ml-0.5 bg-rose-950 w-1/12" id="org8b0e574">
+<p>
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org73e5d0e" class="h-slide border border-transparent rounded-2xl bg-zinc-50/25">
+<h4 id="org73e5d0e">Example gradient</h4>
+<div class="flex flex-row flex-wrap gap-4 h-content" id="org6eea8c6">
+<div class="order border-transparent rounded-3xl w-5/12 flex-grow text-neutral-200 lg:text-xs sm:text-lg bg-gradient-to-r from-teal-950 to-teal-100 div" id="org88fce79">
+<p>
+<b>bg-gradient-to-r from-teal-950 to-teal-100</b>
+</p>
+
+</div>
+
+
+<div class="order border-transparent rounded-3xl w-5/12 flex-grow text-neutral-200 lg:text-xs sm:text-lg bg-gradient-to-t from-lime-700 to-amber-200 div" id="org132c317">
+<p>
+<b>bg-gradient-to-t from-lime-700 to-amber-200</b>
+</p>
+
+</div>
+
+<div class="order border-transparent rounded-3xl w-5/12 flex-grow text-neutral-200 lg:text-xs sm:text-lg bg-gradient-to-tr from-blue-500 to-rose-500 div" id="orgae78231">
+<p>
+<b>bg-gradient-to-tr from-blue-500 to-rose-500</b>
+</p>
+
+</div>
+
+<div class="order border-transparent rounded-3xl w-5/12 flex-grow text-neutral-200 lg:text-xs sm:text-lg bg-gradient-to-tr from-red-500 to-sky-800 via-lime-300 div" id="orgcd903c0">
+<p>
+<b>bg-gradient-to-tr from-red-500 to-sky-800 via-lime-300</b>
+</p>
+
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgd698a39">
+<h3 id="orgd698a39">Background images and floats</h3>
+<i class="fas fa-image text-6xl textCol-link"></i>
+</section>
+<section id="slide-org603b1a8" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org603b1a8">Syntax</h4>
+<div class="h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly bg-b" id="orgf2e52a4">
+<div class="flex flex-wrap justify-evenly max-h-content-025 sm:text-base lg:text-sm content-between" id="org1a686a2">
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="org6d7999c">
+<p>
+bg-&lt;position&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="orge7ca13b">
+<p>
+bg-&lt;tiling&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="org24dabb8">
+<p>
+bg-clip-&lt;location&gt;
+</p>
+
+</div>
+
+<div class="border border rounded-2xl transparent bg-a pd-1 text-center" id="org831bc4a">
+<p>
+float-&lt;placement&gt;
+</p>
+
+</div>
+
+</div>
+
+<ul class="max-h-content-045 flex flex-list flex-grow justify-evenly lg:text-sm sm:text-base">
+<li><b>Position:</b> center, left, right, top, bottom, left-top, left-bottom, right-bottom, right-top</li>
+<li><b>Tiling:</b> repeat, repeat-x, repeat-y</li>
+<li><b>Location:</b> padding, border, content, text</li>
+<li><b>Placement:</b> none, left, right, clear-left, clear-right, clear-both, clear-none</li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-org652e69c" class="h-slide border border-transparent rounded-2xl bg-left bg-no-repeat text-left pl-4" style="background-image: url(./personal/images/bg-1.jpg); background-size: 70%">
+<h4 id="org652e69c">Positioning: Left</h4>
+<div class="h-content-03 w-slide-04 mt-16 px-4 float-right flex flex-col items-end justify-center lg:text-sm sm:text-lg border border-transparent rounded-3xl bg-a" id="org06525c7">
+<p>
+<b><i>Potosi, Bolivia</i></b>
+</p>
+
+<p>
+<a href="https://www.pexels.com/photo/grayscale-photo-of-mountain-6320857/">Photo</a> by: <a href="https://www.pexels.com/@murilo-fonseca-14867612/">Murillo Fonseca</a>
+</p>
+
+</div>
+</section>
+<section id="slide-org6766957" class="h-slide border border-transparent rounded-2xl bg-left-bottom bg-no-repeat " style="background-image: url(./personal/images/bg-2.jpg); background-size: 40%">
+<h4 id="org6766957">Positioning: Bottom left</h4>
+<div class="float-right h-content w-3/5 text-right pr-10 border border-transparent rounded-r-3xl bg-gradient-to-b from-cyan-900/20 to-lime-950/10 via-yellow-300/20 bg-a" id="orgbe6cb38">
+<p>
+<b><i>Oruro, Bolivia</i></b>
+</p>
+
+<p>
+<a href="https://www.pexels.com/photo/the-sun-sets-over-a-desert-landscape-with-mountains-in-the-background-16889399/">Photo</a> by: <a href="https://www.pexels.com/@marko_aim-537690234/">marko_aim</a>
+</p>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org5199a6a">
+<h2 id="org5199a6a">Layouts</h2>
+<i class="fas fa-columns text-6xl textCol-link"></i>
+</section>
+</section>
+<section>
+<section id="slide-orgacf16b4" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h3 id="orgacf16b4">Title and single content</h3>
+<div class="bg-b border border-transparent rounded-3xl h-content" id="orgd160347">
+<p>
+Box 1
+</p>
+
+</div>
+</section>
+<section id="slide-org47c46e9" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="org47c46e9">Long list</h4>
+<div class="flex bg-b border border-transparent rounded-3xl h-content" id="org0771c23">
+<ul class="flex-grow flex-list justify-evenly text-sm">
+<li>A reveal slide consists of two <code>section</code> elements  and at least an <code>h</code> element, all nested</li>
+<li>Levels of <code>Org</code> headers will match those of the <code>h</code> element, ej. <code>**</code> &gt; <code>h2</code></li>
+<li>A <code>PROPERTIES</code> drawer is used to customize the parent <code>section</code></li>
+<li>In this case the height (<code>h-slide</code>) of the slide and the border are defined.</li>
+<li>This slide has also a <code>div</code> element with a nested list, <code>ul</code></li>
+<li>The <code>div</code>  is defined as a <code>flex</code> element  with a given height (custom class <code>h-content</code>)</li>
+<li>In addition  the background &amp; border characteristics are defined</li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-orgffc810b" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orgffc810b">Short list (justified evenly)</h4>
+<div class="flex bg-b border border-transparent rounded-3xl h-content" id="org2da11d2">
+<ul class="flex-grow flex-list justify-evenly">
+<li>For the list to span the vertical space it uses the utilities <code>flex-grow</code> and <code>justify-evenly</code></li>
+<li>Importantly, it uses a custom class, <code>flex-list</code> to override the defaults.</li>
+<li>This class defines it (again) as a <code>flex</code> element with a column direction (see <code>icustom.css</code>)</li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-orgf1f4a67" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orgf1f4a67">Short list (centered)</h4>
+<div class="flex bg-b border border-transparent rounded-3xl h-content" id="orgf8417e8">
+<ul class="flex-grow flex-list justify-center">
+<li>To center the list the utility <code>justify-center</code> was used</li>
+<li>The rest of the options are the same as the slide above</li>
+<li>Other options for aligning the list items are described below</li>
+
+</ul>
+
+</div>
+</section>
+<section id="slide-orgac3d6ba" class="h-slide bg-a border border-transparent border rounded-2xl">
+<h4 id="orgac3d6ba">Align list items</h4>
+<div class="bg-b border border-transparent border rounded-2xl flex flex-col justify-evenly h-content" id="org9102066">
+<ul class="text-lg text-left">
+<li>Utility to align list items (Flexbox)
+<ul>
+<li><code>justify-{option}</code>
+<ul>
+<li>option: <code>start</code>, <code>end</code>, <code>center</code>, <code>between</code>, <code>evenly</code>, <code>around</code></li>
+
+</ul></li>
+
+</ul></li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"   ><code trim>*** Short list (centered)
+<span style="color: #cfb1ff; font-weight: bold;">:PROPERTIES:</span>
+<span style="color: #cfb1ff; font-weight: bold;">:REVEAL_EXTRA_ATTR:</span> class=<span style="color: #8ad05a;">"h-slide bg-a border border-transparent border rounded-2xl"</span>
+<span style="color: #cfb1ff; font-weight: bold;">:END:</span>
+#+ATTR_HTML: <span style="color: #cfb1ff; font-weight: bold;">:class</span> h-content bg-b border border-transparent rounded-3xl
+#+begin_div
+#+ATTR_HTML: <span style="color: #cfb1ff; font-weight: bold;">:class</span> h-content flex-list justify-center
+- Nullam libero mauris, consequat quis, varius et, dictum id, arcu.
+- Donec vitae dolor.
+- Aliquam feugiat tellus ut neque.
+#+end_div
+</code></pre>
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org2ef4530" class="h-slide bg-a border border-transparent rounded-2xl">
+<h3 id="org2ef4530">Title and 2 columns (Grid)</h3>
+<div class="grid grid-cols-2 gap-x-4 h-content" id="org267db60">
+<div class="bg-b border border-transparent rounded-3xl div" id="orgdfd9e18">
+<p>
+Box 1
+</p>
+
+</div>
+<div class="bg-b border border-transparent rounded-3xl div" id="orge7a5f41">
+<p>
+Box 2
+</p>
+
+</div>
+
+</div>
+</section>
+<section id="slide-orgaefca97" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="orgaefca97">Image and a list</h4>
+<div class="grid-cols-2 gap-x-4 grid" id="org0190af3">
+<div class="bg-b border border-transparent rounded-3xl text-sm" id="org9e867c3">
+
+<div id="org39ccef0" class="figure">
+<p><img src="personal/images/slide-2cols.jpg" alt="slide-2cols.jpg" />
+</p>
+<p><span class="figure-number">Figure 7: </span>Two columns layout</p>
+</div>
+
+</div>
+
+<div class="flex bg-b border border-transparent rounded-3xl text-sm h-content" id="orgd11f4d0">
+<ul class="flex-grow flex-list justify-evenly">
+<li>The 2 column layout is obtained with the utility <code>grid</code> and <code>grid-cols-2</code></li>
+<li>The gap between columns (horizontal) is defined with the utility <code>gap-x-4</code></li>
+<li>These are applied to the parent element containing the columns</li>
+<li>Both columns will be defined as div elements but with different classes</li>
+<li>The column on the left has the class/utility <code>text-sm</code></li>
+<li>It affects the size of the caption text whereas the image occupies the full width of the column</li>
+<li>This column is defined as an element of the class <code>h-content</code></li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org1419180" class="h-slide bg-a border border-transparent rounded-2xl title-sm">
+<h4 id="org1419180">Colored div element with border and nested list</h4>
+<div class="grid-cols-2 gap-x-4 grid" id="org2184c44">
+<div class="text-sm bg-b border border-transparent rounded-3xl flex flex-col justify-evenly div" id="orga43ee87">
+<div class="input" id="org098a227">
+<p>
+<b>Source:</b> org file
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"   ><code trim> #+ATTR_HTML: <span style="color: #cfb1ff; font-weight: bold;">:class</span>  flex bg-b border border-transparent rounded-3xl
+ #+begin_h-36
+ #+ATTR_HTML: <span style="color: #cfb1ff; font-weight: bold;">:class</span> flex-grow flex-list justify-evenly text-base
+- Item 1
+- Item 2
+- Item 3
+ #+end_h-36
+</code></pre>
+</div>
+
+</div>
+
+<div class="output" id="orgdc1e5a5">
+<p>
+<b>Output:</b> html
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html"   ><code trim>&lt;<span style="color: #f28fdf;">div</span> <span style="color: #80dfbf;">class</span>=<span style="color: #8ad05a;">"flex bg-b border border-transparent rounded-3xl h-content"</span> <span style="color: #80dfbf;">id</span>=<span style="color: #8ad05a;">"orgd260bab"</span>&gt;
+    &lt;<span style="color: #f28fdf;">ul</span> <span style="color: #80dfbf;">class</span>=<span style="color: #8ad05a;">"flex-grow flex-list justify-evenly text-base"</span>&gt;
+        &lt;<span style="color: #f28fdf;">li</span>&gt;Item 1&lt;/<span style="color: #f28fdf;">li</span>&gt;
+        &lt;<span style="color: #f28fdf;">li</span>&gt;Item 2&lt;/<span style="color: #f28fdf;">li</span>&gt;
+        &lt;<span style="color: #f28fdf;">li</span>&gt;Item 3&lt;/<span style="color: #f28fdf;">li</span>&gt;
+    &lt;/<span style="color: #f28fdf;">ul</span>&gt;
+&lt;/<span style="color: #f28fdf;">div</span>&gt;
+</code></pre>
+</div>
+
+</div>
+
+</div>
+
+<div class="flex bg-b border border-transparent rounded-3xl text-xs h-content" id="orgfc6169b">
+<ul class="flex-grow flex-list justify-evenly">
+<li>The code on the left column illustrates how to construct a list with a colored background in org mode and the result (html) after exporting</li>
+<li>Note on the output that the result is a div element with a nested list</li>
+<li>Org-reveal exports a <code>#+begin_&lt;my-class&gt;</code> block as a <code>&lt;div class="my-class"&gt;</code> element.</li>
+<li>Additional classes are added with the keyword <code>#+ATTR_HTML: :class  my-class</code></li>
+<li>A similar keyword is used to add classes to the <code>ul</code> element</li>
+<li>The use of a <code>div</code> container may seem unnecessary but the next slide shows that it may not work well with colored backgrounds</li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org5f53d66" class="h-slide bg-a border border-transparent rounded-2xl title-sm">
+<h4 id="org5f53d66">List with colored background and border</h4>
+<div class="grid-cols-2 gap-x-2 grid" id="orgf9d05b9">
+<div class="text-sm bg-b border border-transparent rounded-3xl flex flex-col justify-evenly div" id="org3e150a1">
+<div class="input" id="org07147d7">
+<p>
+<b>Source:</b> org file
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-emacs-lisp"   ><code trim>#+ATTR_HTML: <span style="color: #cfb1ff; font-weight: bold;">:class</span> h-content bg-b border border-transparent rounded-3xl flex-list  list-inside justify-evenly text-base
+- Nullam tristique diam non turpis.
+- Curabitur lacinia pulvinar nibh. 
+</code></pre>
+</div>
+
+</div>
+
+<div class="output" id="orga673992">
+<p>
+<b>Output:</b> html
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-html"   ><code trim>&lt;<span style="color: #f28fdf;">ul</span> <span style="color: #80dfbf;">class</span>=<span style="color: #8ad05a;">"h-36 bg-b border border-transparent rounded-3xl flex-list  list-inside justify-evenly text-base"</span>&gt;
+    &lt;<span style="color: #f28fdf;">li</span>&gt;Nullam tristique diam non turpis.&lt;/<span style="color: #f28fdf;">li</span>&gt;
+    &lt;<span style="color: #f28fdf;">li</span>&gt;Curabitur lacinia pulvinar nibh.&lt;/<span style="color: #f28fdf;">li</span>&gt;
+&lt;/<span style="color: #f28fdf;">ul</span>&gt;
+</code></pre>
+</div>
+
+</div>
+
+</div>
+
+<ul class="h-content bg-b border border-transparent rounded-3xl flex-list  list-inside justify-between text-sm" style="margin-left: -0.1rem">
+<li>The code on the left column illustrates how to construct a list similar to the right column (this) where the background and border are defined as part of the list.</li>
+<li>Note that the code is simpler than the one on the slide above.</li>
+<li>However, note that the right part of the column overflows the slide border</li>
+<li>Tailwind utilities such as <code>-ml-12</code> doesn't seem to work</li>
+<li>What does work is adding an inline style such as <code>style="margin-left: -0.1rem"</code></li>
+<li>However, this changes the gap between columns</li>
+
+</ul>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgb880943" class="h-slide bg-a border border-transparent rounded-2xl">
+<h3 id="orgb880943">Title and 3 Columns (Grid)</h3>
+<div class="grid grid-rows-2 gap-4 grid-flow-col h-content" id="org7f022fd">
+<div class="bg-b border border-transparent rounded-3xl div" id="org25b898d">
+<p>
+Box 1
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="orgffa7f0d">
+<p>
+Box 2
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl row-span-2 div" id="org13a9bdb">
+<p>
+Box 3
+</p>
+
+</div>
+
+</div>
+</section>
+<section id="slide-orgce94565" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="orgce94565">Long description and 2 elements</h4>
+<div class="grid grid-rows-2 gap-4 grid-flow-col h-content" id="orgf3aa34f">
+<div class="h-content-05 flex bg-b border border-transparent rounded-3xl text-sm" id="orgfe240ce">
+<ul class="flex-grow flex-list">
+<li>The text on the right is 500 characters long (~74 words).</li>
+<li>Its size was set with the utility <code>text-sm</code></li>
+<li>The line height was set with the custom class <code>lh-sm500</code> defined as a media query</li>
+<li>It needs improvement</li>
+
+</ul>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl text-sm" id="org122d336">
+
+<div id="orgddd30c0" class="figure">
+<p><img src="personal/images/landscape-1.jpg" alt="landscape-1.jpg" class="w-1/2" />
+</p>
+<p><span class="figure-number">Figure 8: </span>Landscape 1</p>
+</div>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl row-span-2 text-sm text-justify px-4 lh-sm500 div" id="orgb1b48c9">
+<p>
+Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat.
+</p>
+
+</div>
+
+</div>
+</section>
+<section id="slide-orga9440dc" class="h-slide bg-a border border-transparent rounded-2xl title-sm">
+<h4 id="orga9440dc">Long description and 2 elements (Reversed)</h4>
+<div class="grid grid-rows-2 gap-4 grid-flow-col h-content" id="org585a291">
+<div class="bg-b border border-transparent rounded-3xl row-span-2 text-sm text-justify px-4 lh-sm500 div" id="org4b22252">
+<p>
+Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat.
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl text-sm" id="orgd30f49a">
+
+<div id="org7aa5be1" class="figure">
+<p><img src="personal/images/landscape-2.jpg" alt="landscape-2.jpg" class="w-1/2" />
+</p>
+<p><span class="figure-number">Figure 9: </span>Landscape 2</p>
+</div>
+
+</div>
+
+<div class="h-content-05 flex bg-b border border-transparent rounded-3xl text-xs" id="org94299da">
+<ul class="flex-grow flex-list justify-evenly">
+<li>The text on the left is 500 characters long (~74 words).</li>
+<li>Its size was set with the utility <code>text-sm</code></li>
+<li>The line height was set with the custom class <code>lh-sm500</code></li>
+<li>The font size of the title was set with the custom class <code>title-sm</code></li>
+<li>The text on this box was set with <code>text-xs</code></li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+<section id="slide-orge11d169" class="h-slide bg-a border border-transparent rounded-2xl title-sm">
+<h4 id="orge11d169">Shorter description and 2 elements (larger text)</h4>
+<div class="grid grid-rows-2 gap-4 grid-flow-col h-content" id="orgf1914fe">
+<div class="bg-b border border-transparent rounded-3xl row-span-2 text-base text-justify px-4 lh-md350 div" id="org75733a7">
+<p>
+Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim _.
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl text-sm" id="org438fa4a">
+
+<div id="orgb379d65" class="figure">
+<p><img src="personal/images/landscape-3.jpg" alt="landscape-3.jpg" class="w-1/2" />
+</p>
+<p><span class="figure-number">Figure 10: </span>Landscape 3</p>
+</div>
+
+</div>
+
+<div class="h-content-05 flex bg-b border border-transparent rounded-3xl text-xs" id="orge5d9c57">
+<ul class="flex-grow flex-list justify-evenly">
+<li>The text on the left is 350 characters long (~53words).</li>
+<li>Its size was set with the utility <code>text-base</code></li>
+<li>The line height was set with the custom class <code>lh-md350</code></li>
+<li>The font size of the title was set with the custom class <code>title-sm</code></li>
+<li>The text on this box was set with <code>text-xs</code></li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org3725edc" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org3725edc">1 image and two descriptions</h4>
+<div class="grid grid-rows-2 gap-4 grid-flow-col h-content" id="org26d6d5c">
+<div class="bg-b border border-transparent rounded-3xl text-xs text-justify px-4 lh-sm350 div" id="org25eedfe">
+<p>
+Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim _.
+</p>
+
+</div>
+
+
+<div class="h-content-05 flex bg-b border border-transparent rounded-3xl text-xs" id="org3e746a6">
+<ul class="flex-grow flex-list">
+<li>The text above is 350 characters long (~53words).</li>
+<li>Its size was set with the utility <code>text-xs</code></li>
+<li>The line height was set with the custom class <code>lh-sm350</code></li>
+
+</ul>
+
+</div>
+
+<div class="row-span-2 bg-b border border-transparent rounded-3xl text-sm" id="org2c0f68d">
+
+<div id="orge0fe91b" class="figure">
+<p><img src="personal/images/landscape-4.jpg" alt="landscape-4.jpg" />
+</p>
+<p><span class="figure-number">Figure 11: </span>Landscape 4</p>
+</div>
+
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org8ba7ae7" class="h-slide bg-a border border-transparent rounded-2xl">
+<h3 id="org8ba7ae7">Title and 2 columns (Row span)</h3>
+<div class="grid grid-rows-2 gap-4 grid-flow-row h-content" id="org0e96a88">
+<div class="bg-b border border-transparent rounded-3xl div" id="org408b90d">
+<p>
+Box 1
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="orge683621">
+<p>
+Box 2
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl col-span-2 div" id="org2dbc2ad">
+<p>
+Box 3
+</p>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org6f97c47" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org6f97c47">2 images and description (Grid)</h4>
+<div class="grid grid-rows-2 gap-4 grid-flow-row h-content" id="orgfb7e179">
+<div class="bg-b border border-transparent rounded-3xl text-xs" id="org0859b7a">
+
+<div id="org118c98a" class="figure">
+<p><img src="personal/images/landscape-5.jpg" alt="landscape-5.jpg" class="w-3/5" />
+</p>
+<p><span class="figure-number">Figure 12: </span>Landscape 5</p>
+</div>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl text-xs" id="org90a02f0">
+
+<div id="orgc485f56" class="figure">
+<p><img src="personal/images/landscape-6.jpg" alt="landscape-6.jpg" class="w-3/5" />
+</p>
+<p><span class="figure-number">Figure 13: </span>Landscape 6</p>
+</div>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl col-span-2 p-2 text-sm h-content-05 flex text-left" id="org3501e3c">
+<ul class="flex-list justify-evenly flex-grow">
+<li>By default tailwind CSS rows are of the same height</li>
+<li>Width of images was set as <code>w-3/5</code> (if higher overflows)</li>
+<li>Image caption was set with <code>text-xs</code></li>
+<li>List font size was set as <code>text-sm</code></li>
+<li>The height of this box was set to the custom class <code>h-content-05</code></li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org062bcdd" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org062bcdd">2 images and description (Flexbox)</h4>
+<div class="flex flex-row flex-wrap gap-4 h-content" id="org32e7ab7">
+<div class="bg-b border border-transparent rounded-3xl  flex-grow text-xs" id="orge15f0f8">
+
+<div id="org02645f4" class="figure">
+<p><img src="personal/images/landscape-6.jpg" alt="landscape-6.jpg" class="sm:h-64 lg:h-44" />
+</p>
+<p><span class="figure-number">Figure 14: </span>Landscape 6</p>
+</div>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl  flex-grow text-xs" id="org2e7d385">
+
+<div id="org7d1caaf" class="figure">
+<p><img src="personal/images/landscape-5.jpg" alt="landscape-5.jpg" class="sm:h-64 lg:h-44" />
+</p>
+<p><span class="figure-number">Figure 15: </span>Landscape 5</p>
+</div>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl col-span-2 p-2 text-sm flex-grow text-left" id="org4f78e9b">
+<ul>
+<li>Div container for the images was set as a flex element. <code>flex flex-grow</code></li>
+<li>Images have different height thus its value was set to <code>h-44</code> on large screens (&gt;1024 px) and <code>h-64</code> on small screens (&gt;640px)</li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgd89f7b9" class="h-slide bg-a border border-transparent rounded-2xl">
+<h3 id="orgd89f7b9">Title and 4 elements (Grid)</h3>
+<div class="grid grid-rows-2 gap-4 grid-flow-col h-content" id="org279252a">
+<div class="bg-b border border-transparent rounded-3xl div" id="orgddf52f7">
+<p>
+Box 1
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="org528ed6d">
+<p>
+Box 2
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="org05d4bab">
+<p>
+Box 3
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="org5ad1ce9">
+<p>
+Box 4
+</p>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org8336b0b" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org8336b0b">Title and 4 elements (Flexbox)</h4>
+<div class="flex flex-row flex-wrap gap-4 h-content" id="org6cbed74">
+<div class="bg-b border border-transparent rounded-3xl w-5/12 flex-grow div" id="org1979837">
+<p>
+Box 1
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl w-5/12 flex-grow div" id="org4219389">
+<p>
+Box 2
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl w-5/12 flex-grow div" id="orgae5d492">
+<p>
+Box 3
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl w-5/12 flex-grow div" id="org4624a35">
+<p>
+Box 4
+</p>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org71edbd2" class="h-slide bg-a border border-transparent rounded-2xl title-sm">
+<h4 id="org71edbd2">2 images and descriptions (Flexbox row-wise)</h4>
+<div class="flex flex-row flex-wrap gap-4 max-w-full h-content" id="orga5f5e14">
+<div class="border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs bg-b" id="orge89190f">
+
+<div id="org95a6644" class="figure">
+<p><img src="personal/images/landscape-4.jpg" alt="landscape-4.jpg" class="sm:h-44 lg:h-28" />
+</p>
+<p><span class="figure-number">Figure 16: </span>Landscape 4</p>
+</div>
+
+</div>
+
+<div class="bg-a border border-transparent rounded-3xl max-w-flex-05 text-sm" id="org32eb0ed">
+<ul class="flex-list flex-grow justify-evenly flex-wrap">
+<li>The height of the image was set as: <code>sm:h-44 lg:h-28</code></li>
+<li>The background of this box corresponds to the custom class <code>bg-a</code></li>
+
+</ul>
+
+</div>
+
+<div class="border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs bg-a" id="orgd94e95e">
+
+<div id="org0241b81" class="figure">
+<p><img src="personal/images/landscape-3.jpg" alt="landscape-3.jpg" class="sm:h-44 lg:h-28" />
+</p>
+<p><span class="figure-number">Figure 17: </span>Landscape 3</p>
+</div>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl max-w-flex-05 text-sm" id="orgff6a50a">
+<ul class="flex-list flex-grow justify-evenly">
+<li>The height of the image was set as: <code>sm:h-44 lg:h-28</code></li>
+<li>The background of this box corresponds to the custom class <code>bg-b</code></li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org8296c27" class="h-slide bg-a border border-transparent rounded-2xl title-xs">
+<h4 id="org8296c27">2 images and descriptions (Flexbox column-wise)</h4>
+<div class="flex flex-col flex-wrap gap-4 max-w-flex-05 h-content" id="org50fdbd6">
+<div class="border border-transparent rounded-3xl sm:text-base lg:text-xs bg-b" id="org8c93c61">
+
+<div id="orgdd7300c" class="figure">
+<p><img src="personal/images/landscape-2.jpg" alt="landscape-2.jpg" class="sm:h-64 lg:h-44" />
+</p>
+<p><span class="figure-number">Figure 18: </span>Landscape 2</p>
+</div>
+
+</div>
+
+<div class="bg-a border border-transparent rounded-3xl h-24 text-xs" id="org222e2c9">
+<ul>
+<li>The height of the image was set as: <code>sm:h-36 lg:h-16</code></li>
+<li>The background of this box corresponds to the custom class <code>bg-a</code> whereas that of the box on the right <code>bg-b</code></li>
+
+</ul>
+
+</div>
+
+<div class="bg-a border border-transparent rounded-3xl sm:text-base lg:text-xs bg-a" id="org3adcc84">
+
+<div id="org8f17c98" class="figure">
+<p><img src="personal/images/landscape-1.jpg" alt="landscape-1.jpg" class="sm:h-64 lg:h-44" />
+</p>
+<p><span class="figure-number">Figure 19: </span>Landscape 1</p>
+</div>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl h-24 text-xs" id="org9301e3d">
+<ul>
+<li>To prevent the lists from overflowing along with the images, a custom class was defined, <code>max-w-flex-05</code></li>
+<li>It uses a media query for width &gt; 1920px. The value was calculated by trial and error.</li>
+
+</ul>
+
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org1a30292" class="h-slide bg-a border border-transparent rounded-2xl">
+<h3 id="org1a30292">Title and 6 elements (Grid)</h3>
+<div class="grid grid-rows-2 gap-2 grid-flow-col h-content" id="org65ddad9">
+<div class="bg-b border border-transparent rounded-3xl div" id="org7896e18">
+<p>
+Box 1
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="orgf4dfb33">
+<p>
+Box 2
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="orgb28cb03">
+<p>
+Box 3
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="orgc0a01d9">
+<p>
+Box 4
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="org6f938fc">
+<p>
+Box 5
+</p>
+
+</div>
+
+<div class="bg-b border border-transparent rounded-3xl div" id="org30833eb">
+<p>
+Box 6
+</p>
+
+</div>
+
+</div>
+</section>
+<section id="slide-org01890b4" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="org01890b4">Title and 6 images</h4>
+<div class="grid grid-rows-2 gap-2 grid-flow-col max-w-full h-content" id="orgadd5dbc">
+<div class="text-xs border border-transparent rounded-3xl bg-a" id="org60eabf3">
+
+<div id="org73a9e77" class="figure">
+<p><img src="personal/images/landscape-1.jpg" alt="landscape-1.jpg" class="text-xs" />
+</p>
+<p><span class="figure-number">Figure 20: </span>Landscape 1</p>
+</div>
+
+</div>
+
+<div class="text-xs border border-transparent rounded-3xl bg-b" id="org48d8231">
+
+<div id="orgf534332" class="figure">
+<p><img src="personal/images/landscape-2.jpg" alt="landscape-2.jpg" class="text-xs" />
+</p>
+<p><span class="figure-number">Figure 21: </span>Landscape 2</p>
+</div>
+
+</div>
+
+<div class="text-xs border border-transparent rounded-3xl bg-b" id="orgec3837d">
+
+<div id="orgf8defdb" class="figure">
+<p><img src="personal/images/landscape-3.jpg" alt="landscape-3.jpg" class="text-xs" />
+</p>
+<p><span class="figure-number">Figure 22: </span>Landscape 3</p>
+</div>
+
+</div>
+
+<div class="text-xs border border-transparent rounded-3xl bg-a" id="org1673e8d">
+
+<div id="orgb8f4d62" class="figure">
+<p><img src="personal/images/landscape-4.jpg" alt="landscape-4.jpg" class="text-xs" />
+</p>
+<p><span class="figure-number">Figure 23: </span>Landscape 4</p>
+</div>
+
+</div>
+
+<div class="text-xs border border-transparent rounded-3xl bg-a" id="orgc69f9ee">
+
+<div id="org3061e60" class="figure">
+<p><img src="personal/images/landscape-5.jpg" alt="landscape-5.jpg" class="text-xs" />
+</p>
+<p><span class="figure-number">Figure 24: </span>Landscape 5</p>
+</div>
+
+</div>
+
+<div class="text-xs border border-transparent rounded-3xl bg-b" id="org2050159">
+
+<div id="orge51415b" class="figure">
+<p><img src="personal/images/landscape-6.jpg" alt="landscape-6.jpg" class="text-xs" />
+</p>
+<p><span class="figure-number">Figure 25: </span>Landscape 6</p>
+</div>
+
+</div>
+
+</div>
+</section>
+<section id="slide-orgc272190" class="h-slide bg-a border border-transparent rounded-2xl">
+<h4 id="orgc272190">Image credits</h4>
+<div class="grid grid-rows-2 gap-2 grid-flow-col max-w-full h-content" id="org6fccd6b">
+<div class="pic" id="org8b7d4f9">
+
+<div id="org6531f20" class="figure">
+<p><img src="personal/images/landscape-1.jpg" alt="landscape-1.jpg" class="border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40" />
+</p>
+</div>
+
+<div class="text-xs list-none bg-b" id="orga063910">
+<ul>
+<li>Landscape 1 (<a href="https://www.pexels.com/es-es/foto/globos-de-aire-caliente-en-el-cielo-2325446/">Link</a>)</li>
+<li>Artist: <a href="https://www.pexels.com/es-es/@francesco-ungaro/">Francesco Ungaro</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="pic" id="orgeb46608">
+
+<div id="org76cc031" class="figure">
+<p><img src="personal/images/landscape-2.jpg" alt="landscape-2.jpg" class="border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40" />
+</p>
+</div>
+
+<div class="text-xs list-none bg-b" id="org8c02fff">
+<ul>
+<li>Landscape 2 (<a href="https://www.pexels.com/es-es/foto/monte-fuji-japon-1108701/">Link</a>)</li>
+<li>Artist: <a href="https://www.pexels.com/es-es/@liger-pham-232622/">Liger Pham</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="pic" id="org92e21be">
+
+<div id="org77acb1c" class="figure">
+<p><img src="personal/images/landscape-3.jpg" alt="landscape-3.jpg" class="border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40" />
+</p>
+</div>
+
+<div class="text-xs list-none bg-b" id="org1124d71">
+<ul>
+<li>Landscape 3 (<a href="https://www.pexels.com/es-es/foto/fotografia-aerea-de-una-montana-640809/">Link</a>)</li>
+<li>Artist: <a href="https://www.pexels.com/es-es/@eberhardgross/">eberhard grossgasteiger</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="pic" id="org9b72aec">
+
+<div id="org3e457ed" class="figure">
+<p><img src="personal/images/landscape-4.jpg" alt="landscape-4.jpg" class="border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40" />
+</p>
+</div>
+
+<div class="text-xs list-none bg-b" id="orgac50fd4">
+<ul>
+<li>Landscape 4 (<a href="https://www.pexels.com/es-es/foto/campo-de-hierba-verde-y-arboles-bajo-un-cielo-azul-3996362/">Link</a>)</li>
+<li>Artist: <a href="https://www.pexels.com/es-es/@chavdar-lungov-2332494/">Chavdar Lungov</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="pic" id="org03403d4">
+
+<div id="orgb4ce41b" class="figure">
+<p><img src="personal/images/landscape-5.jpg" alt="landscape-5.jpg" class="border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40" />
+</p>
+</div>
+
+<div class="text-xs list-none bg-b" id="org919eff0">
+<ul>
+<li>Landscape 5 (<a href="https://www.pexels.com/es-es/foto/foto-secuencial-de-la-aurora-boreal-1933316/">Link</a>)</li>
+<li>Artist: <a href="https://www.pexels.com/es-es/@therato/">stein egil liland</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+<div class="pic" id="orgf350b21">
+
+<div id="org1716a5c" class="figure">
+<p><img src="personal/images/landscape-6.jpg" alt="landscape-6.jpg" class="border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40" />
+</p>
+</div>
+
+<div class="text-xs list-none bg-b" id="org0d0aa95">
+<ul>
+<li>Landscape 6 (<a href="https://www.pexels.com/es-es/foto/lago-rodeado-de-montanas-durante-la-hora-dorada-1126382/">Link</a>)</li>
+<li>Artist: <a href="https://www.pexels.com/es-es/@jplenio/">Johannes Plenio</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgc9fd9bf">
+<h2 id="orgc9fd9bf"><i>Thank you</i></h2>
+<i class="fas fa-smile text-6xl textCol-link"></i>
+</section>
+</section>
+</div>
+</div>
+<p>Created by ssl</p>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="./plugin_extra/menu/menu.js"></script>
+<script src="./plugin_extra/customcontrols/plugin.js"></script>
+<script src="./plugin_extra/drawer/drawer.js"></script>
+<script src="./plugin_extra/pointer/pointer.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+width:1200, height:800, minScale:0.2, maxScale:2.5, transition: 'fade', progress:true, history:true, center:true, mouseWheel:false, menu:{themes:true, themesPath:'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/', transitions:true, markers:true, custom: false, hideMissingTitles:true}, customcontrols:{controls:[{id:'toggle-overview', title:'Toggleoverview(O)', icon:'<i class="fa fa-th"></i>', action:'Reveal.toggleOverview();'}]}, pointer: {key: "q", color: "red", pointerSize: 16, alwaysVisible: false, tailLength: 10}, plugins: [ RevealMenu, RevealCustomControls, RevealPointer, RevealDrawer ],
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="./personal/js/icustom.js"></script>
+</body>
+</html>
