@@ -125,7 +125,7 @@ The purpose of this presentation is to show how a  [[https://revealjs.com/speake
 | text-9xl  | 8rem      | 128 | 1            |  1 |
 |-----------+-----------+-----+--------------+----|
 #+end_bg-b
-*** Size: extra small until  6 extra large
+*** Size: extra small until  5 extra large
 :PROPERTIES:
 :REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
 :END:
@@ -1675,7 +1675,7 @@ float-<placement>
 #+end_output
 #+end_div
 
-#+ATTR_HTML: :class  flex bg-b border border-transparent rounded-3xl text-xs
+#+ATTR_HTML: :class  flex bg-b border border-transparent rounded-3xl lg:text-xs sm:text-base
   #+begin_h-content
   #+ATTR_HTML: :class flex-grow flex-list justify-evenly
 - The code on the left column illustrates how to construct a list with a colored background in org mode and the result (html) after exporting
@@ -1714,13 +1714,17 @@ float-<placement>
 #+end_output
 #+end_div
 
-  #+ATTR_HTML: :class h-content bg-b border border-transparent rounded-3xl flex-list  list-inside justify-between text-sm :style margin-left: -0.1rem
+#+ATTR_HTML: :class h-content flex bg-b border border-transparent rounded-3xl  lg:text-xs sm:text-base
+#+begin_bg-b
+#+ATTR_HTML: :class flex-list  flex-grow  justify-evenly
 - The code on the left column illustrates how to construct a list similar to the right column (this) where the background and border are defined as part of the list.
 - Note that the code is simpler than the one on the slide above.
 - However, note that the right part of the column overflows the slide border
 - Tailwind utilities such as =-ml-12= doesn't seem to work
 - What does work is adding an inline style such as ~style="margin-left: -0.1rem"~
 - However, this changes the gap between columns
+#+end_bg-b
+
  #+end_grid
 ** Title and 3 Columns (Grid)
 :PROPERTIES:
@@ -1745,14 +1749,14 @@ Box 3
 #+end_h-content
 *** Long description and 2 elements
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-sm"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  h-content-05 flex bg-b border border-transparent rounded-3xl 
+#+ATTR_HTML: :class  h-content-05 flex bg-a border border-transparent rounded-3xl 
 #+begin_text-sm
-#+ATTR_HTML: :class flex-grow flex-list
-- The text on the right is 500 characters long (~74 words).
+#+ATTR_HTML: :class flex-grow flex-list justify-evenly
+- The text on the right is 471 characters long (~69 words).
 - Its size was set with the utility =text-sm=
 - The line height was set with the custom class =lh-sm500= defined as a media query
 - It needs improvement
@@ -1767,7 +1771,7 @@ Box 3
 
 #+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl row-span-2 text-sm text-justify px-4 lh-sm500
 #+begin_div
-Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat.
+Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.
 #+end_div
 #+end_h-content
     
@@ -1779,7 +1783,7 @@ Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci com
 #+begin_h-content
 #+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl row-span-2 text-sm text-justify px-4 lh-sm500
 #+begin_div
-Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat.
+Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.
 #+end_div
 
 #+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
@@ -1789,15 +1793,15 @@ Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci com
 [[file:personal/images/landscape-2.jpg]]
 #+end_text-sm
 
-#+ATTR_HTML: :class  h-content-05 flex bg-b border border-transparent rounded-3xl 
-#+begin_text-xs
+#+ATTR_HTML: :class  h-content-05 flex lg:text-xs sm:text-base  border border-transparent rounded-3xl 
+#+begin_bg-a
 #+ATTR_HTML: :class flex-grow flex-list justify-evenly
-- The text on the left is 500 characters long (~74 words).
+- The text on the left is 471 characters long (~69 words).
 - Its size was set with the utility =text-sm=
 - The line height was set with the custom class =lh-sm500=
 - The font size of the title was set with the custom class =title-sm=
-- The text on this box was set with =text-xs=
-#+end_text-xs
+- The text on this box was set with =lg:text-xs sm:text-lg=
+#+end_bg-a
 #+end_h-content
 *** Shorter description and 2 elements (larger text)
 :PROPERTIES:
@@ -1805,9 +1809,9 @@ Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci com
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl row-span-2 text-base text-justify px-4 lh-md350
+#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl row-span-2 lg:text-base sm:text-lg text-justify px-4 lh-md350
 #+begin_div
-Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim _.
+Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.
 #+end_div
 
 #+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
@@ -1817,15 +1821,15 @@ Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci com
 [[file:personal/images/landscape-3.jpg]]
 #+end_text-sm
 
-#+ATTR_HTML: :class  h-content-05 flex bg-b border border-transparent rounded-3xl 
-#+begin_text-xs
+#+ATTR_HTML: :class  h-content-05 flex  lg:text-xs sm:text-base border border-transparent rounded-3xl 
+#+begin_bg-a
 #+ATTR_HTML: :class flex-grow flex-list justify-evenly
-- The text on the left is 350 characters long (~53words).
-- Its size was set with the utility =text-base=
+- The text on the left is 285 characters long (~43 words).
+- Its size was set with the utility =lg:text-base sm:text-lg=
 - The line height was set with the custom class =lh-md350=  
 - The font size of the title was set with the custom class =title-sm=
-- The text on this box was set with =text-xs=
-#+end_text-xs
+- The text on this box was set with =lg:text-xs sm:text-base=
+#+end_bg-a
 #+end_h-content    
 *** 1 image and two descriptions
 :PROPERTIES:
@@ -1833,19 +1837,19 @@ Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci com
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl text-xs text-justify px-4 lh-sm350
-#+begin_div
-Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim _.
-#+end_div
+#+ATTR_HTML: :class  border border-transparent rounded-3xl lg:text-xs sm:text-sm text-justify px-4 lh-sm350
+#+begin_bg-b
+Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.
+#+end_bg-b
 
 
-#+ATTR_HTML: :class  h-content-05 flex bg-b border border-transparent rounded-3xl 
-#+begin_text-xs
-#+ATTR_HTML: :class flex-grow flex-list
-- The text above is 350 characters long (~53words).
-- Its size was set with the utility =text-xs=
+#+ATTR_HTML: :class  h-content-05 flex  lg:text-sm sm:text-lg border border-transparent rounded-3xl 
+#+begin_bg-a
+#+ATTR_HTML: :class flex-grow flex-list justify-evenly
+- The text above is 330 characters long (~50words).
+- Its size was set with the utility =lg:text-xs sm:text-sm=
 - The line height was set with the custom class =lh-sm350=  
-#+end_text-xs
+#+end_bg-a
 
 #+ATTR_HTML: :class  row-span-2 bg-b border border-transparent rounded-3xl
 #+begin_text-sm
@@ -1855,7 +1859,7 @@ Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci com
 #+end_h-content
 ** Title and 2 columns (Row span)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-sm"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-row
 #+begin_h-content
@@ -1906,7 +1910,7 @@ Box 3
 #+end_h-content
 *** 2 images and description (Flexbox)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-xs"
 :END:
 #+ATTR_HTML: :class flex flex-row flex-wrap gap-4 
 #+begin_h-content
@@ -1924,7 +1928,7 @@ Box 3
 [[file:personal/images/landscape-5.jpg]]
 #+end_text-xs
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl col-span-2 p-2 text-sm flex-grow
+#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl col-span-2 p-2 lg:text-sm sm:text-base flex-grow
 #+begin_text-left
 - Div container for the images was set as a flex element. =flex flex-grow=
 - Images have different height thus its value was set to =h-44= on large screens (>1024 px) and =h-64= on small screens (>640px)
@@ -1984,7 +1988,7 @@ Box 4
 #+end_h-content
 *** 2 images and descriptions (Flexbox row-wise)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-xs"
 :END:
 #+ATTR_HTML: :class flex flex-row flex-wrap gap-4 max-w-full
 #+begin_h-content
@@ -1995,12 +1999,12 @@ Box 4
 [[file:personal/images/landscape-4.jpg]]
 #+end_bg-b
 
-#+ATTR_HTML: :class bg-a border border-transparent rounded-3xl max-w-flex-05
-#+begin_text-sm
+#+ATTR_HTML: :class lg:text-sm sm:text-lg border border-transparent rounded-3xl max-w-flex-05
+#+begin_bg-a
 #+ATTR_HTML: :class flex-list flex-grow justify-evenly flex-wrap
 - The height of the image was set as: =sm:h-44 lg:h-28=
 - The background of this box corresponds to the custom class =bg-a=
-#+end_text-sm
+#+end_bg-a
 
 #+ATTR_HTML: :class border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs
 #+begin_bg-a
@@ -2009,12 +2013,12 @@ Box 4
 [[file:personal/images/landscape-3.jpg]]
 #+end_bg-a
 
-#+ATTR_HTML: :class bg-b border border-transparent rounded-3xl max-w-flex-05
-#+begin_text-sm
+#+ATTR_HTML: :class sm:text-lg lg:text-sm border border-transparent rounded-3xl max-w-flex-05
+#+begin_bg-b
 #+ATTR_HTML: :class flex-list flex-grow justify-evenly
 - The height of the image was set as: =sm:h-44 lg:h-28=
 - The background of this box corresponds to the custom class =bg-b=
-#+end_text-sm
+#+end_bg-b
 #+end_h-content
 *** 2 images and descriptions (Flexbox column-wise)
 :PROPERTIES:
