@@ -2,68 +2,72 @@
 #+Author: Saul S.L.
 #+Date: 2024-09-14
 
-#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js@5.1.0
-#+REVEAL_INIT_OPTIONS: width:1200, height:800, minScale:0.2, maxScale:2.5, transition: 'fade', progress:true, history:true, center:true, mouseWheel:false, menu:{themes:true, themesPath:'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/', transitions:true, markers:true, custom: false, hideMissingTitles:true}, customcontrols:{controls:[{id:'toggle-overview', title:'Toggleoverview(O)', icon:'<i class="fa fa-th"></i>', action:'Reveal.toggleOverview();'}]}, pointer: {key: "q", color: "red", pointerSize: 16, alwaysVisible: false, tailLength: 10}, plugins: [ RevealMenu, RevealCustomControls, RevealPointer, RevealDrawer ]
-
 #+OPTIONS: timestamp:nil ^:{} num:nil toc:nil
+
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js@5.1.0
+#+REVEAL_INIT_OPTIONS: width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5, transition: 'fade', progress:true, history:true, center:true, mouseWheel:false, menu:{themes:true, themesPath:'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/', transitions:true, markers:true, custom: false, hideMissingTitles:true}, customcontrols:{controls:[{id:'toggle-overview', title:'Toggleoverview(O)', icon:'<i class="fa fa-th"></i>', action:'Reveal.toggleOverview();'}]}, pointer: {key: "q", color: "red", pointerSize: 16, alwaysVisible: false, tailLength: 10}
+
 #+REVEAL_HLEVEL: 2
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Reveal.js+Tailwind_CSS demo">
-#+REVEAL_HEAD_PREAMBLE: <meta name="viewport" content="width=device-width, initial-scale=1.0">
 #+REVEAL_POSTAMBLE: <p>Created by ssl</p>
+#+REVEAL_PLUGINS: (notes RevealMenu RevealCustomControls RevealPointer RevealDrawer)
 #+REVEAL_THEME: blood
 
 #+REVEAL_EXTRA_CSS: ./plugin_extra/customcontrols/style.css
-#+REVEAL_EXTRA_CSS: ./personal/css/icustom.css
 #+REVEAL_EXTRA_CSS: ./plugin_extra/drawer/drawer.css
 #+REVEAL_EXTRA_CSS: ./plugin_extra/pointer/pointer.css
 #+REVEAL_EXTRA_CSS: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css
 #+REVEAL_EXTRA_CSS: https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap
+#+REVEAL_EXTRA_CSS: ./personal/css/custom_tailwind.css
 
-#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./plugin_extra/menu/menu.js 
+#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./plugin_extra/menu/menu.js
 #+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./plugin_extra/customcontrols/plugin.js
 #+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./plugin_extra/drawer/drawer.js
 #+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./plugin_extra/pointer/pointer.js
-#+REVEAL_EXTRA_SCRIPT_SRC: https://cdn.tailwindcss.com
+
 #+REVEAL_EXTRA_SCRIPT_SRC: ./personal/js/icustom.js
 
 
 
 * Foreword
 #+BEGIN_EXPORT html
-<i class="fas fa-comment text-6xl textCol-link"></i>
+<i class="fas fa-comment text-6xl 1440p:text-5xl 2160p:text-4xl textCol-link"></i>
 #+END_EXPORT
 *** Foreword
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class lg:text-base sm:text-lg border border-transparent rounded-2xl bg-a
-The purpose of this presentation is to show how a  [[https://revealjs.com/speaker-view/][reveal.js]] presentation can be customized using [[https://tailwindcss.com/][Tailwind CSS]]. The presentation was created from an Emacs org-mode file using [[https://github.com/yjwen/org-reveal][org-reveal]].
+#+ATTR_HTML: :class flex-col justify-evenly
+#+begin_flex
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-xs 2160p:text-3xs 2160p:text-4xs border-transparent rounded-2xl bg-a
+The purpose of this presentation is to show how a [[https://revealjs.com/speaker-view/][reveal.js]] presentation can be customized using [[https://tailwindcss.com/][Tailwind CSS]]. The presentation was created from an Emacs org-mode file using [[https://github.com/yjwen/org-reveal][org-reveal]].
 
-#+ATTR_HTML: :class h-content-07 border border-transparent rounded-3xl lg:text-sm sm:text-base flex
+#+ATTR_HTML: :class h-content-07 flex border-transparent rounded-3xl text-lg md:text-base lg:text-sm xl:text-xs 1080p:text-2xs 1440p:text-3xs 2160p:text-4xs
 #+begin_bg-b
-#+ATTR_HTML: :class flex-list flex-grow justify-evenly
-- Press F1 to learn  how to navigate the presentation. Also use the buttons on the bottom left corner.
-- Since not all the customizations were possible using Tailwind utilities, a custom CSS and JS files were created.  
+#+ATTR_HTML: :class flex-list justify-evenly
+- Press F1 to learn how to navigate the presentation. Also use the buttons on the bottom corners.
+- Since not all the customizations intended could be done using only Tailwind utilities, a custom CSS and JS files were also used.
 - A _must_ for adapting this presentation to your needs is to check the [[https://github.com/yjwen/org-reveal/blob/master/Readme.org][Readme]] file for the org-reveal package.
-- For those not familiar with reveal.js it is recommended to see the demo presentation on the link above to learn more about its capabilities.
-- Also check Tailwind [[https://tailwindcss.com/docs/installation][documentation]] to learn more about the utilities for customization since not all are covered here.
+- For those not familiar with reveal.js it is recommended to see the [[https://revealjs.com/][demo presentation]] to learn more about its capabilities.
+- Also check Tailwind [[https://tailwindcss.com/docs/installation][documentation]] to learn how to install and more about its utilities since not all of them  are covered here.
 #+end_bg-b
 #+ATTR_HTML: :class text-right pr-10
 /Thank you!/
+#+end_flex
 * Tailwind utilities
 #+BEGIN_EXPORT html
-<i class="fas fa-cogs text-6xl textCol-link"></i>
+<i class="fas fa-cogs text-6xl 1440p:text-5xl 2160p:text-4xl textCol-link"></i>
 #+END_EXPORT
 
 ** Lists
 #+BEGIN_EXPORT html
-<i class="fas fa-list text-5xl textCol-link"></i>
+<i class="fas fa-list text-5xl 1440p:text-4xl 2160p:text-3xl textCol-link"></i>
 #+END_EXPORT
 *** Default
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class bg-b border border-transparent rounded-3xl
+#+ATTR_HTML: :class bg-b h-content border-transparent rounded-3xl
 - Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
 - Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 - Donec vitae dolor.
@@ -73,9 +77,9 @@ The purpose of this presentation is to show how a  [[https://revealjs.com/speake
 
 *** Inside
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class bg-b border border-transparent rounded-3xl list-inside
+#+ATTR_HTML: :class bg-b h-content border-transparent rounded-3xl list-inside
 - Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
 - Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 - Donec vitae dolor.
@@ -84,9 +88,9 @@ The purpose of this presentation is to show how a  [[https://revealjs.com/speake
 - Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
 *** Outside
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class bg-b border border-transparent rounded-3xl list-outside
+#+ATTR_HTML: :class bg-b h-content border-transparent rounded-3xl list-outside
 - Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
 - Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 - Donec vitae dolor.
@@ -95,41 +99,50 @@ The purpose of this presentation is to show how a  [[https://revealjs.com/speake
 - Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
 ** Text size
 #+BEGIN_EXPORT html
-<i class="fas fa-text-height text-5xl textCol-link"></i>
+<i class="fas fa-text-height text-5xl 1440p:text-4xl 2160p:text-3xl textCol-link"></i>
 #+END_EXPORT
-*** Table of  text utilities for font size
+*** Table of text utilities for font size
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-sm"
 :END:
-#+ATTR_HTML: :class h-content flex flex-col justify-evenly justify-items-center border border-transparent rounded-3xl
+#+ATTR_HTML: :class h-content flex flex-col flex-wrap justify-evenly justify-items-center border-transparent rounded-3xl
 #+begin_bg-b
-#+ATTR_HTML: :class text-xs border border-collapse
-#+caption: Text utilities to change the  font size
-#+label: tab:text-utilitites
-#+name: tab:text-utilitites
-|-----------+-----------+-----+--------------+----|
-| Utility   | Font size |  Px | Line  height | Px |
-|-----------+-----------+-----+--------------+----|
-| text-xs   | 0.75rem   |  12 | 1rem         | 16 |
-| text-sm   | 0.875rem  |  14 | 1.25rem      | 20 |
-| text-base | 1rem      |  16 | 1.5rem       | 24 |
-| text-lg   | 1.125rem  |  18 | 1.75rem      | 28 |
-| text-xl   | 1.25rem   |  20 | 1.75rem      | 28 |
-| text-2xl  | 1.5rem    |  24 | 2rem         | 32 |
-| text-3xl  | 1.875rem  |  30 | 2.25rem      | 36 |
-| text-4xl  | 2.25rem   |  36 | 2.5rem       | 40 |
-| text-5xl  | 3rem      |  48 | 1            |  1 |
-| text-6xl  | 3.75rem   |  60 | 1            |  1 |
-| text-7xl  | 4.5rem    |  72 | 1            |  1 |
-| text-8xl  | 6rem      |  96 | 1            |  1 |
-| text-9xl  | 8rem      | 128 | 1            |  1 |
-|-----------+-----------+-----+--------------+----|
+#+ATTR_HTML: :class text-xl md:text-base lg:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-collapse
+#+caption: Utilities to change the font size (Part 1)
+#+label: tab:text-utilitites1
+#+name: tab:text-utilitites1
+|-----------+-----------+----+-------------+----|
+| Utility   | Font size | Px | Line height | Px |
+|-----------+-----------+----+-------------+----|
+| text-xs   | 0.75rem   | 12 | 1rem        | 16 |
+| text-sm   | 0.875rem  | 14 | 1.25rem     | 20 |
+| text-base | 1rem      | 16 | 1.5rem      | 24 |
+| text-lg   | 1.125rem  | 18 | 1.75rem     | 28 |
+| text-xl   | 1.25rem   | 20 | 1.75rem     | 28 |
+| text-2xl  | 1.5rem    | 24 | 2rem        | 32 |
+|-----------+-----------+----+-------------+----|
+
+#+ATTR_HTML: :class text-xl md:text-base lg:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-collapse
+#+caption: Utilities to change the font size (Part 2)
+#+label: tab:text-utilitites2
+#+name: tab:text-utilitites2
+|----------+-----------+-----+-------------+----|
+| Utility  | Font size |  Px | Line height | Px |
+|----------+-----------+-----+-------------+----|
+| text-3xl | 1.875rem  |  30 |     2.25rem | 36 |
+| text-4xl | 2.25rem   |  36 |      2.5rem | 40 |
+| text-5xl | 3rem      |  48 |           1 |  1 |
+| text-6xl | 3.75rem   |  60 |           1 |  1 |
+| text-7xl | 4.5rem    |  72 |           1 |  1 |
+| text-8xl | 6rem      |  96 |           1 |  1 |
+| text-9xl | 8rem      | 128 |           1 |  1 |
+|----------+-----------+-----+-------------+----|
 #+end_bg-b
-*** Size: extra small until  5 extra large
+*** Size: extra small until 2 extra large
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content flex flex-col justify-evenly border border-transparent rounded-3xl
+#+ATTR_HTML: :class h-content flex flex-col justify-evenly border-transparent rounded-3xl
 #+begin_bg-b
 #+ATTR_HTML: :class text-xs w-full :style margin-left: 1rem;
 - *Extra small:* =text-xs=
@@ -148,154 +161,187 @@ The purpose of this presentation is to show how a  [[https://revealjs.com/speake
 
 #+ATTR_HTML: :class text-2xl w-full :style margin-left: 1rem;
 - *2 Extra large:* =text-2xl=
-
+#+end_bg-b
+*** Size: 3 and 4 Extra large
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
+:END:
+#+ATTR_HTML: :class h-content flex flex-col justify-evenly border-transparent rounded-3xl
+#+begin_bg-b
 #+ATTR_HTML: :class text-3xl w-full :style margin-left: 1rem;
 - *3 Extra large:* =text-3xl=
 
 #+ATTR_HTML: :class text-4xl w-full :style margin-left: 0.5rem;
 - *4 Extra large:* =text-4xl=
-
+#+end_bg-b
+*** Size 5 Extra large
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
+:END:
+#+ATTR_HTML: :class h-content flex flex-col justify-evenly border-transparent rounded-3xl
+#+begin_bg-b
 #+ATTR_HTML: :class text-5xl w-full :style margin-left: 0.5rem;
 - *5 Extra large:* =text-5xl=
 #+end_bg-b
-
-*** Size: 6 and 7 Extra large
+*** Size 6 Extra large
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content flex flex-col justify-evenly border border-transparent rounded-3xl
+#+ATTR_HTML: :class h-content flex flex-col justify-evenly border-transparent rounded-3xl
 #+begin_bg-b
 #+ATTR_HTML: :class text-6xl w-full :style margin-left: 0.2rem;
-- *6 Extra large:* =text-6xl=
-  
-#+ATTR_HTML: :class text-7xl w-full :style margin-left: 0;
-- *7 Extra large:* =text-7xl=
-#+end_bg-b
-*** Size: 8 Extra large
+- =text-6xl=
+ #+end_bg-b
+*** Size: 7 Extra large
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content flex flex-col justify-evenly border border-transparent rounded-3xl
+#+ATTR_HTML: :class h-content flex flex-col justify-evenly border-transparent rounded-3xl
+#+begin_bg-b
+#+ATTR_HTML: :class text-7xl w-full :style margin-left: 0;
+- =text-7xl=
+#+end_bg-b
+*** Size: 8 Extra large (text-8xl)
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
+:END:
+#+ATTR_HTML: :class h-content flex flex-col justify-evenly border-transparent rounded-3xl
 #+begin_bg-b
 #+ATTR_HTML: :class text-8xl w-full :style margin-left: 0;
-- =text-8xl=
+- =8xl=
 #+end_bg-b
-*** Size: 9 Extra large
+*** Size: 9 Extra large (text-9xl)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content flex flex-col justify-evenly border border-transparent rounded-3xl
+#+ATTR_HTML: :class h-content flex flex-col justify-evenly border-transparent rounded-3xl
 #+begin_bg-b
 #+ATTR_HTML: :class text-9xl w-full :style margin-left: 0;
-- =text-9xl=
+- =9xl=
 #+end_bg-b
 
 ** Line height
 #+BEGIN_EXPORT html
-<i class="fas fa-ruler-vertical text-6xl textCol-link"></i>
+<i class="fas fa-ruler-vertical text-5xl 1440p:text-4xl 2160p:text-3xl textCol-link"></i>
 #+END_EXPORT
 *** Default
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl
+#+ATTR_HTML: :class h-content flex border-transparent rounded-3xl text-5xl md:text-4xl lg:text-3xl xl:text-2xl 1080p:text-xl 1440p:text-lg 2160p:text-base
 #+begin_bg-b
+#+ATTR_HTML: :class flex-list justify-center
 - Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
 - Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 #+end_bg-b
 *** Leading normal
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl
+#+ATTR_HTML: :class h-content flex border-transparent rounded-3xl text-5xl md:text-4xl lg:text-3xl xl:text-2xl 1080p:text-xl 1440p:text-lg 2160p:text-base
 #+begin_bg-b
-#+ATTR_HTML: :class leading-normal
+#+ATTR_HTML: :class flex-list justify-center leading-normal
 - Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
 - Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 #+end_bg-b
 *** Leading relaxed
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl
+#+ATTR_HTML: :class h-content flex border-transparent rounded-3xl text-5xl md:text-4xl lg:text-3xl xl:text-2xl 1080p:text-xl 1440p:text-lg 2160p:text-base
 #+begin_bg-b
-#+ATTR_HTML: :class leading-relaxed
+#+ATTR_HTML: :class flex-list justify-center leading-relaxed
 - Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
 - Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
 #+end_bg-b
 ** Font weight
 #+BEGIN_EXPORT html
-<i class="fas fa-bold text-5xl textCol-link"></i>
+<i class="fas fa-bold text-5xl 1440p:text-4xl 2160p:text-3xl textCol-link"></i>
 #+END_EXPORT
-*** Default
-:PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
-:END:
-- The quick brown fox jumps over the lazy dog. 
-
 *** Font weight 200 - 900
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content flex flex-col justify-evenly justify-items-center border border-transparent rounded-3xl text-base
+#+ATTR_HTML: :class h-content flex flex-col justify-evenly border-transparent rounded-3xl text-2xl md:text-lg lg:text-lg xl:text-base 1440p:text-sm 2160p:text-3xs
 #+begin_bg-b
 #+ATTR_HTML: :class font-thin
-- [200] /Thin:/ The quick brown fox jumps over the lazy dog. 
+- [200] /Thin:/ The quick brown fox jumps over the lazy dog.
 
-#+ATTR_HTML: :class font-light 
-- [300] /Light:/ The quick brown fox jumps over the lazy dog. 
+#+ATTR_HTML: :class font-light
+- [300] /Light:/ The quick brown fox jumps over the lazy dog.
 
 #+ATTR_HTML: :class font-normal
-- [400] /Normal:/ The quick brown fox jumps over the lazy dog. 
+- [400] /Normal:/ The quick brown fox jumps over the lazy dog.
 
 #+ATTR_HTML: :class font-medium
 - [500] /Medium:/ The quick brown fox jumps over the lazy dog.
 
 #+ATTR_HTML: :class font-semibold
-- [600] /Semi bold:/ The quick brown fox jumps over the lazy dog. 
+- [600] /Semi bold:/ The quick brown fox jumps over the lazy dog.
 
 #+ATTR_HTML: :class font-bold
-- [700] /Bold:/ The quick brown fox jumps over the lazy dog. 
+- [700] /Bold:/ The quick brown fox jumps over the lazy dog.
 
-#+ATTR_HTML: :class font-extrabold 
-- [800] /Extra bold:/ The quick brown fox jumps over the lazy dog. 
+#+ATTR_HTML: :class font-extrabold
+- [800] /Extra bold:/ The quick brown fox jumps over the lazy dog.
 
 #+ATTR_HTML: :class font-black
 - [900] /Black:/ The quick brown fox jumps over the lazy dog.
 #+end_bg-b
+*** Default compared to other weights
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-sm"
+:END:
+#+ATTR_HTML: :class h-content flex flex-col justify-evenly border-transparent rounded-3xl text-2xl md:text-lg lg:text-lg xl:text-base 1440p:text-sm 2160p:text-3xs
+#+begin_bg-b
+- [Default] The quick brown fox jumps over the lazy dog.
+
+#+ATTR_HTML: :class font-light
+- [300] /Light:/ The quick brown fox jumps over the lazy dog.
+
+#+ATTR_HTML: :class font-normal
+- [400] /Normal:/ The quick brown fox jumps over the lazy dog.
+
+#+ATTR_HTML: :class font-medium
+- [500] /Medium:/ The quick brown fox jumps over the lazy dog.
+
+#+ATTR_HTML: :class font-semibold
+- [600] /Semi bold:/ The quick brown fox jumps over the lazy dog.
+#+end_bg-b
+
 ** Visibility
 #+BEGIN_EXPORT html
-<i class="fas fa-eye text-5xl textCol-link"></i>
+<i class="fas fa-eye text-5xl 1440p:text-4xl 2160p:text-3xl textCol-link"></i>
 #+END_EXPORT
 *** Invisible elements
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 max-w-full
+#+ATTR_HTML: :class flex flex-row flex-wrap justify-evenly items-center gap-4 max-w-full
 #+begin_h-content
-#+ATTR_HTML: :class border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:invisible duration-200 delay-100 ease-in
+#+ATTR_HTML: :class border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs w-slide-045 h-content-045 hover:invisible duration-200 delay-100 ease-in
 #+begin_bg-a
-#+ATTR_HTML: :class sm:h-44 lg:h-28
+#+ATTR_HTML: :class h-content-03
 #+caption: Landscape 1
 [[file:personal/images/landscape-1.jpg]]
 #+end_bg-a
 
-#+ATTR_HTML: :class border border-transparent rounded-3xl max-w-flex-05
+#+ATTR_HTML: :class border-transparent rounded-3xl w-slide-045 h-content-045
 #+begin_bg-b
-#+ATTR_HTML: :class flex-list flex-grow justify-evenly flex-wrap
+#+ATTR_HTML: :class flex-list justify-evenly flex-wrap
 Hover over any of the image boxes to make it invisible
 #+end_bg-b
 
-#+ATTR_HTML: :class border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:invisible duration-200 delay-100 ease-in
+#+ATTR_HTML: :class border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs w-slide-045 h-content-045 hover:invisible duration-200 delay-100 ease-in
 #+begin_bg-b
-#+ATTR_HTML: :class sm:h-44 lg:h-28
+#+ATTR_HTML: :class h-content-03
 #+caption: Landscape 2
 [[file:personal/images/landscape-2.jpg]]
 #+end_bg-b
 
-#+ATTR_HTML: :class border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:invisible duration-200 delay-100 ease-in
+#+ATTR_HTML: :class border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs w-slide-045 h-content-045 hover:invisible duration-200 delay-100 ease-in
 #+begin_bg-a
-#+ATTR_HTML: :class sm:h-44 lg:h-28
+#+ATTR_HTML: :class h-content-03
 #+caption: Landscape 3
 [[file:personal/images/landscape-3.jpg]]
 #+end_bg-a
@@ -303,33 +349,33 @@ Hover over any of the image boxes to make it invisible
 
 *** Hidden elements
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 max-w-full
+#+ATTR_HTML: :class flex flex-row justify-evenly flex-wrap max-w-full
 #+begin_h-content
-#+ATTR_HTML: :class border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:hidden duration-500 delay-200 ease-in-out
+#+ATTR_HTML: :class grow border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs hover:hidden duration-500 delay-200 ease-in-out
 #+begin_bg-a
-#+ATTR_HTML: :class sm:h-44 lg:h-28
+#+ATTR_HTML: :class h-content-035
 #+caption: Landscape 1
 [[file:personal/images/landscape-1.jpg]]
 #+end_bg-a
 
-#+ATTR_HTML: :class border border-transparent rounded-3xl max-w-flex-05
+#+ATTR_HTML: :class border-transparent rounded-3xl max-w-slide-05
 #+begin_bg-b
-#+ATTR_HTML: :class flex-list flex-grow justify-evenly flex-wrap
+#+ATTR_HTML: :class flex-list justify-evenly flex-wrap
 Hover over any of the image boxes to hide them. This causes the layout to change
 #+end_bg-b
 
-#+ATTR_HTML: :class border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:hidden duration-500 delay-1200 ease-in-out
+#+ATTR_HTML: :class grow border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs hover:hidden duration-500 delay-1200 ease-in-out
 #+begin_bg-b
-#+ATTR_HTML: :class sm:h-44 lg:h-28
+#+ATTR_HTML: :class h-content-035
 #+caption: Landscape 2
 [[file:personal/images/landscape-2.jpg]]
 #+end_bg-b
 
-#+ATTR_HTML: :class border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs hover:hidden duration-500 delay-200 ease-in-out
+#+ATTR_HTML: :class grow border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs hover:hidden duration-500 delay-200 ease-in-out
 #+begin_bg-a
-#+ATTR_HTML: :class sm:h-44 lg:h-28
+#+ATTR_HTML: :class h-content-035
 #+caption: Landscape 3
 [[file:personal/images/landscape-3.jpg]]
 #+end_bg-a
@@ -337,712 +383,714 @@ Hover over any of the image boxes to hide them. This causes the layout to change
 
 ** Padding
 #+BEGIN_EXPORT html
-<i class="fas fa-expand-arrows-alt text-5xl textCol-link"></i>
+<i class="fas fa-expand-arrows-alt text-5xl 1440p:text-4xl 2160p:text-3xl textCol-link"></i>
 #+END_EXPORT
 *** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
 #+begin_bg-b
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a text-lg text-center h-content-01 w-2/5 mx-auto
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a text-lg lg:text-base xl:text-sm 2xl:text-xs 2160p:text-3xs text-center max-h-content-02 w-2/5 mx-auto
 #+begin_p-2
 p<direction>-<size>
 #+end_p-2
 
-#+ATTR_HTML: :class h-content-03 flex
-#+begin_text-base
-#+ATTR_HTML: :class flex-list flex-grow justify-evenly
-- *Direction:*  top [t], bottom [b], left [l], right [r], x-axis[x], y-axis [y]
+#+ATTR_HTML: :class h-content-035 flex-list justify-evenly text-xl lg:text-lg xl:text-base 2xl:text-sm 2160p:text-3xs
+- *Direction:* top [t], bottom [b], left [l], right [r], x-axis[x], y-axis [y]
 - *Size:* 0, 0.5, 1, 1.5, ..., 4, 5, 6, ..., 12, 14, 16, 20, 24, 28, ..., 64, 72, 80, 96
-  - Where 1 = 0.25rem
-  - The same values are applicable to margins, height and width
-#+end_text-base
+ - Where 1 = 0.25rem
+ - The same values are applicable to margins, height and width
 
 #+end_bg-b
 *** Example: None, px-4 px-6, px-10
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl flex flex-row flex-wrap max-w-full items-center
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl flex flex-row flex-wrap max-w-full items-center
 #+begin_bg-b
-#+ATTR_HTML: :class border-2 rounded-2xl w-1/4 lg:text-xs sm:text-base
-#+begin_h-72
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
-#+end_h-72
+#+ATTR_HTML: :class border-2 rounded-2xl w-1/4 text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 2k:text-2xs 1440p:text-4xs 2160p:text-6xs
+#+begin_h-content-085
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+#+end_h-content-085
 
-#+ATTR_HTML: :class border-2 rounded-2xl w-1/4 px-4 lg:text-xs sm:text-base
-#+begin_h-72
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
-#+end_h-72
+#+ATTR_HTML: :class border-2 rounded-2xl w-1/4 px-4 text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 2k:text-2xs 1440p:text-4xs 2160p:text-6xs
+#+begin_h-content-085
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+#+end_h-content-085
 
-#+ATTR_HTML: :class border-2 rounded-2xl w-1/4 px-6 lg:text-xs sm:text-base
-#+begin_h-72
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
-#+end_h-72
+#+ATTR_HTML: :class border-2 rounded-2xl w-1/4 px-6 text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 2k:text-2xs 1440p:text-4xs 2160p:text-6xs
+#+begin_h-content-085
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+#+end_h-content-085
 
-#+ATTR_HTML: :class border-2 rounded-2xl w-1/4 px-10 lg:text-xs sm:text-base
-#+begin_h-72
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
-#+end_h-72
+#+ATTR_HTML: :class border-2 rounded-2xl w-1/4 px-10 text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 2k:text-2xs 1440p:text-4xs 2160p:text-6xs
+#+begin_h-content-085
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor tellus. Donec pretium posuere tellus. Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.
+#+end_h-content-085
 #+end_bg-b
 ** Margin
 #+BEGIN_EXPORT html
-<i class="fas fa-arrows-alt text-5xl textCol-link"></i>
+<i class="fas fa-arrows-alt text-5xl 1440p:text-4xl 2160p:text-3xl textCol-link"></i>
 #+END_EXPORT
 *** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
 #+begin_bg-b
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a text-lg text-center h-content-01 w-2/5 mx-auto
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a text-lg lg:text-base xl:text-sm 2xl:text-xs 2160p:text-3xs text-center max-h-content-02 w-2/5 mx-auto
 #+begin_p-2
 m<direction>-<size>
 #+end_p-2
 
-#+ATTR_HTML: :class h-content-03 flex
-#+begin_text-base
-#+ATTR_HTML: :class flex-list flex-grow justify-evenly
-- *Direction:*  top [t], bottom [b], left [l], right [r], x-axis[x], y-axis [y], auto
-  - auto: horizontally centers the element within its parent container
-  - If the direction is omitted the margin is applied to all sides
-#+end_text-base
+#+ATTR_HTML: :class h-content-03 flex-list justify-evenly text-xl lg:text-lg xl:text-base 2xl:text-sm 2160p:text-3xs
+- *Direction:* top [t], bottom [b], left [l], right [r], x-axis[x], y-axis [y], auto
+ - auto: horizontally centers the element within its parent container
+ - If the direction is omitted the margin is applied to all sides
 #+end_bg-b
 *** Example: Left margin
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl flex flex-wrap
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl
 #+begin_bg-b
-#+ATTR_HTML: :class flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6
+#+ATTR_HTML: :class flex flex-row items-center
+#+begin_h-content-045
+#+ATTR_HTML: :class flex items-center justify-center text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-2x 2160p:text-4xs border-2 rounded-2xl h-content-04 w-slide-015
 #+begin_bg-a
 /none/
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-1
+#+ATTR_HTML: :class flex items-center justify-center text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-2x 2160p:text-4xs border-2 rounded-2xl h-content-04 w-slide-015 ml-1
 #+begin_bg-a
 ml-1
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-2
+#+ATTR_HTML: :class flex items-center justify-center text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-2x 2160p:text-4xs border-2 rounded-2xl h-content-04 w-slide-015 ml-2
 #+begin_bg-a
 ml-2
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-3
+#+ATTR_HTML: :class flex items-center justify-center text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-2x 2160p:text-4xs border-2 rounded-2xl h-content-04 w-slide-015 ml-3
 #+begin_bg-a
 ml-3
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-5
+#+ATTR_HTML: :class flex items-center justify-center text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-2x 2160p:text-4xs border-2 rounded-2xl h-content-04 w-slide-015 ml-8
 #+begin_bg-a
-ml-5
+ml-8
 #+end_bg-a
+#+end_h-content-045
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6
+#+ATTR_HTML: :class flex flex-row items-center
+#+begin_h-content-045
+
+
+#+ATTR_HTML: :class flex items-center justify-center text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-2x 2160p:text-4xs border-2 rounded-2xl h-content-04 w-slide-015
 #+begin_bg-a
 /none/
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-10
+#+ATTR_HTML: :class flex items-center justify-center text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-2x 2160p:text-4xs border-2 rounded-2xl h-content-04 w-slide-015 ml-10
 #+begin_bg-a
 ml-10
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-14
+#+ATTR_HTML: :class flex items-center justify-center text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-2x 2160p:text-4xs border-2 rounded-2xl h-content-04 w-slide-015 ml-14
 #+begin_bg-a
 ml-14
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs border-2 rounded-2xl h-32 w-1/6 ml-20
+#+ATTR_HTML: :class flex items-center justify-center text-2xl md:text-lg lg:text-lg xl:text-base 2xl:text-sm 1440p:text-2x 2160p:text-4xs border-2 rounded-2xl h-content-04 w-slide-015 ml-20
 #+begin_bg-a
 ml-20
 #+end_bg-a
+#+end_h-content-045
 #+end_bg-b
 ** Border
 #+BEGIN_EXPORT html
-<i class="fas fa-border-style text-5xl textCol-link"></i>
+<i class="fas fa-border-style text-5xl 1440p:text-4xl 2160p:text-3xl textCol-link"></i>
 #+END_EXPORT
 *** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
 #+begin_bg-b
-#+ATTR_HTML: :class flex flex-wrap justify-evenly max-h-content-025 sm:text-base lg:text-sm
+#+ATTR_HTML: :class flex flex-wrap justify-evenly text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs text-center max-h-content-02
 #+begin_content-between
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 border-<side>-<size>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 border-<style>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 border-<color>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 border-<color>/<level>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 rounded-<radius>
 #+end_text-center
 #+end_content-between
 
-#+ATTR_HTML: :class max-h-content-045 flex flex-list flex-grow justify-evenly lg:text-sm sm:text-base
-- *Side:*  top [t], bottom [b], left [l], right [r]
+#+ATTR_HTML: :class h-content-05 flex-list justify-evenly text-xl lg:text-lg xl:text-base 2xl:text-sm 2k:text-xs 1440p:text-3xs 2160p:text-5xs
+- *Side:* top [t], bottom [b], left [l], right [r]
 - *Size:* 0, 2, 4, 8px (default 1)
 - *Style:* none, dashed, dotted, double, solid (default)
 - *Color:* inherit, transparent, current, black, white, <color>
-  - Example color: =border-red-400=
+ - Example color: =border-red-400=
 - *Level:* 0, 5, 10, 15, ..., 100
-  - Example: =border-red-600/25=
+ - Example: =border-red-600/25=
 - *Radius:*
-#+begin_div
-#+ATTR_HTML: :class lg:text-xs sm:text-base
-| Utilities | none |    sm |    _ |    md |  lg |   xl | 2xl | 3xl | full  |
-| rem       |      | 0.125 | 0.25 | 0.375 | 0.5 | 0.75 |   1 | 1.5 | ~inf. |
-#+end_div
+#+begin_-mt-8
+#+ATTR_HTML: :class text-lg lg:text-base xl:text-sm 2xl:text-xs 2160p:text-5xs
+| Utilities | none | sm | _ | md | lg | xl | 2xl | 3xl | full |
+| rem  |  | 0.125 | 0.25 | 0.375 | 0.5 | 0.75 | 1 | 1.5 | ~inf. |
+#+end_-mt-8
 #+end_bg-b
 *** Examples size and style
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl flex flex-wrap justify-center items-center
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl flex flex-wrap justify-center items-center
 #+begin_bg-b
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border
-#+begin_div
+#+ATTR_HTML: :class flex flex-col items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5
+#+begin_border
 border
-#+end_div
+#+end_border
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-2 
-#+begin_div
+#+ATTR_HTML: :class flex flex-col items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5
+#+begin_border-2
 border-2
-#+end_div
+#+end_border-2
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4
-#+begin_div
+#+ATTR_HTML: :class flex flex-col items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5
+#+begin_border-4
 border-4
-#+end_div
+#+end_border-4
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs h-32 w-1/5 border-8
-#+begin_div
+#+ATTR_HTML: :class flex flex-col items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs h-content-04 w-1/5
+#+begin_border-8
 border-8
-#+end_div
+#+end_border-8
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4
-#+begin_div
+#+ATTR_HTML: :class flex flex-col items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5
+#+begin_border-4
 border-4
 
 border-solid
-#+end_div
+#+end_border-4
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 border-dashed
-#+begin_div
+#+ATTR_HTML: :class flex flex-col items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5 border-dashed
+#+begin_border-4
 border-4
 
 border-dashed
-#+end_div
+#+end_border-4
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 border-dotted
-#+begin_div
+#+ATTR_HTML: :class flex flex-col items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5 border-dotted
+#+begin_border-4
 border-4
 
 border-dotted
-#+end_div
+#+end_border-4
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs h-32 w-1/5 border-4 border-double
-#+begin_div
+#+ATTR_HTML: :class flex flex-col items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs h-content-04 w-1/5 border-double
+#+begin_border-4
 border-4
 
 border-double
-#+end_div
+#+end_border-4
 #+end_bg-b
 *** Examples radius and opacity
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl flex flex-wrap justify-center items-center
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl flex flex-wrap justify-center items-center
 #+begin_bg-b
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 rounded-md
+#+ATTR_HTML: :class flex items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5 border-4 rounded-md
 #+begin_bg-a
 rounded-md
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 rounded-xl
+#+ATTR_HTML: :class flex items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5 border-4 rounded-xl
 #+begin_bg-a
 rounded-xl
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-4 rounded-3xl
+#+ATTR_HTML: :class flex items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5 border-4 rounded-3xl
 #+begin_bg-a
 rounded-3xl
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs h-32 w-1/5 border-4 rounded-full
+#+ATTR_HTML: :class flex items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs h-content-04 w-1/5 border-4 rounded-full
 #+begin_bg-a
 rounded-full
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-8 border-red-700/80
+#+ATTR_HTML: :class flex items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5 border-8 border-red-700/80
 #+begin_bg-a
 border-red-700/80
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-8 border-red-700/50
+#+ATTR_HTML: :class flex items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5 border-8 border-red-700/50
 #+begin_bg-a
 border-red-700/50
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs mr-4 h-32 w-1/5 border-8 border-red-700/20
+#+ATTR_HTML: :class flex items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs mr-4 h-content-04 w-1/5 border-8 border-red-700/20
 #+begin_bg-a
 border-red-700/20
 #+end_bg-a
 
-#+ATTR_HTML: :class flex items-center justify-center text-xs h-32 w-1/5 border-8 border-transparent
+#+ATTR_HTML: :class flex items-center justify-center text-xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3x 2160p:text-5xs h-content-04 w-1/5 border-8 border-transparent
 #+begin_bg-a
 border-transparent
 #+end_bg-a
 #+end_bg-b
 ** Background color
 #+BEGIN_EXPORT html
-<i class="fas fa-fill-drip text-5xl textCol-link"></i>
+<i class="fas fa-fill-drip text-5xl 1440p:text-4xl 2160p:text-3xl textCol-link"></i>
 #+END_EXPORT
 *** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
 #+begin_bg-b
-#+ATTR_HTML: :class flex flex-wrap justify-evenly max-h-content-025 sm:text-base lg:text-sm
+#+ATTR_HTML: :class flex flex-wrap justify-evenly text-base lg:text-sm xl:text-xs 2xl:text-2xs 1440p:text-4xs text-center max-h-content-02
 #+begin_content-between
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 bg-<color>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 border-opacity-<level>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 shadow-<size>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 bg-gradient-to-<direction> from-<color> to-<color>
 #+end_text-center
 #+end_content-between
 
-#+ATTR_HTML: :class max-h-content-045 flex flex-list flex-grow justify-evenly lg:text-sm sm:text-base
+#+ATTR_HTML: :class h-content-055 flex-list justify-evenly text-lg lg:text-base xl:text-sm 2xl:text-xs 2160p:text-5xs
 - *Color:* slate, gray, zinc, neutral, stone, red, orange, amber, yellow, line, green, emerald, teal, cyan, sky, blue, indigo, violet, fuchsia, pink, rose
 - *Level:* 50, 100, 200, ..., 900, 950
 - *Size:* xs, sm, md, lg, xl, 2xl
 - *Direction:* top [t], bottom [b], left [l], right [r], top-left [tl], top-right [tr], bottom-left [bl], bottom-right [br]
-  - Example: =bg-gradient-to-r from-red-50 to-red-500=
-  - If no 'to' or 'from' color is specified it defaults to transparent
-  - An intermediate color can be included with =via-<color>=
+ - Example: =bg-gradient-to-r from-red-50 to-red-500=
+ - If no 'to' or 'from' color is specified it defaults to transparent
+ - An intermediate color can be included with =via-<color>=
 #+end_bg-b
 *** Example colors
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
 
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl grid grid-cols-2 max-w-full
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl grid grid-cols-2 max-w-full text-sm lg:text-xs 2xl:text-2xs 1440p:text-4xs 2160p:text-5xs 4k:text-5xs
 #+begin_bg-b
 #+begin_mt-4
 # Stone
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Stone
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-stone-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-stone-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Red
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Red
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-red-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-red-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Orange
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Orange
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-orange-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-orange-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Amber
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Amber
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-amber-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-amber-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Lime
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Lime
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-lime-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-lime-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Green
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Green
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-green-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-green-950
 #+begin_w-1/12
 
 #+end_w-1/12
@@ -1051,453 +1099,452 @@ Green
 
 #+begin_mt-4
 # Teal
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Teal
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Cyan
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Cyan
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-cyan-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-cyan-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Blue
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Blue
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-blue-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-blue-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Violet
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Violet
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-violet-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-violet-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Purple
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mb-1 mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Teal
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-teal-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-teal-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 
 # Rose
-#+ATTR_HTML: :class flex flex-row max-w-1/2 justify-start lg:h-12 sm:h-20
+#+ATTR_HTML: :class flex flex-row mr-10 max-w-1/2
 #+begin_items-center
-#+ATTR_HTML: :class text-xs w-3/12 pl-3
-#+begin_itext-left
+#+ATTR_HTML: :class w-3/12 pl-3
+#+begin_text-left
 Rose
-#+end_itext-left
+#+end_text-left
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-50
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-50
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-100
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-100
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-200
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-200
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-300
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-300
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-400
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-400
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-500
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-500
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-600
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-600
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-700
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-700
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-800
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-800
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-900
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-900
 #+begin_w-1/12
 
 #+end_w-1/12
 
-#+ATTR_HTML: :class w-1/12 ml-0.5 bg-rose-950
+#+ATTR_HTML: :class ml-0.5 h-content-0125 bg-rose-950
 #+begin_w-1/12
 
 #+end_w-1/12
 #+end_items-center
 #+end_mt-4
-
-
 #+end_bg-b
+
 *** Example gradient
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide border border-transparent rounded-2xl bg-zinc-50/25"
+:REVEAL_EXTRA_ATTR: class="h-slide border-transparent rounded-2xl bg-zinc-50/25"
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap gap-4
+#+ATTR_HTML: :class flex flex-row flex-wrap justify-evenly justify-items-stretch gap-4
 #+begin_h-content
-#+ATTR_HTML: :class  order border-transparent rounded-3xl w-5/12 flex-grow text-neutral-200 lg:text-xs sm:text-lg bg-gradient-to-r from-teal-950 to-teal-100
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl text-neutral-200 text-lg lg:text-xs 2k:text-2xs 2160p:text-4xs bg-gradient-to-r from-teal-950 to-teal-100
+#+begin_max-w-slide-045
 *bg-gradient-to-r from-teal-950 to-teal-100*
-#+end_div
+#+end_max-w-slide-045
 
 
-#+ATTR_HTML: :class  order border-transparent rounded-3xl w-5/12 flex-grow text-neutral-200 lg:text-xs sm:text-lg bg-gradient-to-t from-lime-700 to-amber-200
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl text-neutral-200 text-lg lg:text-xs 2k:text-2xs 2160p:text-4xs bg-gradient-to-t from-lime-700 to-amber-200
+#+begin_max-w-slide-045
 *bg-gradient-to-t from-lime-700 to-amber-200*
-#+end_div
+#+end_max-w-slide-045
 
-#+ATTR_HTML: :class  order border-transparent rounded-3xl w-5/12 flex-grow text-neutral-200 lg:text-xs sm:text-lg bg-gradient-to-tr from-blue-500 to-rose-500
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl text-neutral-200 text-lg lg:text-xs 2k:text-2xs 2160p:text-4xs bg-gradient-to-tr from-blue-500 to-rose-500
+#+begin_max-w-slide-045
 *bg-gradient-to-tr from-blue-500 to-rose-500*
-#+end_div
+#+end_max-w-slide-045
 
-#+ATTR_HTML: :class  order border-transparent rounded-3xl w-5/12 flex-grow text-neutral-200 lg:text-xs sm:text-lg bg-gradient-to-tr from-red-500 to-sky-800 via-lime-300
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl text-neutral-200 text-lg lg:text-xs 2k:text-2xs 2160p:text-4xs bg-gradient-to-tr from-red-500 to-sky-800 via-lime-300
+#+begin_max-w-slide-045
 *bg-gradient-to-tr from-red-500 to-sky-800 via-lime-300*
-#+end_div
+#+end_max-w-slide-045
 #+end_h-content
 ** Background images and floats
 #+BEGIN_EXPORT html
-<i class="fas fa-image text-6xl textCol-link"></i>
+<i class="fas fa-image text-6xl 1440p:text-5xl 2160p:text-4xl textCol-link"></i>
 #+END_EXPORT
 *** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class h-content border border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
+#+ATTR_HTML: :class h-content border-transparent rounded-3xl flex flex-col flex-wrap max-w-full justify-evenly
 #+begin_bg-b
-#+ATTR_HTML: :class flex flex-wrap justify-evenly max-h-content-025 sm:text-base lg:text-sm
+#+ATTR_HTML: :class flex flex-wrap justify-evenly text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs max-h-content-02
 #+begin_content-between
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 bg-<position>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 bg-<tiling>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 bg-clip-<location>
 #+end_text-center
 
-#+ATTR_HTML: :class border border rounded-2xl transparent bg-a pd-1 
+#+ATTR_HTML: :class border rounded-2xl transparent bg-a pd-1
 #+begin_text-center
 float-<placement>
 #+end_text-center
 #+end_content-between
 
-#+ATTR_HTML: :class max-h-content-045 flex flex-list flex-grow justify-evenly lg:text-sm sm:text-base
+#+ATTR_HTML: :class h-content-06 flex-list justify-evenly text-xl lg:text-lg xl:text-base 2xl:text-sm 2160p:text-4xs
 - *Position:* center, left, right, top, bottom, left-top, left-bottom, right-bottom, right-top
 - *Tiling:* repeat, repeat-x, repeat-y
 - *Location:* padding, border, content, text
@@ -1505,9 +1552,9 @@ float-<placement>
 #+end_bg-b
 *** Positioning: Left
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide border border-transparent rounded-2xl bg-left bg-no-repeat text-left pl-4" style="background-image: url(./personal/images/bg-1.jpg); background-size: 70%"
+:REVEAL_EXTRA_ATTR: class="h-slide border-transparent rounded-2xl bg-left bg-no-repeat text-left pl-4" style="background-image: url(./personal/images/bg-1.jpg); background-size: 70%"
 :END:
-#+ATTR_HTML: :class h-content-03 w-slide-04 mt-16 px-4 float-right flex flex-col items-end justify-center lg:text-sm sm:text-lg border border-transparent rounded-3xl
+#+ATTR_HTML: :class h-content-03 w-slide-04 mt-16 px-4 float-right flex flex-col items-end justify-center text-lg lg:text-base xl:text-sm 2xl:text-xs 2160p:text-3xs border-transparent rounded-3xl
 #+begin_bg-a
 */Potosi, Bolivia/*
 
@@ -1516,10 +1563,10 @@ float-<placement>
 
 *** Positioning: Bottom left
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide border border-transparent rounded-2xl bg-left-bottom bg-no-repeat " style="background-image: url(./personal/images/bg-2.jpg); background-size: 40%"
+:REVEAL_EXTRA_ATTR: class="h-slide border-transparent rounded-2xl bg-left-bottom bg-no-repeat " style="background-image: url(./personal/images/bg-2.jpg); background-size: 40%"
 :END:
-# #+ATTR_HTML: :class h-content w-slide-06 px-4 text-right border border-transparent rounded-3xl bg-gradient-to-b from-cyan-900/20 to-lime-950/10 via-yellow-300/20
-#+ATTR_HTML: :class float-right h-content w-3/5 text-right pr-10 border border-transparent rounded-r-3xl bg-gradient-to-b from-cyan-900/20 to-lime-950/10 via-yellow-300/20
+# #+ATTR_HTML: :class h-content w-slide-06 px-4 text-right border-transparent rounded-3xl bg-gradient-to-b from-cyan-900/20 to-lime-950/10 via-yellow-300/20
+#+ATTR_HTML: :class float-right h-content w-3/5 text-right text-xl lg:text-lg xl:text-base 2xl:text-sm 2160p:text-xs pr-10 border-transparent rounded-r-3xl bg-gradient-to-b from-cyan-900/20 to-lime-950/10 via-yellow-300/20
 #+begin_bg-a
 */Oruro, Bolivia/*
 
@@ -1527,627 +1574,628 @@ float-<placement>
 #+end_bg-a
 * Layouts
 #+BEGIN_EXPORT html
-<i class="fas fa-columns text-6xl textCol-link"></i>
+<i class="fas fa-columns text-6xl 1440p:text-5xl 2160p:text-4xl textCol-link"></i>
 #+END_EXPORT
 ** Title and single content
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class bg-b border border-transparent rounded-3xl
+#+ATTR_HTML: :class bg-b border-transparent rounded-3xl
  #+begin_h-content
  Box 1
  #+end_h-content
 *** Long list
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class flex bg-b border border-transparent rounded-3xl 
+#+ATTR_HTML: :class flex bg-b border-transparent rounded-3xl
 #+begin_h-content
-#+ATTR_HTML: :class flex-grow flex-list justify-evenly text-sm
-- A reveal slide consists of two =section= elements  and at least an =h= element, all nested
-- Levels of =Org= headers will match those of the =h= element, ej. =**= > =h2=
-- A =PROPERTIES= drawer is used to customize the parent =section=
-- In this case the height (=h-slide=) of the slide and the border are defined.
-- This slide has also a =div= element with a nested list, =ul=
-- The =div=  is defined as a =flex= element  with a given height (custom class =h-content=)
-- In addition  the background & border characteristics are defined
+#+ATTR_HTML: :class flex-list justify-evenly text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs
+- A reveal slide consists of two =<section>= elements and at least an =<h>= element, all nested
+- =Org= headers will be exported as =h= elements, ej. =**= > =h2=
+- A =PROPERTIES= drawer (below the header) is used to customize the parent =section= (~slide)
+- In this slide, the height (=h-slide=) and the outer background are defined.
+- The slide has also a =div= element with a nested list, =ul=
+  - The =div= is defined as a =flex= element with a given height (custom class =h-content=)
+  - In addition its background and border characteristics are defined
 #+end_h-content
 *** Short list (justified evenly)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class flex bg-b border border-transparent rounded-3xl
+#+ATTR_HTML: :class flex bg-b border-transparent rounded-3xl
 #+begin_h-content
-#+ATTR_HTML: :class flex-grow flex-list justify-evenly
-- For the list to span the vertical space it uses the utilities =flex-grow= and =justify-evenly=
-- Importantly, it uses a custom class, =flex-list= to override the defaults.
-- This class defines it (again) as a =flex= element with a column direction (see =icustom.css=)
+#+ATTR_HTML: :class flex-list justify-evenly text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs
+- For the list to span all the defined vertical space it uses the utility =justify-evenly=
+- *Importantly*, it uses a custom class, =flex-list= to override the list's defaults.
+- This class defines the list as a =flex= element with a column direction (see =icustom.css=)
 #+end_h-content
 
 *** Short list (centered)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class flex bg-b border border-transparent rounded-3xl
+#+ATTR_HTML: :class flex bg-b border-transparent rounded-3xl
 #+begin_h-content
-#+ATTR_HTML: :class flex-grow flex-list justify-center
+#+ATTR_HTML: :class flex-list justify-center text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs
 - To center the list the utility =justify-center= was used
 - The rest of the options are the same as the slide above
 - Other options for aligning the list items are described below
 #+end_h-content
 *** Align list items
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class bg-b border border-transparent border rounded-2xl flex flex-col justify-evenly
+#+ATTR_HTML: :class bg-b border-transparent rounded-2xl flex flex-col justify-evenly
 #+begin_h-content
-#+ATTR_HTML: :class text-lg text-left
--  Utility to align list items (Flexbox)
-  - =justify-{option}=
-    - option: =start=, =end=, =center=, =between=, =evenly=, =around=
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs text-left
+- Utility to align list items (Flexbox)
+ - =justify-{option}=
+ - option: =start=, =end=, =center=, =between=, =evenly=, =around=
 
 #+begin_src emacs-lisp
-  ,*** Short list (centered)
-  :PROPERTIES:
-  :REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent border rounded-2xl"
-  :END:
-  ,#+ATTR_HTML: :class h-content bg-b border border-transparent rounded-3xl
-  ,#+begin_div
-  ,#+ATTR_HTML: :class h-content flex-list justify-center
-  - Nullam libero mauris, consequat quis, varius et, dictum id, arcu.
-  - Donec vitae dolor.
-  - Aliquam feugiat tellus ut neque.
-  ,#+end_div
-#+end_src      
+ ,*** Short list (centered)
+ :PROPERTIES:
+ :REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
+ :END:
+ ,#+ATTR_HTML: :class h-content bg-b border-transparent rounded-3xl
+ ,#+begin_div
+ ,#+ATTR_HTML: :class h-content flex-list justify-center
+ - First item
+ - Second item
+ - Third item
+ ,#+end_div
+#+end_src
 #+end_h-content
 
 ** Title and 2 columns (Grid)
  :PROPERTIES:
- :REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+ :REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
  :END:
  #+ATTR_HTML: :class grid grid-cols-2 gap-x-4
  #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
  Box 1
- #+end_div
-#+ATTR_HTML: :class bg-b border border-transparent rounded-3xl
- #+begin_div
+ #+end_bg-b
+#+ATTR_HTML: :class border-transparent rounded-3xl
+ #+begin_bg-b
  Box 2
- #+end_div
+ #+end_bg-b
  #+end_h-content
 *** Image and a list
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
 #+ATTR_HTML: :class grid-cols-2 gap-x-4
  #+begin_grid
- #+ATTR_HTML: :class bg-b border border-transparent rounded-3xl
+ #+ATTR_HTML: :class bg-b text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
  #+begin_text-sm
  #+caption: Two columns layout
 [[file:personal/images/slide-2cols.jpg]]
  #+end_text-sm
- 
- #+ATTR_HTML: :class  flex bg-b border border-transparent rounded-3xl text-sm
+
+ #+ATTR_HTML: :class flex bg-b border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs
  #+begin_h-content
-#+ATTR_HTML: :class flex-grow flex-list justify-evenly
-- The 2 column layout is obtained with the utility =grid= and =grid-cols-2=
+#+ATTR_HTML: :class flex-list justify-evenly
+- This 2 column layout is obtained with the utility =grid= and =grid-cols-2=
 - The gap between columns (horizontal) is defined with the utility =gap-x-4=
 - These are applied to the parent element containing the columns
-- Both columns will be defined as div elements but with different classes
-- The column on the left has the class/utility =text-sm=
-- It affects the size of the caption text whereas the image occupies the full width of the column
-- This column is defined as an element of the class =h-content=
+- The font size on this column changes at particular breakpoints (width of the view-port in pixels)
+  - Example: =text-2xl md:text-lg 1440p:text-3xs 2160p:text-4xs=
+  - =md= is a built-in breakpoint equivalent to 768px (~iPhone SE)
+  - =1440p= is a custom breakpoint equivalent to 2560px
  #+end_h-content
  #+end_grid
 *** Colored div element with border and nested list
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-xs"
 :END:
 #+ATTR_HTML: :class grid-cols-2 gap-x-4
 #+begin_grid
-#+ATTR_HTML: :class text-sm bg-b border border-transparent rounded-3xl flex flex-col justify-evenly
-#+begin_div
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl flex flex-col justify-evenly
+#+begin_bg-b
 #+begin_input
 *Source:* org file
 #+begin_src emacs-lisp
-    ,#+ATTR_HTML: :class  flex bg-b border border-transparent rounded-3xl
-    ,#+begin_h-36
-    ,#+ATTR_HTML: :class flex-grow flex-list justify-evenly text-base
-   - Item 1
-   - Item 2
-   - Item 3
-    ,#+end_h-36
+ ,#+ATTR_HTML: :class flex bg-b border-transparent rounded-3xl
+ ,#+begin_h-36
+ ,#+ATTR_HTML: :class flex-list justify-evenly text-base
+ - Item 1
+ - Item 2
+ - Item 3
+ ,#+end_h-36
 #+end_src
 #+end_input
 
 #+begin_output
 *Output:* html
 #+begin_src html
-  <div class="flex bg-b border border-transparent rounded-3xl h-content" id="orgd260bab">
-      <ul class="flex-grow flex-list justify-evenly text-base">
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-      </ul>
-  </div>
+ <div class="flex bg-b border-transparent rounded-3xl h-content" id="orgd260bab">
+  <ul class="flex-list justify-evenly text-base">
+   <li>Item 1</li>
+   <li>Item 2</li>
+   <li>Item 3</li>
+  </ul>
+ </div>
 #+end_src
 #+end_output
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  flex bg-b border border-transparent rounded-3xl lg:text-xs sm:text-base
-  #+begin_h-content
-  #+ATTR_HTML: :class flex-grow flex-list justify-evenly
-- The code on the left column illustrates how to construct a list with a colored background in org mode and the result (html) after exporting
+#+ATTR_HTML: :class flex bg-b border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs
+ #+begin_h-content
+ #+ATTR_HTML: :class flex-list justify-evenly
+- The code on the left column (above) illustrates how to write, in =org-mode=, a list with a colored background.
+- The exported (HTML) output is presented below the org lines.
 - Note on the output that the result is a div element with a nested list
 - Org-reveal exports a =#+begin_<my-class>= block as a ~<div class="my-class">~ element.
-- Additional classes are added with the keyword =#+ATTR_HTML: :class  my-class=
-- A similar keyword is used to add classes to the =ul= element
-- The use of a =div= container may seem unnecessary but the next slide shows that it may not work well with colored backgrounds
-  #+end_h-content
+- Additional classes are added with the keyword =#+ATTR_HTML: :class my-class=
+- A similar keyword is used to add classes to the list (=ul=)
+- The use of a =div= container it is sometimes unnecessary as the next slide shows.
+ #+end_h-content
  #+end_grid
 *** List with colored background and border
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-sm"
 :END:
 #+ATTR_HTML: :class grid-cols-2 gap-x-2
  #+begin_grid
-#+ATTR_HTML: :class text-sm bg-b border border-transparent rounded-3xl flex flex-col justify-evenly
-#+begin_div
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl flex flex-col justify-evenly
+#+begin_bg-b
 #+begin_input
 *Source:* org file
 #+begin_src emacs-lisp
-  ,#+ATTR_HTML: :class h-content bg-b border border-transparent rounded-3xl flex-list  list-inside justify-evenly text-base
-  - Nullam tristique diam non turpis.
-  - Curabitur lacinia pulvinar nibh. 
+  ,#+begin_h-content
+  ,#+ATTR_HTML: :class bg-b border-transparent rounded-3xl flex-list justify-evenly
+  - The code on the left ...
+  - ...
+  ,#+end_h-content
 #+end_src
 #+end_input
 
 #+begin_output
 *Output:* html
 #+begin_src html
-  <ul class="h-36 bg-b border border-transparent rounded-3xl flex-list  list-inside justify-evenly text-base">
-      <li>Nullam tristique diam non turpis.</li>
-      <li>Curabitur lacinia pulvinar nibh.</li>
+  <div class="h-content" id="orge5068c9">
+  <ul class="bg-g border-transparent rounded-3xl flex-list justify-evenly">
+  <li>The code on the left ...</li>
+   <li>....</li>
   </ul>
+  </div>
 #+end_src
 #+end_output
-#+end_div
-
-#+ATTR_HTML: :class h-content flex bg-b border border-transparent rounded-3xl  lg:text-xs sm:text-base
-#+begin_bg-b
-#+ATTR_HTML: :class flex-list  flex-grow  justify-evenly
-- The code on the left column illustrates how to construct a list similar to the right column (this) where the background and border are defined as part of the list.
-- Note that the code is simpler than the one on the slide above.
-- However, note that the right part of the column overflows the slide border
-- Tailwind utilities such as =-ml-12= doesn't seem to work
-- What does work is adding an inline style such as ~style="margin-left: -0.1rem"~
-- However, this changes the gap between columns
 #+end_bg-b
 
+#+ATTR_HTML: :class flex border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs
+#+begin_h-content
+#+ATTR_HTML: :class bg-b border-transparent rounded-3xl flex-list justify-evenly
+- The code on the left column shows a section of this list, where the background and border are defined as part of the list.
+- Note that the code is simpler than the one on the slide above.
+- However, note that the left margin of the border touches the bullet symbol.
+- This causes the columns to have different widths which may not be intended.
+#+end_h-content
  #+end_grid
+
 ** Title and 3 Columns (Grid)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 1
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 2
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl row-span-2
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl row-span-2
+#+begin_bg-b
 Box 3
-#+end_div
+#+end_bg-b
 #+end_h-content
 *** Long description and 2 elements
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-sm"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  h-content-05 flex bg-a border border-transparent rounded-3xl 
-#+begin_text-sm
-#+ATTR_HTML: :class flex-grow flex-list justify-evenly
-- The text on the right is 471 characters long (~69 words).
-- Its size was set with the utility =text-sm=
-- The line height was set with the custom class =lh-sm500= defined as a media query
-- It needs improvement
-#+end_text-sm
+#+ATTR_HTML: :class h-content-05 flex text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
+#+begin_bg-a
+#+ATTR_HTML: :class flex-list justify-evenly
+- The text on the right is 630 characters long (~92 words).
+- The font size was set as:
+  - =text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1080p:text-2xs 1440p:text-3xs 2160p:text-4xs=
+- If the screen's width is changed the lines spanned by the text changes but it does not overflow.
+#+end_bg-a
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_text-sm
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
+#+begin_bg-b
 #+ATTR_HTML: :class w-1/2
 #+caption: Landscape 1
 [[file:personal/images/landscape-1.jpg]]
-#+end_text-sm
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl row-span-2 text-sm text-justify px-4 lh-sm500
-#+begin_div
-Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.
-#+end_div
+#+ATTR_HTML: :class border-transparent rounded-3xl row-span-2 text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1080p:text-2xs 1440p:text-3xs 2160p:text-4xs text-justify px-2
+#+begin_bg-b
+Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus. Nullam libero mauris, consequat quis, varius et, dictum id, arcu. Mauris mollis tincidunt felis. Aliquam feugiat tellus ut neque.
+#+end_bg-b
 #+end_h-content
-    
+
 *** Long description and 2 elements (Reversed)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-sm"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl row-span-2 text-sm text-justify px-4 lh-sm500
-#+begin_div
-Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.
-#+end_div
+#+ATTR_HTML: :class border-transparent rounded-3xl row-span-2 text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1080p:text-2xs 1440p:text-3xs 2160p:text-4xs text-justify px-2
+#+begin_bg-b
+Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus. Nullam libero mauris, consequat quis, varius et, dictum id, arcu. Mauris mollis tincidunt felis. Aliquam feugiat tellus ut neque.
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_text-sm
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
+#+begin_bg-b
 #+ATTR_HTML: :class w-1/2
 #+caption: Landscape 2
 [[file:personal/images/landscape-2.jpg]]
-#+end_text-sm
+#+end_bg-b
 
-#+ATTR_HTML: :class  h-content-05 flex lg:text-xs sm:text-base  border border-transparent rounded-3xl 
+#+ATTR_HTML: :class h-content-05 flex text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-a
-#+ATTR_HTML: :class flex-grow flex-list justify-evenly
-- The text on the left is 471 characters long (~69 words).
-- Its size was set with the utility =text-sm=
-- The line height was set with the custom class =lh-sm500=
-- The font size of the title was set with the custom class =title-sm=
-- The text on this box was set with =lg:text-xs sm:text-lg=
+#+ATTR_HTML: :class flex-list justify-evenly
+- The height of this box was set with the custom class =h-content-05=
+- This is based on a reveal.js variable named, =--slide-height=
+- Arbitrarily (/me/), the height of the slide content (/i.e./ without the title) was set to 0.8 times the  value of =--slide-height=
 #+end_bg-a
 #+end_h-content
 *** Shorter description and 2 elements (larger text)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-sm"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl row-span-2 lg:text-base sm:text-lg text-justify px-4 lh-md350
-#+begin_div
-Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.
-#+end_div
+#+ATTR_HTML: :class border-transparent rounded-3xl row-span-2 text-3xl md:text-2xl lg:text-xl xl:text-lg 2xl:text-base 1080p:text-sm 1440p:text-2xs 2160p:text-3xs text-justify px-4
+#+begin_bg-b
+Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo.
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_text-sm
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
+#+begin_bg-b
 #+ATTR_HTML: :class w-1/2
 #+caption: Landscape 3
 [[file:personal/images/landscape-3.jpg]]
-#+end_text-sm
+#+end_bg-b
 
-#+ATTR_HTML: :class  h-content-05 flex  lg:text-xs sm:text-base border border-transparent rounded-3xl 
+#+ATTR_HTML: :class h-content-05 flex text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-a
-#+ATTR_HTML: :class flex-grow flex-list justify-evenly
-- The text on the left is 285 characters long (~43 words).
-- Its size was set with the utility =lg:text-base sm:text-lg=
-- The line height was set with the custom class =lh-md350=  
-- The font size of the title was set with the custom class =title-sm=
-- The text on this box was set with =lg:text-xs sm:text-base=
+#+ATTR_HTML: :class flex-list justify-evenly
+- The text on the left is 393 characters long (~57 words).
+- The font size was set as:
+  - =text-3xl md:text-2xl lg:text-xl xl:text-lg 2xl:text-base 1080p:text-sm 1440p:text-2xs 2160p:text-3xs=
+  - It is one size above that of the text of the previous slides.
 #+end_bg-a
-#+end_h-content    
+#+end_h-content
 *** 1 image and two descriptions
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  border border-transparent rounded-3xl lg:text-xs sm:text-sm text-justify px-4 lh-sm350
+#+ATTR_HTML: :class border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1080p:text-2xs 1440p:text-3xs 2160p:text-4xs text-justify px-4
 #+begin_bg-b
-Aliquam erat volutpat.  Nunc eleifend aleo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  Donec hendrerit tempor tellus.  Donec pretium posuere tellus.  Proin quam nisl, tincidunt et, mattis eget, convallis nec, purus.  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.  Nulla posuere.  Donec vitae dolor.
 #+end_bg-b
 
 
-#+ATTR_HTML: :class  h-content-05 flex  lg:text-sm sm:text-lg border border-transparent rounded-3xl 
+#+ATTR_HTML: :class h-content-05 flex text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-a
-#+ATTR_HTML: :class flex-grow flex-list justify-evenly
-- The text above is 330 characters long (~50words).
-- Its size was set with the utility =lg:text-xs sm:text-sm=
-- The line height was set with the custom class =lh-sm350=  
+#+ATTR_HTML: :class flex-list justify-evenly
+- The text above is 310 characters long (~43words).
+- It was chosen based on the setting =md:text-lg=.
 #+end_bg-a
 
-#+ATTR_HTML: :class  row-span-2 bg-b border border-transparent rounded-3xl
-#+begin_text-sm
+#+ATTR_HTML: :class row-span-2 text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
+#+begin_bg-b
 #+caption: Landscape 4
 [[file:personal/images/landscape-4.jpg]]
-#+end_text-sm
+#+end_bg-b
 #+end_h-content
 ** Title and 2 columns (Row span)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-sm"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-row
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 1
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 2
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl col-span-2
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl col-span-2
+#+begin_bg-b
 Box 3
-#+end_div
+#+end_bg-b
 #+end_h-content
 *** 2 images and description (Grid)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-row
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_text-xs
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
+#+begin_bg-b
 #+ATTR_HTML: :class w-3/5
 #+caption: Landscape 5
 [[file:personal/images/landscape-5.jpg]]
-#+end_text-xs
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl 
-#+begin_text-xs
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
+#+begin_bg-b
 #+ATTR_HTML: :class w-3/5
 #+caption: Landscape 6
 [[file:personal/images/landscape-6.jpg]]
-#+end_text-xs
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl col-span-2 p-2 text-sm h-content-05 flex
+#+ATTR_HTML: :class bg-b border-transparent rounded-3xl col-span-2 p-2 text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs h-content-05 flex
 #+begin_text-left
-#+ATTR_HTML: :class flex-list justify-evenly flex-grow
-- By default tailwind CSS rows are of the same height
+#+ATTR_HTML: :class flex-list justify-evenly
+- Rows in a grid layout as implemented in tailwind are of the same height
 - Width of images was set as =w-3/5= (if higher overflows)
-- Image caption was set with =text-xs=
-- List font size was set as =text-sm=
-- The height of this box was set to the custom class =h-content-05=
+- Image caption was set as:
+  - =text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs=
 #+end_text-left
 #+end_h-content
 *** 2 images and description (Flexbox)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-xs"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-xs"
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 
+#+ATTR_HTML: :class flex flex-row justify-evenly flex-wrap gap-2
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl  flex-grow
-#+begin_text-xs
-#+ATTR_HTML: :class sm:h-64 lg:h-44
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl max-w-slide-045
+#+begin_bg-b
 #+caption: Landscape 6
 [[file:personal/images/landscape-6.jpg]]
-#+end_text-xs
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl  flex-grow
-#+begin_text-xs
-#+ATTR_HTML: :class sm:h-64 lg:h-44
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl max-w-slide-045
+#+begin_bg-b
 #+caption: Landscape 5
 [[file:personal/images/landscape-5.jpg]]
-#+end_text-xs
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl col-span-2 p-2 lg:text-sm sm:text-base flex-grow
+#+ATTR_HTML: :class bg-b grow max-h-content-05 border-transparent rounded-3xl col-span-2 p-2 text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs
 #+begin_text-left
-- Div container for the images was set as a flex element. =flex flex-grow=
-- Images have different height thus its value was set to =h-44= on large screens (>1024 px) and =h-64= on small screens (>640px)
+- Div container for slide content was set as a =flex= element.
+- This allows to insert the images without specifying the width or height
+- However, their container was set to a maximum width of 45% of the slide's width
+  - For this the custom class, =max-w-slide-045= was used.
 #+end_text-left
 #+end_h-content
 ** Title and 4 elements (Grid)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 1
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 2
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 3
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 4
-#+end_div
+#+end_bg-b
 #+end_h-content
 *** Title and 4 elements (Flexbox)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap gap-4
+#+ATTR_HTML: :class flex flex-row flex-wrap justify-evenly gap-4
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl w-5/12 flex-grow
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl max-h-content-05 grow basis-2/5
+#+begin_bg-b
 Box 1
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl w-5/12 flex-grow
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl max-h-content-05 grow basis-2/5
+#+begin_bg-b
 Box 2
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl w-5/12 flex-grow
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl max-h-content-05 grow basis-2/5
+#+begin_bg-b
 Box 3
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl w-5/12 flex-grow
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl max-h-content-05 grow basis-2/5
+#+begin_bg-b
 Box 4
-#+end_div
+#+end_bg-b
 #+end_h-content
 *** 2 images and descriptions (Flexbox row-wise)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-xs"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-xs"
 :END:
 #+ATTR_HTML: :class flex flex-row flex-wrap gap-4 max-w-full
 #+begin_h-content
-#+ATTR_HTML: :class  border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs
+#+ATTR_HTML: :class grow text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-b
-#+ATTR_HTML: :class sm:h-44 lg:h-28
+#+ATTR_HTML: :class h-content-035
 #+caption: Landscape 4
 [[file:personal/images/landscape-4.jpg]]
 #+end_bg-b
 
-#+ATTR_HTML: :class lg:text-sm sm:text-lg border border-transparent rounded-3xl max-w-flex-05
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl max-w-slide-065
 #+begin_bg-a
-#+ATTR_HTML: :class flex-list flex-grow justify-evenly flex-wrap
-- The height of the image was set as: =sm:h-44 lg:h-28=
-- The background of this box corresponds to the custom class =bg-a=
+#+ATTR_HTML: :class h-content-04 flex-list justify-evenly
+- The background of this box and the one below were set with custom classes =bg-b= and =bg-a=, respectively.
+- The height of both  images were set with =h-content-035= to allow space for the caption.
+- Their containers were allowed to =grow=.
 #+end_bg-a
 
-#+ATTR_HTML: :class border border-transparent rounded-3xl flex-grow sm:text-base lg:text-xs
+#+ATTR_HTML: :class grow text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-a
-#+ATTR_HTML: :class sm:h-44 lg:h-28
+#+ATTR_HTML: :class h-content-035
 #+caption: Landscape 3
 [[file:personal/images/landscape-3.jpg]]
 #+end_bg-a
 
-#+ATTR_HTML: :class sm:text-lg lg:text-sm border border-transparent rounded-3xl max-w-flex-05
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl max-w-slide-05
 #+begin_bg-b
-#+ATTR_HTML: :class flex-list flex-grow justify-evenly
-- The height of the image was set as: =sm:h-44 lg:h-28=
-- The background of this box corresponds to the custom class =bg-b=
+#+ATTR_HTML: :class h-content-04 flex-list justify-evenly
+- The width of this text box was limited to half of the slide's width,  =max-w-slide-05=.
+- The box above was set to, =max-w-slide-065= which limits the grow of the image container.
 #+end_bg-b
 #+end_h-content
+
 *** 2 images and descriptions (Flexbox column-wise)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl title-xs"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl title-xs"
 :END:
-#+ATTR_HTML: :class flex flex-col flex-wrap gap-4 max-w-flex-05
+#+ATTR_HTML: :class flex flex-col flex-wrap max-w-slide-05
 #+begin_h-content
-#+ATTR_HTML: :class  border border-transparent rounded-3xl sm:text-base lg:text-xs
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-b
-#+ATTR_HTML: :class sm:h-64 lg:h-44
 #+caption: Landscape 2
+#+ATTR_HTML: :class h-content-04
 [[file:personal/images/landscape-2.jpg]]
 #+end_bg-b
 
-#+ATTR_HTML: :class bg-a border border-transparent rounded-3xl h-24
-#+begin_text-xs
-- The height of the image was set as: =sm:h-36 lg:h-16=
-- The background of this box corresponds to the custom class =bg-a= whereas that of the box on the right =bg-b=
-#+end_text-xs
-
-#+ATTR_HTML: :class bg-a border border-transparent rounded-3xl sm:text-base lg:text-xs
+#+ATTR_HTML: :class  grow pt-2 border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs
 #+begin_bg-a
-#+ATTR_HTML: :class sm:h-64 lg:h-44
+- To ensure the two columns have the same width the container's max width was set to =max-w-slide-05=.
+- The height of the image above was set as: =h-content-04=.
+- No height was set to this box but it is allowed to =grow=.
+#+end_bg-a
+
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
+#+begin_bg-a
 #+caption: Landscape 1
 [[file:personal/images/landscape-1.jpg]]
 #+end_bg-a
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl h-24
-#+begin_text-xs
-- To prevent the lists from overflowing along with the images, a custom class was defined, =max-w-flex-05=
-- It uses a media query for width > 1920px. The value was calculated by trial and error.
-#+end_text-xs
+#+ATTR_HTML: :class grow pt-2 border-transparent rounded-3xl text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs
+#+begin_bg-b
+- No width was set for the above image so it takes most of the column's width however, the content can overflow.
+#+end_bg-b
 #+end_h-content
-
+#+begin_notes
+In this case the issue of overflowing was trigger by screen's widths between 768px and 1024px.
+#+end_notes
 ** Title and 6 elements (Grid)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-2 grid-flow-col
 #+begin_h-content
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 1
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 2
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 3
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 4
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 5
-#+end_div
+#+end_bg-b
 
-#+ATTR_HTML: :class  bg-b border border-transparent rounded-3xl
-#+begin_div
+#+ATTR_HTML: :class border-transparent rounded-3xl
+#+begin_bg-b
 Box 6
-#+end_div
+#+end_bg-b
 #+end_h-content
 *** Title and 6 images
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-2 grid-flow-col max-w-full
 #+begin_h-content
-#+ATTR_HTML: :class text-xs border border-transparent rounded-3xl
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-a
-#+ATTR_HTML: :class text-xs
 #+caption: Landscape 1
+#+ATTR_HTML: :class h-content-035
 [[file:personal/images/landscape-1.jpg]]
 #+end_bg-a
 
-#+ATTR_HTML: :class text-xs border border-transparent rounded-3xl
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-b
-#+ATTR_HTML: :class text-xs
 #+caption: Landscape 2
+#+ATTR_HTML: :class h-content-035
 [[file:personal/images/landscape-2.jpg]]
 #+end_bg-b
 
-#+ATTR_HTML: :class text-xs border border-transparent rounded-3xl
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-b
-#+ATTR_HTML: :class text-xs
 #+caption: Landscape 3
+#+ATTR_HTML: :class h-content-035
 [[file:personal/images/landscape-3.jpg]]
 #+end_bg-b
 
-#+ATTR_HTML: :class text-xs border border-transparent rounded-3xl
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-a
-#+ATTR_HTML: :class text-xs
 #+caption: Landscape 4
+#+ATTR_HTML: :class h-content-035
 [[file:personal/images/landscape-4.jpg]]
 #+end_bg-a
 
-#+ATTR_HTML: :class text-xs border border-transparent rounded-3xl
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-a
-#+ATTR_HTML: :class text-xs
 #+caption: Landscape 5
+#+ATTR_HTML: :class h-content-035
 [[file:personal/images/landscape-5.jpg]]
 #+end_bg-a
 
-#+ATTR_HTML: :class text-xs border border-transparent rounded-3xl
+#+ATTR_HTML: :class text-2xl md:text-lg lg:text-base xl:text-sm 2xl:text-xs 1440p:text-3xs 2160p:text-4xs border-transparent rounded-3xl
 #+begin_bg-b
-#+ATTR_HTML: :class text-xs
 #+caption: Landscape 6
+#+ATTR_HTML: :class h-content-035
 [[file:personal/images/landscape-6.jpg]]
 #+end_bg-b
 #+end_h-content
 *** Image credits
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-a border border-transparent rounded-2xl"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-a border-transparent rounded-2xl"
 :END:
 #+ATTR_HTML: :class grid grid-rows-2 gap-2 grid-flow-col max-w-full
 #+begin_h-content
 #+begin_pic
-#+ATTR_HTML: :class  border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40
+#+ATTR_HTML: :class border-transparent rounded-full h-content-035
 [[file:personal/images/landscape-1.jpg]]
 
-#+ATTR_HTML: :class text-xs list-none
+#+ATTR_HTML: :class text-base lg:text-sm xl:text-xs 2xl:text-2xs 1440p:text-3xs 2160p:text-5xs list-none
 #+begin_bg-b
 - Landscape 1 ([[https://www.pexels.com/es-es/foto/globos-de-aire-caliente-en-el-cielo-2325446/][Link]])
 - Artist: [[https://www.pexels.com/es-es/@francesco-ungaro/][Francesco Ungaro]]
@@ -2155,10 +2203,10 @@ Box 6
 #+end_pic
 
 #+begin_pic
-#+ATTR_HTML: :class  border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40
+#+ATTR_HTML: :class border-transparent rounded-full h-content-035
 [[file:personal/images/landscape-2.jpg]]
 
-#+ATTR_HTML: :class text-xs list-none
+#+ATTR_HTML: :class text-base lg:text-sm xl:text-xs 2xl:text-2xs 1440p:text-3xs 2160p:text-5xs list-none
 #+begin_bg-b
 - Landscape 2 ([[https://www.pexels.com/es-es/foto/monte-fuji-japon-1108701/][Link]])
 - Artist: [[https://www.pexels.com/es-es/@liger-pham-232622/][Liger Pham]]
@@ -2166,10 +2214,10 @@ Box 6
 #+end_pic
 
 #+begin_pic
-#+ATTR_HTML: :class  border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40
+#+ATTR_HTML: :class border-transparent rounded-full h-content-035
 [[file:personal/images/landscape-3.jpg]]
 
-#+ATTR_HTML: :class text-xs list-none
+#+ATTR_HTML: :class text-base lg:text-sm xl:text-xs 2xl:text-2xs 1440p:text-3xs 2160p:text-5xs list-none
 #+begin_bg-b
 - Landscape 3 ([[https://www.pexels.com/es-es/foto/fotografia-aerea-de-una-montana-640809/][Link]])
 - Artist: [[https://www.pexels.com/es-es/@eberhardgross/][eberhard grossgasteiger]]
@@ -2177,10 +2225,10 @@ Box 6
 #+end_pic
 
 #+begin_pic
-#+ATTR_HTML: :class  border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40
+#+ATTR_HTML: :class border-transparent rounded-full h-content-035
 [[file:personal/images/landscape-4.jpg]]
 
-#+ATTR_HTML: :class text-xs list-none
+#+ATTR_HTML: :class text-base lg:text-sm xl:text-xs 2xl:text-2xs 1440p:text-3xs 2160p:text-5xs list-none
 #+begin_bg-b
 - Landscape 4 ([[https://www.pexels.com/es-es/foto/campo-de-hierba-verde-y-arboles-bajo-un-cielo-azul-3996362/][Link]])
 - Artist: [[https://www.pexels.com/es-es/@chavdar-lungov-2332494/][Chavdar Lungov]]
@@ -2188,10 +2236,10 @@ Box 6
 #+end_pic
 
 #+begin_pic
-#+ATTR_HTML: :class  border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40
+#+ATTR_HTML: :class border-transparent rounded-full h-content-035
 [[file:personal/images/landscape-5.jpg]]
 
-#+ATTR_HTML: :class text-xs list-none
+#+ATTR_HTML: :class text-base lg:text-sm xl:text-xs 2xl:text-2xs 1440p:text-3xs 2160p:text-5xs list-none
 #+begin_bg-b
 - Landscape 5 ([[https://www.pexels.com/es-es/foto/foto-secuencial-de-la-aurora-boreal-1933316/][Link]])
 - Artist: [[https://www.pexels.com/es-es/@therato/][stein egil liland]]
@@ -2199,10 +2247,10 @@ Box 6
 #+end_pic
 
 #+begin_pic
-#+ATTR_HTML: :class  border border-transparent rounded-full lg:w-28 lg:h-28 sm:w-40 sm:h-40
+#+ATTR_HTML: :class border-transparent rounded-full h-content-035
 [[file:personal/images/landscape-6.jpg]]
 
-#+ATTR_HTML: :class text-xs list-none
+#+ATTR_HTML: :class text-base lg:text-sm xl:text-xs 2xl:text-2xs 1440p:text-3xs 2160p:text-5xs list-none
 #+begin_bg-b
 - Landscape 6 ([[https://www.pexels.com/es-es/foto/lago-rodeado-de-montanas-durante-la-hora-dorada-1126382/][Link]])
 - Artist: [[https://www.pexels.com/es-es/@jplenio/][Johannes Plenio]]
@@ -2211,5 +2259,5 @@ Box 6
 #+end_h-content
 * /Thank you/
 #+BEGIN_EXPORT html
-<i class="fas fa-smile text-6xl textCol-link"></i>
+<i class="fas fa-smile text-6xl 1440p:text-5xl 2160p:text-4xl textCol-link"></i>
 #+END_EXPORT
