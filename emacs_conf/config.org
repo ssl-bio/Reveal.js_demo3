@@ -1,0 +1,45 @@
+* Setup custom file
+- Write customizations to a separate file =custom.el=.
+:setup-custom:
+#+begin_src emacs-lisp
+  (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+  (load custom-file t)
+#+end_src
+:END:
+* Session defaults
+** Custom variables
+) Path to [[https://revealjs.com/][Reveal.js]] installation. Checks that the directory exists and if true sets the variable =org-reveal-root= to that path. *Modify it accordingly*
+:custom-vars:
+#+begin_src emacs-lisp
+  ;; org-reveal-path
+  (defvar reveal-path
+    (if (file-directory-p "/media/discs/shared/Cloned/Web_devel/reveal.js")
+        "file:///media/discs/shared/Cloned/Web_devel/reveal.js")
+    )
+  (setq org-reveal-root reveal-path)
+  #+end_src
+:END:
+** Htmlize.el
+:htmlize:
+#+begin_src emacs-lisp
+  (use-package htmlize
+    :straight (htmlize :type git
+  		     :flavor melpa
+  		     :host github
+  		     :repo "hniksic/emacs-htmlize"))
+#+end_src
+:END:
+* Org-mode
+** Org-reveal
+:org-reveal:
+#+begin_src emacs-lisp
+  (use-package ox-reveal
+    :straight (ox-reveal :type git
+                       :flavor melpa
+                       :host github
+                       :repo "yjwen/org-reveal")
+    :init
+    (require 'ox-reveal)
+    )
+#+end_src
+:END:
