@@ -76,3 +76,8 @@ themesPath:'/absolute/path/to/reveal-files/reveal.js/dist/theme'
 ```
 
 Modify the content of the presentation and export it using `C-c C-e R R`.
+
+
+### Troubleshoot using third-party plugins with a CDN
+
+For some reason when setting the `REVEAL_ROOT` option to a content delivery network (CDN) as it is done in the presentation demo, `#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js@5.1.0` the exported file can not use third-party plugins. To solve this issue, one has to comment out the above option, export the file (using the local reveal.js files) remove the comment and export again.
