@@ -1,19 +1,18 @@
-# Example of a reveal.js presentation written in org-mode and customized with Tailwind
+# Example of a Reveal.js presentation written in org-mode and customized with TailwindCSS
 
-
-## Live version
-
--   [Here](https://ssl-bio.github.io/Reveal.js_demo3)
+> **Important**
+> 
+> The installation instructions are only for Tailwind up to version 3.4.15, Check the main branch of this repository for instructions for version 4.
 
 
 ## Description
 
-A sample [reveal.js](https://revealjs.com/) presentation customized using [Tailwind CSS](https://tailwindcss.com/). The presentation was written on Emacs org-mode and exported to HTML using [org-reveal](https://github.com/yjwen/org-reveal).
+A sample [Reveal.js](https://revealjs.com/) presentation customized using [Tailwind CSS](https://tailwindcss.com/). The presentation was written on Emacs org-mode and exported to HTML using [org-reveal](https://github.com/yjwen/org-reveal).
 
 -   Since not all the customizations were possible using Tailwind utilities, a custom CSS and JS files were created.
 -   It is recommended to check the [Readme](https://github.com/yjwen/org-reveal/blob/master/Readme.org) file from the org-reveal package in order to modify this presentation.
--   For those not familiar with reveal.js it is recommended to see the demo presentation (on the link above) to learn more about its capabilities.
--   Also check Tailwind [documentation](https://tailwindcss.com/docs/installation) to learn more about the utilities for customization since not all are covered here.
+-   For those not familiar with Reveal.js it is recommended to see the demo presentation (on the link above) to learn more about its capabilities.
+-   Also check TailwindCSS [documentation](https://v3.tailwindcss.com/docs/configuration) to learn more about the utilities for customization since not all are covered here.
 
 
 ## Quick setup [local]
@@ -37,27 +36,32 @@ git clone https://github.com/hakimel/reveal.js.git
 Check the files `init.el` and `config.org` in the folder `emacs_conf` for a sample configuration of org-reveal. Importantly, set the `reveal-path` variable with the correct location where reveal.js files were downloaded.
 
 
-### Tailwind CLI
+### Installation of Tailwind CLI
 
 The following commands will setup a virtual environment where node.js will be installed and used to install tailwind command line interface (CLI).
 
 ```bash
-# Anaconda is required
-# Create a new virtual environment to install node.js
-conda create --name inode-js -y
-conda activate inode-js
-conda install anaconda::nodejs -y
+  # Anaconda is required
+  # Create a new virtual environment to install node.js
+  conda create --name reveal-js -y
+  conda activate reveal-js
+  conda install anaconda::nodejs -y
 
-# Install tailwindcss (locally/globally) and create config file
-# npm install -D tailwindcss
-npm install -g tailwindcss
+  # Change to the presentation folder
+  # cd /path/to/reveal/presentation/folder
+
+# Install tailwindcss (locally) and cre# ate config file
+npm install -D tailwindcss@3.4.15
 npx tailwindcss init
 ```
 
-Then, the custom CSS file is built. Note the `--watch` option is recommended while modifying the presentation file.
+
+### Building the final CSS file
+
+The code below was taken from the official [installation instructions](https://v3.tailwindcss.com/docs/installation). The `--watch` flag is necessary while making the presentation to update the final CSS file with the utilities and classes used.
 
 ```bash
-conda activate inode-js
+conda activate reveal-js
 npx tailwindcss -i ./personal/css/icustom.css -o ./personal/css/custom_tailwind.css --watch
 ```
 
