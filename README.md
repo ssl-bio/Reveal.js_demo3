@@ -1,19 +1,30 @@
-# Example of a reveal.js presentation written in org-mode and customized with Tailwind
+# Example of a Reveal.js presentation written in org-mode and customized with TailwindCSS v4.
 
 
 ## Live version
 
--   [Here](https://ssl-bio.github.io/Reveal.js_demo3)
+-   [[Here]​](https://ssl-bio.github.io/Reveal.js_demo3)
+
+
+### Build/tested with:
+
+The presentation was made and tested using:
+
+-   **Emacs**: *v.30.1*
+    -   **org-reveal**: commit f55c851b
+-   **Reveal.js**: *v. 5.2.0* (commit 47ee25dd)
+-   **nodejs**: *v. 20.17.0*
+-   **TailwindCSS** and **TailwindCSS/cli**: *v. 4.0.14*
 
 
 ## Description
 
-A sample [reveal.js](https://revealjs.com/) presentation customized using [Tailwind CSS](https://tailwindcss.com/). The presentation was written on Emacs org-mode and exported to HTML using [org-reveal](https://github.com/yjwen/org-reveal).
+A sample [Reveal.js](https://revealjs.com/) presentation customized using [Tailwind CSS](https://tailwindcss.com/). The presentation was written on Emacs org-mode and exported to HTML using [org-reveal](https://github.com/yjwen/org-reveal).
 
 -   Since not all the customizations were possible using Tailwind utilities, a custom CSS and JS files were created.
 -   It is recommended to check the [Readme](https://github.com/yjwen/org-reveal/blob/master/Readme.org) file from the org-reveal package in order to modify this presentation.
--   For those not familiar with reveal.js it is recommended to see the demo presentation (on the link above) to learn more about its capabilities.
--   Also check Tailwind [documentation](https://tailwindcss.com/docs/installation) to learn more about the utilities for customization since not all are covered here.
+-   For those not familiar with Reveal.js it is recommended to see the demo presentation (on the link above) to learn more about its capabilities.
+-   Also check TailwindCSS [documentation](https://tailwindcss.com/docs/installation/tailwind-cli) to learn more about the utilities for customization since not all are covered here.
 
 
 ## Quick setup [local]
@@ -37,28 +48,41 @@ git clone https://github.com/hakimel/reveal.js.git
 Check the files `init.el` and `config.org` in the folder `emacs_conf` for a sample configuration of org-reveal. Importantly, set the `reveal-path` variable with the correct location where reveal.js files were downloaded.
 
 
-### Tailwind CLI
+### Installation of TailwindCSS and Tailwind/CLI
 
 The following commands will setup a virtual environment where node.js will be installed and used to install tailwind command line interface (CLI).
 
 ```bash
 # Anaconda is required
 # Create a new virtual environment to install node.js
-conda create --name inode-js -y
-conda activate inode-js
+conda create --name reveal-js -y
+conda activate reveal-js
 conda install anaconda::nodejs -y
+npm install -g npm@11.2.0
 
-# Install tailwindcss (locally/globally) and create config file
-# npm install -D tailwindcss
-npm install -g tailwindcss
-npx tailwindcss init
+# Change to the presentation folder
+# cd /path/to/reveal/presentation/folder
+
+# Tailwind local installation
+npm install -D tailwindcss @tailwindcss/cli
 ```
 
-Then, the custom CSS file is built. Note the `--watch` option is recommended while modifying the presentation file.
+
+### Upgrade projects from TailwindCSS v.3 to v.4 [Optional]
+
+With the release of a new major version of TailwindCSS a number of changes have been introduced including how the default theme is extended or how new utilities are defined. Fortunately, most of these changes can be updated to the new syntax using the code below (see also the official [upgrade guide](https://tailwindcss.com/docs/upgrade-guide)).
 
 ```bash
-conda activate inode-js
-npx tailwindcss -i ./personal/css/icustom.css -o ./personal/css/custom_tailwind.css --watch
+npx @tailwindcss/upgrade
+```
+
+
+### Building the final CSS file
+
+The code below was taken from the official [installation instructions](https://tailwindcss.com/docs/installation/tailwind-cli) on how to build a CSS file using `tailwind/cli`. The `--watch` flag is necessary while making the presentation to update the final CSS file with the utilities and classes used.
+
+```bash
+npx @tailwindcss/cli -i ./personal/css/icustom.css -o ./personal/css/custom_tailwind.css --watch
 ```
 
 
