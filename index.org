@@ -1,35 +1,42 @@
-#+Title: Reveal.js slides with Emacs org-mode + Tailwind CSS v4
 #+Author: Saul SL
-#+Date: April 2025
+#+Title: Reveal.js slides with Emacs org-mode + Tailwind CSS v4
+#+Date: January 2026
 
 #+OPTIONS: timestamp:nil ^:{} num:nil toc:nil
+
+:macros:
+#+MACRO: icon @@html:<i class="fa-solid fa-$1"></i>@@
+#+MACRO: tag @@html:<$1>$2</$1>@@
+:END:
+
 :Configuration:
-#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js@5.1.0
-#+REVEAL_INIT_OPTIONS: width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5, transition: 'fade', progress:true, history:true, center:true, slideNumber:"h/v", mouseWheel:false, menu:{themes:true, themesPath:'https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/', transitions:true, markers:true, custom: false, hideMissingTitles:true}, customcontrols:{controls:[{id:'toggle-overview', title:'Toggleoverview(O)', icon:'<i class="fa fa-th"></i>', action:'Reveal.toggleOverview();'}]}, pointer: {key: "q", color: "red", pointerSize: 16, alwaysVisible: false, tailLength: 10}
+#+REVEAL_ROOT: https://cdn.jsdelivr.net/npm/reveal.js@5.2.1
+#+REVEAL_INIT_OPTIONS: width:1200, height:800, margin: 0.1, minScale:0.2, maxScale:2.5, transition: 'slide', progress:true, history:true, center:true, slideNumber:"h/v", mouseWheel:false, menu:{themes:true, themesPath:'https://cdn.jsdelivr.net/npm/reveal.js@5.2.1/dist/theme/', transitions:true, markers:true, custom: false, hideMissingTitles:true}, customcontrols:{controls:[{id:'toggle-overview', title:'Toggleoverview(O)', icon:'<i class="fa fa-th"></i>', action:'Reveal.toggleOverview();'}]}, pointer: {key: "q", color: "red", pointerSize: 16, alwaysVisible: false, tailLength: 10}
 
 #+REVEAL_HLEVEL: 1
-#+REVEAL_THEME: night
+#+REVEAL_THEME: black
 
 #+REVEAL_HEAD_PREAMBLE: <meta name="description" content="Reveal.js+Tailwind_CSS demo">
 #+REVEAL_POSTAMBLE: <p>Created by Saul SL</p>
 
 #+REVEAL_PLUGINS: (notes RevealMenu RevealCustomControls RevealPointer RevealDrawer)
 
-#+REVEAL_EXTRA_CSS: ./plugin_extra/customcontrols/style.css
-#+REVEAL_EXTRA_CSS: ./plugin_extra/drawer/drawer.css
-#+REVEAL_EXTRA_CSS: ./plugin_extra/pointer/pointer.css
-#+REVEAL_EXTRA_CSS: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
+#+REVEAL_EXTRA_CSS: ./src/plugin_extra/customcontrols/style.css
+#+REVEAL_EXTRA_CSS: ./src/plugin_extra/drawer/drawer.css
+#+REVEAL_EXTRA_CSS: ./src/plugin_extra/pointer/pointer.css
+#+REVEAL_EXTRA_CSS: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css
 #+REVEAL_EXTRA_CSS: https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap
-#+REVEAL_EXTRA_CSS: ./personal/css/custom_tailwind.css
+#+REVEAL_EXTRA_CSS: ./src/css/custom_tailwind.css
 
-#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./plugin_extra/menu/menu.js
-#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./plugin_extra/customcontrols/plugin.js
-#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./plugin_extra/drawer/drawer.js
-#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./plugin_extra/pointer/pointer.js
+#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./src/plugin_extra/menu/menu.js
+#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./src/plugin_extra/customcontrols/plugin.js
+#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./src/plugin_extra/drawer/drawer.js
+#+REVEAL_EXTRA_SCRIPT_BEFORE_SRC: ./src/plugin_extra/pointer/pointer.js
 
-#+REVEAL_EXTRA_SCRIPT_SRC: ./personal/js/icustom.js
+#+REVEAL_EXTRA_SCRIPT_SRC: https://cdn.jsdelivr.net/npm/chroma-js@2.4.2/chroma.min.js
+#+REVEAL_EXTRA_SCRIPT_SRC: ./src/js/ifunctions.js
+#+REVEAL_EXTRA_SCRIPT_SRC: ./src/js/icustom.js
 :END:
-
 * Foreword
 :PROPERTIES:
 :CUSTOM_ID: 2
@@ -37,26 +44,27 @@
 #+begin_export html
 <i class="fas fa-comment text-section textCol-link"></i>
 #+end_export
-*** Foreword
+** Foreword
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 2-1
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
+:CUSTOM_ID: 2-2
 :END:
-#+ATTR_HTML: :class text-body flex flex-col justify-evenly
+#+ATTR_HTML: :class flex flex-col justify-evenly content-start text-body
 #+begin_h-content
 The purpose of this presentation is to show how a [[https://revealjs.com/speaker-view/][reveal.js]] presentation can be customized using [[https://tailwindcss.com/][Tailwind CSS]]. The presentation was created from an Emacs org-mode file using [[https://github.com/yjwen/org-reveal][org-reveal]].
-#+ATTR_HTML: :class iborder-3x h-content-07 flex
-#+begin_bg-gray
-#+ATTR_HTML: :class flex-list justify-evenly
+#+ATTR_HTML: :class iborder-3x
+#+begin_bg-inner-box
+#+ATTR_HTML: :class flex-list justify-evenly h-content-07
 - Press F1 to learn how to navigate the presentation. Also use the buttons on the bottom corners.
 - Since not all the customizations intended could be done using only Tailwind utilities, a custom CSS and JS files were also used.
 - A _must_ for adapting this presentation to your needs is to check the [[https://github.com/yjwen/org-reveal/blob/master/Readme.org][Readme]] file of org-reveal.
-- For those not familiar with reveal.js it is recommended to see the [[https://revealjs.com/][demo presentation]] to learn more about its capabilities.
+- For those not familiar with Reveal.js it is recommended to see the [[https://revealjs.com/][demo presentation]] to learn more about its capabilities.
 - Also check Tailwind [[https://tailwindcss.com/docs/installation][documentation]] to learn how to install and more about its utilities since not all of them  are covered here.
-#+end_bg-gray
+#+end_bg-inner-box
 #+ATTR_HTML: :class text-body-lg text-right pr-10
 /Thank you!/
 #+end_h-content
+
 * Tailwind utilities
 :PROPERTIES:
 :CUSTOM_ID: 3
@@ -64,6 +72,7 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 #+begin_export html
 <i class="fas fa-cogs text-section textCol-link"></i>
 #+end_export
+
 * Lists
 :PROPERTIES:
 :CUSTOM_ID: 4
@@ -71,65 +80,65 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 #+begin_export html
 <i class="fas fa-list text-subsection textCol-link"></i>
 #+end_export
-# *** Default
-# :PROPERTIES:
-# :REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-# :END:
-# #+ATTR_HTML: :class iborder-3x h-content flex
-# #+begin_bg-gray
 
-# #+end_bg-gray
-# *** Default
-# :PROPERTIES:
-# :REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-# :END:
-# #+ATTR_HTML: :class flex bg-gray iborder-3x
-# #+begin_h-content
-
-# #+end_h-content
-** Default
+** Default list
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x"
 :CUSTOM_ID: 4-2
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class grid  bg-inner-box iborder-3x content-evenly text-body-md
 #+begin_h-content
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-- Donec vitae dolor.
-- Phasellus purus.
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
+- In Emacs org-mode, a list item is defined with a dash symbol (=-=) at the beginning.
+- Subsequent items are defined in the same way.
+- Other symbols include: =+= and numbers (/e.g./ =1.=, =1)=).
+  - Numbers will result in an ordered list (=<ol>=) when exported to HTML
+- A list item can be moved up and down with the keyboard combination {{{icon(keyboard)}}} =Meta= + =up= or =down=
+  - The =Meta= key refers to the =Option= or =Alt= keys on a Mac or Windows keyboards, respectively.
 #+end_h-content
-** Inside
+
+** =list-inside=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x"
 :CUSTOM_ID: 4-3
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class grid bg-inner-box iborder-3x content-evenly text-body-md
 #+begin_h-content
 #+ATTR_HTML: :class list-inside
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-- Donec vitae dolor.
-- Phasellus purus.
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
+- Markers can be aligned to the left margin by using the utility: =list-inside=
+  - In org-mode this is done including an html attribute (=#+ATTR_HTML: :class list-inside=) above the first item.
+#+caption: An example of a list in org-mode with the list-inside utility
+#+label: code:list-inside-ex
+#+name: code:list-inside-ex
+#+begin_src org
+  ,#+ATTR_HTML: :class list-inside
+  - First item
+  - Second item
+#+end_src
+#+ATTR_HTML: :class list-inside
+- In Emacs org-mode, nested lists can be defined by indenting the marker with the keyboard combination {{{icon(keyboard)}}} =Meta= + =right=.
+  + The symbols used in the HTML file are defined by Reveal.js.
+  + For example this and the above items will have the same symbol whether =-= or =+= is used in the org-file
 #+end_h-content
-** Outside
+
+** =list-outside=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 4-4
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class grid bg-inner-box iborder-3x content-evenly text-body-md
 #+begin_h-content
-#+ATTR_HTML: :class list-outside
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-- Donec vitae dolor.
-- Phasellus purus.
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
+#+ATTR_HTML: :class list-outside border-l-3
+- The utility =list-outside= should align the text of a list item to the left margin and the markers outside it.
+  - For this slide a left border was included for the list
+  - Note however, that the markers are within the border (as with the default option [[#4-2][{{{icon(circle-up)}}}]])
+#+caption: Portion of the code to insert the list above
+#+label: code:list-outside-ex
+#+name: code:list-outside-ex
+#+begin_src org
+  ,#+ATTR_HTML: :class list-outside border-l-3
+  - The utility =list-outside= ...
+    - For this slide ...  
+#+end_src
 #+end_h-content
 * Text size
 :PROPERTIES:
@@ -138,14 +147,16 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 #+begin_export html
 <i class="fas fa-text-height text-subsection textCol-link"></i>
 #+end_export
-** Table of text utilities for font size
+** Table of text utilities for the font-size
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-sm"
 :CUSTOM_ID: 5-2
 :END:
-#+ATTR_HTML: :class grid-cols-2 gap-x-4 bg-gray iborder-3x h-content
+#+ATTR_HTML: :class grid-cols-2 gap-x-4 text-body
 #+begin_grid
-#+begin_pt-10
+# ----- [Left box] -----
+#+ATTR_HTML: :class h-content iborder-3x content-center
+#+begin_bg-inner-box
 #+ATTR_HTML: :class text-tb-sm border-collapse
 #+caption: Utilities to change the font size (Part 1)
 #+label: tab:text-utilitites1
@@ -160,9 +171,11 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 | text-xl   | 1.25rem   | 20 | 1.75rem     | 28 |
 | text-2xl  | 1.5rem    | 24 | 2rem        | 32 |
 |-----------+-----------+----+-------------+----|
-#+end_pt-10
+#+end_bg-inner-box
 
-#+begin_pt-10
+# ----- [Right box] -----
+#+ATTR_HTML: :class h-content iborder-3x content-center
+#+begin_bg-inner-box
 #+ATTR_HTML: :class text-tb-sm border-collapse
 #+caption: Utilities to change the font size (Part 2)
 #+label: tab:text-utilitites2
@@ -178,15 +191,33 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 | text-8xl | 6rem      |  96 |           1 |  1 |
 | text-9xl | 8rem      | 128 |           1 |  1 |
 |----------+-----------+-----+-------------+----
-#+end_pt-10
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_grid
-
-** Size: extra small until 2 extra large
+** Demo of the text-size utilities
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x"
 :CUSTOM_ID: 5-3
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class grid  bg-inner-box iborder-3x content-center text-body-md
+#+begin_h-content
+- In the slides below a sample of each of the utilities that modify the text-size is provided.
+- In the org-file, an HTML attribute is used to specify the utility before each list item 
+#+begin_src org -n
+  ,#+ATTR_HTML: :class text-xs
+  - *Extra small:* =text-xs=
+    
+  ,#+ATTR_HTML: :class text-sm
+  - *Small:* =text-sm=
+#+end_src
+- Note that a blank line is inserted between list items (line 3)
+#+end_h-content
+** Size: extra small until 2 extra large
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 5-4
+:END:
+#+ATTR_HTML: :class flex flex-col justify-evenly bg-inner-box iborder-3x
 #+begin_h-content
 #+ATTR_HTML: :class text-xs
 - *Extra small:* =text-xs=
@@ -208,10 +239,10 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 #+end_h-content
 ** Size: 3 and 4 Extra large
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 5-4
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 5-5
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-col justify-evenly bg-inner-box iborder-3x
 #+begin_h-content
 #+ATTR_HTML: :class text-3xl
 - *3 Extra large:* =text-3xl=
@@ -221,50 +252,50 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 #+end_h-content
 ** Size 5 Extra large
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 5-5
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 5-6
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-col justify-evenly bg-inner-box iborder-3x
 #+begin_h-content
 #+ATTR_HTML: :class text-5xl w-full
 - *5 Extra large:* =text-5xl=
 #+end_h-content
 ** Size 6 Extra large
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 5-6
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 5-7
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-col justify-evenly bg-inner-box iborder-3x
 #+begin_h-content
 #+ATTR_HTML: :class text-6xl
 - =text-6xl=
 #+end_h-content
 ** Size: 7 Extra large
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 5-7
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 5-8
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-col justify-evenly bg-inner-box iborder-3x
 #+begin_h-content
 #+ATTR_HTML: :class text-7xl
 - =text-7xl=
 #+end_h-content
 ** Size 8: Extra large (text-8xl)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 5-8
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 5-9
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-col justify-evenly bg-inner-box iborder-3x
 #+begin_h-content
 #+ATTR_HTML: :class text-8xl
 - =8xl=
 #+end_h-content
 ** Size: 9 Extra large (text-9xl)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 5-9
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 5-10
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-col justify-evenly bg-inner-box iborder-3x
 #+begin_h-content
 #+ATTR_HTML: :class text-9xl
 - =9xl=
@@ -276,59 +307,121 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 #+begin_export html
 <i class="fas fa-ruler-vertical text-subsection textCol-link"></i>
 #+end_export
-** Default
+** Default line height
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 6-2
 :END:
-#+ATTR_HTML: :class flex flex-col justify-center bg-gray iborder-3x text-body-lg
+#+ATTR_HTML: :class grid grid-rows-2 gap-4 text-body
 #+begin_h-content
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-body-md
+#+begin_bg-inner-box
+- The following example show the default line-height for list items and for paragraphs
+- For the paragraph below, the following utilities were used
+  - =text-left=: Aligns the text to the left margin.
+  - =px-4=: Includes a padding on the horizontal axis
+#+end_bg-inner-box
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-left px-4
+#+begin_bg-inner-box
+Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-** Leading normal
+** =leading-normal=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x"
 :CUSTOM_ID: 6-3
 :END:
-#+ATTR_HTML: :class flex flex-col justify-center bg-gray iborder-3x
+#+ATTR_HTML: :class grid grid-rows-2 gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class text-body-lg leading-normal
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-body-md
+#+begin_bg-inner-box
+#+ATTR_HTML: :class leading-normal
+- The following example show the result of using the utility , =leading-normal= for list items and for paragraphs
+- It is specified using an html attribute, =#+ATTR_HTML: :class leading-normal= above the first list item.
+#+end_bg-inner-box
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-left px-4
+#+begin_bg-inner-box
+#+ATTR_HTML: :class !leading-normal
+In the case of paragraphs using the above will not work as the setting that takes precedence is that of the Reveal.js theme. To force the use of that utility it has to be written as, =#+ATTR_HTML: :class !leading-normal=. /Note the use of an exclamation mark before the utility/. The same was done for the slides below. 
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
 ** Leading relaxed
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 6-4
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class grid grid-rows-2 gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class text-body-lg leading-relaxed
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-body-md
+#+begin_bg-inner-box
+#+ATTR_HTML: :class leading-relaxed
+- The following example show the result of using the utility , =leading-relaxed= for list items and for paragraphs
+- It is specified using an html attribute, =#+ATTR_HTML: :class leading-relaxed= above the list or paragraph
+#+end_bg-inner-box
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-left px-4
+#+begin_bg-inner-box
+#+ATTR_HTML: :class !leading-relaxed
+Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
 ** Leading none
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x "
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 6-5
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class grid grid-rows-2 gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class text-body-lg leading-none
-- Fusce suscipit, wisi nec facilisis facilisis, est dui fermentum leo, quis tempor ligula erat quis odio.
-- Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-body-md
+#+begin_bg-inner-box
+#+ATTR_HTML: :class leading-none
+- The following example show the result of using the utility , =leading-none= for list items and for paragraphs
+- It will remove any extra space between lines making it the same height of the font size.
+#+end_bg-inner-box
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-left px-4
+#+begin_bg-inner-box
+#+ATTR_HTML: :class !leading-none
+Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
 ** Leading custom
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 6-6
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class grid grid-rows-2 gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class text-body-lg leading-[2.5]
-- The line-height can be set to an arbitrary value using the utility =leading-[<custom-val>]=
-- This list was set to =leading-[2.5]=
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-body-md
+#+begin_bg-inner-box
+#+ATTR_HTML: :class leading-[1.8]
+- The following example show the result of using the utility , =leading-[<value>]= for list items and for paragraphs
+  - Where =<value>= could be a integer or floating point value.
+- For this list and the paragraph below it was set to =1.8=
+#+end_bg-inner-box
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-left px-4
+#+begin_bg-inner-box
+#+ATTR_HTML: :class !leading-[1.8]
+Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
 * Font weight
 :PROPERTIES:
@@ -337,15 +430,56 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 #+begin_export html
 <i class="fas fa-bold text-subsection textCol-link"></i>
 #+end_export
-** Font weight 200 - 900
+** Font weight
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 7-2
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x text-box
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 text-body-md
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow iborder-3x max-w-slide-049 content-start
+#+begin_bg-inner-box
+- The font weight is specified using the utility, =font-<weight>= where =<weight>= can take one of the  values described in the table on the right:
+#+end_bg-inner-box
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class grow iborder-3x max-w-slide-049 content-start
+#+begin_bg-inner-box
+#+ATTR_HTML: :class py-3 text-tb-sm
+| Weight        | Value |
+|---------------+-------|
+| =thin=        |   100 |
+| =extralight=  |   200 |
+| =light=       |   300 |
+| =normal=      |   400 |
+| =medium=      |   500 |
+| =semibold=    |   600 |
+| =bold=        |   700 |
+| =extrabold=   |   800 |
+| =black=       |   900 |
+#+end_bg-inner-box
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class w-slide iborder-3x content-start
+#+begin_bg-inner-box
+- Note that the used font must support all these weights.
+- For this presentation the font used was specified as, @@html:<code class="text-body-xs">#+REVEAL_EXTRA_CSS: https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap</code>@@
+#+end_bg-inner-box
+# ----- [End of slide] -----
+#+end_h-content
+** Font weight 100-900
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
+:CUSTOM_ID: 7-3
+:END:
+#+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-evenly content-start text-body
 #+begin_h-content
 #+ATTR_HTML: :class font-thin
-- [200] /Thin:/ The quick brown fox jumps over the lazy dog.
+- [100] /Thin:/ The quick brown fox jumps over the lazy dog.
+
+#+ATTR_HTML: :class font-extralight
+- [200] /Extralight:/ The quick brown fox jumps over the lazy dog.
 
 #+ATTR_HTML: :class font-light
 - [300] /Light:/ The quick brown fox jumps over the lazy dog.
@@ -368,12 +502,12 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 #+ATTR_HTML: :class font-black
 - [900] /Black:/ The quick brown fox jumps over the lazy dog.
 #+end_h-content
-** Default compared to other weights
+** Default font compared to other weights
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 7-3
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 7-4
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x text-box
+#+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-evenly content-start text-body
 #+begin_h-content
 - [Default] The quick brown fox jumps over the lazy dog.
 
@@ -390,7 +524,7 @@ The purpose of this presentation is to show how a [[https://revealjs.com/speaker
 - [600] /Semi bold:/ The quick brown fox jumps over the lazy dog.
 #+end_h-content
 #+begin_notes
-Note that the default font has to be at the top or it will inherit the class from the list above. 
+Note that in the org-file the default font has to be at the top or it will inherit the class from the list-item above. 
 #+end_notes
 * Visibility
 :PROPERTIES:
@@ -399,74 +533,79 @@ Note that the default font has to be at the top or it will inherit the class fro
 #+begin_export html
 <i class="fas fa-eye text-subsection textCol-link"></i>
 #+end_export
+
 ** Invisible elements
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 8-2
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 max-w-full
+#+ATTR_HTML: :class grid grid-cols-2 grid-flow-cols gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class grow max-w-slide-05 iborder-3x text-body hover:invisible duration-200 delay-100 ease-in
-#+begin_bg-gray
+# ----- [Top left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly active:invisible
+#+begin_bg-inner-box
 #+ATTR_HTML: :class h-content-035
 #+caption: Landscape 1
-[[file:personal/images/landscape-1.jpg]]
-#+end_bg-gray
+[[file:src/images/landscape-1.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow max-w-slide-05 iborder-3x hover:invisible duration-200 delay-100 ease-in
-#+begin_bg-color
-Hover over any of the image boxes to make it invisible
-#+end_bg-color
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-body-lg active:invisible
+#+begin_bg-inner-box
+Click and hold on any colored box to make it invisible
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow max-w-slide-05 iborder-3x text-body hover:invisible duration-200 delay-100 ease-in
-#+begin_bg-color
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 2b
-[[file:personal/images/landscape-2.jpg]]
-#+end_bg-color
-
-#+ATTR_HTML: :class grow max-w-slide-05 iborder-3x text-body hover:invisible duration-200 delay-100 ease-in
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 3
-[[file:personal/images/landscape-3.jpg]]
-#+end_bg-gray
-#+end_h-content
-
-** Hidden elements
-:PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 8-3
-:END:
-#+ATTR_HTML: :class grid grid-cols-2  grid-flow-row gap-4 
-#+begin_h-content
-#+ATTR_HTML: :class w-slide-045 iborder-3x text-body hover:hidden duration-500 delay-200 ease-in-out
-#+begin_bg-color
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 1
-[[file:personal/images/landscape-1.jpg]]
-#+end_bg-color
-
-#+ATTR_HTML: :class w-slide-045 iborder-3x hover:hidden duration-500 delay-200 ease-in-out
-#+begin_bg-gray
-Hover over any of the image boxes to hide them. This causes the layout to change
-#+end_bg-gray
-
-#+ATTR_HTML: :class w-slide-045 iborder-3x text-body hover:hidden duration-500 delay-200 ease-in-out
-#+begin_bg-gray
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly active:invisible
+#+begin_bg-inner-box
 #+ATTR_HTML: :class h-content-035
 #+caption: Landscape 2
-[[file:personal/images/landscape-2.jpg]]
-#+end_bg-gray
+[[file:src/images/landscape-2.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class w-slide-045 iborder-3x text-body hover:hidden duration-500 delay-200 ease-in-out
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 3
-[[file:personal/images/landscape-3.jpg]]
-#+end_bg-gray
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly active:invisible
+#+begin_bg-inner-box
+- The change in the visibility was obtained with the utility, =active:invisible= applied to each box.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
+** Hidden elements
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
+:CUSTOM_ID: 8-3
+:END:
+#+ATTR_HTML: :class grid grid-cols-2 grid-flow-cols gap-4 text-body
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class iborder-3x content-center active:hidden
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035
+#+caption: Landscape 1
+[[file:src/images/landscape-1.jpg]]
+#+end_bg-inner-box
 
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x content-center text-body-lg active:hidden
+#+begin_bg-inner-box
+Click and hold on any colored box to hide it. This causes the layout to change
+#+end_bg-inner-box
+
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class iborder-3x content-center active:hidden
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035
+#+caption: Landscape 2
+[[file:src/images/landscape-2.jpg]]
+#+end_bg-inner-box
+
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class iborder-3x content-center active:hidden
+#+begin_bg-inner-box
+- The change in the visibility was obtained with the utility, =active:hiden= applied to each box
+#+end_bg-inner-box
+# ----- [End of slide] -----
+#+end_h-content
 * Padding
 :PROPERTIES:
 :CUSTOM_ID: 9
@@ -476,16 +615,16 @@ Hover over any of the image boxes to hide them. This causes the layout to change
 #+end_export
 ** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 9-2
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-evenly items-center text-body-md
 #+begin_h-content
-#+ATTR_HTML: :class  h-content-015 w-slide-045 border rounded-2xl  text-center mx-auto
-#+begin_bg-color
-p<direction>-<size>
-#+end_bg-color
-#+ATTR_HTML: :class text-body leading-relaxed
+#+ATTR_HTML: :class bg-inner-box w-slide-045 content-center iborder-3x text-body-lg
+#+begin_h-content-015
+=p<direction>-<size>=
+#+end_h-content-015
+#+ATTR_HTML: :class leading-[2] self-start
 - *Direction:* top [t], bottom [b], left [l], right [r], x-axis[x], y-axis [y]
 - *Size:* 0, 0.5, 1, 1.5, ..., 4, 5, 6, ..., 12, 14, 16, 20, 24, 28, ..., 64, 72, 80, 96
  - Where 1 = 0.25rem
@@ -493,10 +632,10 @@ p<direction>-<size>
 #+end_h-content
 ** Example: None, px-4, px-6, px-10
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 9-3
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap max-w-full justify-evenly items-center bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-row bg-inner-box iborder-3x justify-evenly content-center text-body
 #+begin_h-content
 #+ATTR_HTML: :class border-2 rounded-2xl w-1/4 text-box-sm
 #+begin_h-content-09
@@ -527,79 +666,88 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor
 #+end_export
 ** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 10-2
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-evenly items-center text-body-md
 #+begin_h-content
-#+ATTR_HTML: :class h-content-015 w-slide-045 border rounded-2xl  text-center mx-auto
-#+begin_bg-color
-m<direction>-<size>
-#+end_bg-color
-
-#+ATTR_HTML: :class text-body leading-relaxed
+#+ATTR_HTML: :class bg-inner-box w-slide-045 content-center iborder-3x text-body-lg
+#+begin_h-content-015
+=m<direction>-<size>=
+#+end_h-content-015
+#+ATTR_HTML: :class leading-[2] self-start
 - *Direction:* top [t], bottom [b], left [l], right [r], x-axis[x], y-axis [y], auto
  - auto: horizontally centers the element within its parent container
  - If the direction is omitted the margin is applied to all sides
 #+end_h-content
 ** Example: Left margin
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x "
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 10-3
 :END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-4 text-body
+#+ATTR_HTML: :class grid grid-rows-2 gap-4 text-body-lg
 #+begin_h-content
-#+ATTR_HTML: :class flex flex-row items-center
-#+begin_h-content-045
-#+ATTR_HTML: :class bg-color border-2 rounded-2xl w-slide-015 text-box flex items-center justify-center
+# ----- [Top box] -----
+#+ATTR_HTML: :class flex flex-row
+#+begin_items-center
+#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center
 #+begin_h-content-04
 /none/
 #+end_h-content-04
 
-#+ATTR_HTML: :class bg-color border-2 rounded-2xl w-slide-015 text-box flex items-center justify-center ml-1
+#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center ml-1
 #+begin_h-content-04
 ml-1
 #+end_h-content-04
 
-#+ATTR_HTML: :class bg-color border-2 rounded-2xl w-slide-015 text-box flex items-center justify-center ml-2
+#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center ml-2
 #+begin_h-content-04
 ml-2
 #+end_h-content-04
 
-#+ATTR_HTML: :class bg-color border-2 rounded-2xl w-slide-015 text-box flex items-center justify-center ml-3
+#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center ml-3
 #+begin_h-content-04
 ml-3
 #+end_h-content-04
 
-#+ATTR_HTML: :class bg-color border-2 rounded-2xl w-slide-015 text-box flex items-center justify-center ml-8
+#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center ml-8
 #+begin_h-content-04
 ml-8
 #+end_h-content-04
-#+end_h-content-045
+#+end_items-center
 
-#+ATTR_HTML: :class flex flex-row items-center
-#+begin_h-content-045
-#+ATTR_HTML: :class bg-color border-2 rounded-2xl w-slide-015 text-box flex items-center justify-center
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class flex flex-row
+#+begin_items-center
+#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center
 #+begin_h-content-04
 /none/
 #+end_h-content-04
 
-#+ATTR_HTML: :class bg-color border-2 rounded-2xl w-slide-015 text-box flex items-center justify-center ml-10
+#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center ml-10
 #+begin_h-content-04
 ml-10
 #+end_h-content-04
 
-#+ATTR_HTML: :class bg-color border-2 rounded-2xl w-slide-015 text-box flex items-center justify-center ml-14
+#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center ml-14
 #+begin_h-content-04
 ml-14
 #+end_h-content-04
 
-#+ATTR_HTML: :class bg-color border-2 rounded-2xl w-slide-015 text-box flex items-center justify-center ml-24
+#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center ml-24
 #+begin_h-content-04
 ml-24
 #+end_h-content-04
-#+end_h-content-045
+#+end_items-center
+# ----- [End of slide] -----
 #+end_h-content
+#+begin_notes
+This slide used the =slide_2vboxes_grid= template but was modified as follows:
+- The parent class of each inner box was modified to: =#+ATTR_HTML: :class flex flex-row= and the block was changed to =items-center= instead of =bg-inner-box=
+- Each of the boxes were had the following HTML attribute: =#+ATTR_HTML: :class bg-inner-box border-2 rounded-2xl w-slide-015 flex items-center justify-center=
+  - Were reported the margin utility was added to the above, e.g. =ml-8=.
+  - The block was =h-content-04= and contained the margin utility.
+#+end_notes
 * Border
 :PROPERTIES:
 :CUSTOM_ID: 11
@@ -607,39 +755,39 @@ ml-24
 #+begin_export html
 <i class="fas fa-border-style text-subsection textCol-link"></i>
 #+end_export
-** Syntax
+*** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 11-2
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
+:CUSTOM_ID: 11-1
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap max-w-full justify-evenly items-center bg-gray iborder-3x text-body gap-1
+#+ATTR_HTML: :class flex flex-row flex-wrap bg-inner-box iborder-3x justify-evenly items-center text-body-md gap-2
 #+begin_h-content
-#+ATTR_HTML: :class h-content-0125 border rounded-2xl text-center
-#+begin_bg-color
-border-<side>-<size>
-#+end_bg-color
+#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+begin_h-content-015
+=border-<side>-<size>=
+#+end_h-content-015
 
-#+ATTR_HTML: :class h-content-0125 border rounded-2xl text-center
-#+begin_bg-color
-border-<style>
-#+end_bg-color
+#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+begin_h-content-015
+=border-<style>=
+#+end_h-content-015
 
-#+ATTR_HTML: :class h-content-0125 border rounded-2xl text-center
-#+begin_bg-color
-border-<color>
-#+end_bg-color
+#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+begin_h-content-015
+=border-<color>=
+#+end_h-content-015
 
-#+ATTR_HTML: :class h-content-0125 border rounded-2xl text-center
-#+begin_bg-color
-border-<color>/<level>
-#+end_bg-color
+#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+begin_h-content-015
+=border-<color>/<level>=
+#+end_h-content-015
 
-#+ATTR_HTML: :class h-content-0125 border rounded-2xl text-center
-#+begin_bg-color
-rounded-<radius>
-#+end_bg-color
+#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+begin_h-content-015
+=rounded-<radius>=
+#+end_h-content-015
 
-#+ATTR_HTML: :class leading-relaxed w-slide 
+#+ATTR_HTML: :class leading-relaxed w-slide text-body
 - *Side:* top [t], bottom [b], left [l], right [r]
 - *Size:* 0, 2, 4, 8px (default 1)
 - *Style:* none, dashed, dotted, double, solid (default)
@@ -648,115 +796,129 @@ rounded-<radius>
 - *Level:* 0, 5, 10, 15, ..., 100
  - Example: =border-red-600/25=
 - *Radius:*
+  |-----------+------+-------+------+-------+-----+------+-----+-----+-------|
   | Utilities | none |    sm |    _ |    md |  lg |   xl | 2xl | 3xl | full  |
+  |-----------+------+-------+------+-------+-----+------+-----+-----+-------|
   | rem       |      | 0.125 | 0.25 | 0.375 | 0.5 | 0.75 |   1 | 1.5 | ~inf. |
+  |-----------+------+-------+------+-------+-----+------+-----+-----+-------|
 #+end_h-content
+#+begin_notes
+This slide used the =slide_1box_flex_row= template with the following utilities.
+- To the parent element the parent element =flex-wrap= =gap-2= =text-body-md=.
+  - =flex-wrap= will place the pill-like boxes in additional rows
+  - =gap-2= will increase the space between the pills.
+  - =text-body-md= will increase the font-size.
+#+end_notes
 ** Examples: size and style
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 11-3
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
+:CUSTOM_ID: 11-2
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap max-w-full justify-evenly items-center bg-gray iborder-3x text-body gap-2
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-2 bg-inner-box iborder-3x justify-evenly content-center text-body
 #+begin_h-content
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex items-center justify-center border
-#+begin_bg-color
+#+begin_bg-inner-box
 border
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex items-center justify-center border-2
-#+begin_bg-color
+#+begin_bg-inner-box
 border-2
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex items-center justify-center border-4
-#+begin_bg-color
+#+begin_bg-inner-box
 border-4
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex items-center justify-center border-8
-#+begin_bg-color
+#+begin_bg-inner-box
 border-8
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-4
-#+begin_bg-color
+#+begin_bg-inner-box
 border-4
 
 border solid (default)
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-4 border-dashed
-#+begin_bg-color
+#+begin_bg-inner-box
 border-4
 
 border dashed
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-4 border-dotted
-#+begin_bg-color
+#+begin_bg-inner-box
 border-4
 
 border dotted
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-4 border-double
-#+begin_bg-color
+#+begin_bg-inner-box
 border-4
 
 border double
-#+end_bg-color
+#+end_bg-inner-box
 #+end_h-content
 #+begin_notes
-- To separate evenly the boxes it is needed to use a gap value
-- Because it is a flexbox there is no need to use =mx-auto= but rather =justify-evenly= at the top container
+This slide used the =slide_1box_flex_row= template but was modified as follows:
+- The parent element included the utilities =flex-wrap= and =gap-2=
+- For each block that shows the border utility values, the following HTML attribute was used =#+ATTR_HTML: :class h-content-04 w-slide-02 flex items-center justify-center border= where the last class is the border utility illustrated.
 #+end_notes
 ** Examples: radius and opacity
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 11-4
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
+:CUSTOM_ID: 11-3
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap max-w-full justify-evenly items-center bg-gray iborder-3x gap-3 text-body
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-2 bg-inner-box iborder-3x justify-evenly content-center text-body
 #+begin_h-content
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-4 rounded-md
-#+begin_bg-color
+#+begin_bg-inner-box
 rounded-md
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-4 rounded-xl
-#+begin_bg-color
+#+begin_bg-inner-box
 rounded-xl
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-4 rounded-3xl
-#+begin_bg-color
+#+begin_bg-inner-box
 rounded-3xl
-#+end_bg-color
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-4 rounded-full
-#+begin_bg-color
+#+begin_bg-inner-box
 rounded-full
-#+end_bg-color
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-8 border-red-700/80
-#+begin_bg-color
-border-red-700/80
-#+end_bg-color
+#+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-8 border-ana-C-1/80
+#+begin_bg-inner-box
+border-ana-C-1/80
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-8 border-red-700/50
-#+begin_bg-color
-border-red-700/50
-#+end_bg-color
+#+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-8 border-ana-C-1/50
+#+begin_bg-inner-box
+border-ana-C-1/50
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-8 border-red-700/20
-#+begin_bg-color
-border-red-700/20
-#+end_bg-color
+#+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-8 border-ana-C-1/20
+#+begin_bg-inner-box
+border-ana-C-1/20
+#+end_bg-inner-box
 
 #+ATTR_HTML: :class h-content-04 w-slide-02 flex flex-wrap items-center justify-center border-8 border-transparent
-#+begin_bg-color
+#+begin_bg-inner-box
 border-transparent
-#+end_bg-color
+#+end_bg-inner-box
 #+end_h-content
+#+begin_notes
+This slide used the =slide_1box_flex_row= template but was modified in a similar way as the slide above it.
+#+end_notes
 * Background color
 :PROPERTIES:
 :CUSTOM_ID: 12
@@ -766,33 +928,33 @@ border-transparent
 #+end_export
 ** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 12-2
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap max-w-full justify-evenly items-center bg-gray iborder-3x text-body-sm gap-2
+#+ATTR_HTML: :class flex flex-row flex-wrap bg-inner-box iborder-3x justify-evenly content-center text-body-md gap-2
 #+begin_h-content
-#+ATTR_HTML: :class border rounded-2xl text-center px-1
+#+ATTR_HTML: :class bg-inner-box text-center iborder-3x px-2
 #+begin_bg-color
-bg-<color>
+=bg-<color>=
 #+end_bg-color
 
-#+ATTR_HTML: :class border rounded-2xl text-center px-1
+#+ATTR_HTML: :class bg-inner-box text-center iborder-3x px-2
 #+begin_bg-color
-border-opacity-<level>
+=border-opacity-<level>=
 #+end_bg-color
 
-#+ATTR_HTML: :class border rounded-2xl text-center px-1
+#+ATTR_HTML: :class bg-inner-box text-center iborder-3x px-2
 #+begin_bg-color
-shadow-<size>
+=shadow-<size>=
 #+end_bg-color
 
-#+ATTR_HTML: :class border rounded-2xl text-center px-1
+#+ATTR_HTML: :class bg-inner-box text-center iborder-3x px-2
 #+begin_bg-color
-bg-gradient-to-<direction> from-<color> to-<color>
+=bg-gradient-to-<direction> from-<color> to-<color>=
 #+end_bg-color
 
 #+ATTR_HTML: :class leading-relaxed text-body
-- *Color:* slate, gray, zinc, neutral, stone, red, orange, amber, yellow, line, green, emerald, teal, cyan, sky, blue, indigo, violet, fuchsia, pink, rose
+- *Color:* red, orange, amber, yellow, lime, green, emerald, teal, cyan, sky, blue, indigo, violet, purple, fuchsia, pink, rose  , slate, gray, zinc, neutral, stone
 - *Level:* 50, 100, 200, ..., 900, 950
 - *Size:* xs, sm, md, lg, xl, 2xl
 - *Direction:* top [t], bottom [b], left [l], right [r], top-left [tl], top-right [tr], bottom-left [bl], bottom-right [br]
@@ -800,11 +962,11 @@ bg-gradient-to-<direction> from-<color> to-<color>
  - If no 'to' or 'from' color is specified it defaults to transparent
  - An intermediate color can be included with =via-<color>=
 #+end_h-content
-** Color raw html                           :noexport:
+** Color palette [Html code]                  :noexport:
 :PROPERTIES:
 :CUSTOM_ID: 12-3
 :END:
-#+NAME: myheader
+#+NAME: iheader
 #+begin_src emacs-lisp :results raw
   "#+begin_export html
     <div class=\"text-left pl-2\"><p>Values</p></div>
@@ -823,7 +985,7 @@ bg-gradient-to-<direction> from-<color> to-<color>
     </div>
   #+end_export"
 #+end_src
-#+NAME: mypalette
+#+NAME: ipalette
 #+begin_src emacs-lisp :var value="stone" :results raw
   (format "#+begin_export html
   <div class=\"text-left pl-2\"><p>%1$s</p></div>
@@ -842,13 +1004,13 @@ bg-gradient-to-<direction> from-<color> to-<color>
   </div>\n#+end_export" label value)
 #+end_src
 
-** Example: colors
+** Example available colors
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide iborder-2x "
 :CUSTOM_ID: 12-4
 :END:
 
-#+ATTR_HTML: :class grid grid-cols-[7%_42%_7%_42%] gap-x-1 bg-gray iborder-3x text-body-sm
+#+ATTR_HTML: :class grid grid-cols-[7%_42%_7%_42%] gap-x-1 text-body-sm
 #+begin_h-content
 #+ATTR_HTML: :class pl-2
 #+begin_text-left
@@ -912,7 +1074,7 @@ Values
 #+end_h-content-0125
 #+end_grid
 
-#+CALL: myheader()
+#+CALL: iheader()
 #+ATTR_HTML: :class pl-2
 #+begin_text-left
 Stone
@@ -974,46 +1136,100 @@ Stone
 
 #+end_h-content-0125
 #+end_grid
-#+CALL: mypalette(label="Teal",value="teal")
-#+CALL: mypalette(label="Red",value="red")
-#+CALL: mypalette(label="Cyan",value="cyan")
-#+CALL: mypalette(label="Orange",value="orange")
-#+CALL: mypalette(label="Blue",value="blue")
-#+CALL: mypalette(label="Amber",value="amber")
-#+CALL: mypalette(label="Violet",value="violet")
-#+CALL: mypalette(label="Lime",value="lime")
-#+CALL: mypalette(label="Yellow",value="yellow")
-#+CALL: mypalette(label="Green",value="green")
-#+CALL: mypalette(label="Rose",value="rose")
+#+CALL: ipalette(label="Teal",value="teal")
+#+CALL: ipalette(label="Red",value="red")
+#+CALL: ipalette(label="Cyan",value="cyan")
+#+CALL: ipalette(label="Orange",value="orange")
+#+CALL: ipalette(label="Blue",value="blue")
+#+CALL: ipalette(label="Amber",value="amber")
+#+CALL: ipalette(label="Violet",value="violet")
+#+CALL: ipalette(label="Lime",value="lime")
+#+CALL: ipalette(label="Yellow",value="yellow")
+#+CALL: ipalette(label="Green",value="green")
+#+CALL: ipalette(label="Rose",value="rose")
 #+end_h-content
-** Example: gradient
+** Custom color palette [Html code]           :noexport:
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
 :CUSTOM_ID: 12-5
 :END:
-#+ATTR_HTML: :class grid grid-cols-2  grid-flow-row gap-4 
+#+NAME: iheader-custom
+#+begin_src emacs-lisp :results raw
+  (format "#+begin_export html
+    <div class=\"text-left pl-2\"><p>Suffix</p></div>
+    <div class=\"grid-cols-5 gap-2 grid\">
+    <div class=\"h-content-%1$s\"><p>1</p></div>
+    <div class=\"h-content-%1$s\"><p>2</p></div>
+    <div class=\"h-content-%1$s\"><p>3</p></div>
+    <div class=\"h-content-%1$s\"><p>4</p></div>
+    <div class=\"h-content-%1$s\"><p>5</p></div>
+    </div>\n#+end_export" height)
+#+end_src
+
+#+NAME: ipalette-custom-2
+#+begin_src emacs-lisp :var value="des-B" :results raw
+  (format "#+begin_export html
+  <div class=\"text-left pl-2\"><p>%1$s</p></div>
+  <div class=\"grid-cols-5 gap-1 grid\">
+  <div class=\"h-content-%2$s bg-%3$s-1%4$s\"><p></p></div>
+  <div class=\"h-content-%2$s bg-%3$s-2%4$s\"><p></p></div>
+  </div>\n#+end_export" label height value class)
+#+end_src
+ipalette
+#+NAME: ipalette-custom-4
+#+begin_src emacs-lisp :var value="ana-B1" :results raw
+  (format "#+begin_export html
+  <div class=\"text-left pl-2\"><p>%1$s</p></div>
+  <div class=\"grid-cols-5 gap-1 grid\">
+  <div class=\"h-content-%2$s bg-%3$s-1%4$s\"><p></p></div>
+  <div class=\"h-content-%2$s bg-%3$s-2%4$s\"><p></p></div>
+  <div class=\"h-content-%2$s bg-%3$s-3%4$s\"><p></p></div>
+  <div class=\"h-content-%2$s bg-%3$s-4%4$s\"><p></p></div>
+  </div>\n#+end_export" label height value class)
+#+end_src
+
+#+NAME: ipalette-custom-5
+#+begin_src emacs-lisp :var value="grad-LinkMain" :results raw
+  (format "#+begin_export html
+  <div class=\"text-left pl-2\"><p>%1$s</p></div>
+  <div class=\"grid-cols-5 gap-1 grid\">
+  <div class=\"h-content-%2$s bg-%3$s-1%4$s\"><p></p></div>
+  <div class=\"h-content-%2$s bg-%3$s-2%4$s\"><p></p></div>
+  <div class=\"h-content-%2$s bg-%3$s-3%4$s\"><p></p></div>
+  <div class=\"h-content-%2$s bg-%3$s-4%4$s\"><p></p></div>
+  <div class=\"h-content-%2$s bg-%3$s-5%4$s\"><p></p></div>
+  </div>\n#+end_export" label height value class)
+#+end_src
+
+** Custom color palette [Theme-based]
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide iborder-2x title-md"
+:CUSTOM_ID: 12-6
+:END:
+#+ATTR_HTML: :class grid grid-cols-[15%_34%_15%_34%] gap-x-1 text-body-sm
 #+begin_h-content
-#+ATTR_HTML: :class w-slide-045 iborder-3x text-body text-orange-400 bg-gradient-to-r from-teal-950 to-teal-100
-#+begin_h-slide-045
-*bg-gradient-to-r from-teal-950 to-teal-100*
-#+end_h-slide-045
+#+CALL: iheader-custom(height="01")
+#+CALL: iheader-custom(height="01")
 
-#+ATTR_HTML: :class w-slide-045 iborder-3x text-body text-orange-400 bg-gradient-to-t from-lime-700 to-amber-200
-#+begin_h-slide-045
-*bg-gradient-to-t from-lime-700 to-amber-200*
-#+end_h-slide-045
+#+CALL: ipalette-custom-5(label="Gradient Link-Bg",height="01",value="grad-LinkBg",class="")
+#+CALL: ipalette-custom-5(label="Gradient Link-Main",height="01",value="grad-LinkMain",class="")
 
-#+ATTR_HTML: :class w-slide-045 iborder-3x text-body text-orange-400 bg-gradient-to-tr from-blue-500 to-rose-500
-#+begin_h-slide-045
-*bg-gradient-to-tr from-blue-500 to-rose-500*
-#+end_h-slide-045
+#+CALL: ipalette-custom-4(label="Gradient Main-Bg",height="01",value="grad-MainBg",class="")
+#+CALL: ipalette-custom-5(label="Gradient Link Dark-Light",height="01",,value="grad-Link",class="")
 
-#+ATTR_HTML: :class w-slide-045 iborder-3x text-body text-orange-400 bg-gradient-to-tr from-red-500 to-sky-800 via-lime-300
-#+begin_h-slide-045
-*bg-gradient-to-tr from-red-500 to-sky-800 via-lime-300*
-#+end_h-slide-045
+#+CALL: ipalette-custom-4(label="Analogous 15-30",height="01",value="ana-A",class="")
+#+CALL: ipalette-custom-4(label="Analogous 45-60",height="01",value="ana-B",class="")
+
+#+CALL: ipalette-custom-4(label="Analogous 75-90",height="01",value="ana-C",class="")
+#+CALL: ipalette-custom-5(label="Opposite 120-150",height="01",value="opp-Link",class="")
+
+#+CALL: ipalette-custom-2(label="Desaturate Link",height="01",value="des-Link",class="")
+#+CALL: ipalette-custom-2(label="Empty",height="01",value="des-B",class="")
+
+#+CALL: ipalette-custom-5(label="Mix Link-Bg",height="01",value="mix-LinkBg",class="")
+#+CALL: ipalette-custom-5(label="Mix Link-Main",height="01",value="mix-LinkMain",class="")
 #+end_h-content
-* Background images and floats
+
+* Background images, floats and videos
 :PROPERTIES:
 :CUSTOM_ID: 13
 :END:
@@ -1022,74 +1238,179 @@ Stone
 #+end_export
 ** Syntax
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 13-2
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap max-w-full justify-evenly items-center bg-gray iborder-3x text-body
+#+ATTR_HTML: :class flex flex-row flex-wrap bg-inner-box iborder-3x justify-evenly items-center text-body-md gap-2
 #+begin_h-content
-#+ATTR_HTML: :class h-content-0125 border rounded-2xl text-center px-2
-#+begin_bg-color
-bg-<position>
-#+end_bg-color
+#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+begin_h-content-015
+=bg-<position>=
+#+end_h-content-015
 
-#+ATTR_HTML: :class h-content-0125 border rounded-2xl text-center px-2
-#+begin_bg-color
-bg-<tiling>
-#+end_bg-color
+#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+begin_h-content-015
+=bg-<tiling>=
+#+end_h-content-015
 
-#+ATTR_HTML: :class h-content-0125 border rounded-2xl text-center px-2
-#+begin_bg-color
-bg-clip-<location>
-#+end_bg-color
+#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+begin_h-content-015
+=bg-clip-<location>>=
+#+end_h-content-015
 
-#+ATTR_HTML: :class h-content-0125 border rounded-2xl text-center px-2
-#+begin_bg-color
-float-<placement>
-#+end_bg-color
+#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+begin_h-content-015
+=float-<placement>=
+#+end_h-content-015
 
-#+ATTR_HTML: :class leading-relaxed w-slide
+#+ATTR_HTML: :class leading-relaxed w-slide text-body
 - *Position:* center, left, right, top, bottom, left-top, left-bottom, right-bottom, right-top
 - *Tiling:* repeat, repeat-x, repeat-y
 - *Location:* padding, border, content, text
 - *Placement:* none, left, right, clear-left, clear-right, clear-both, clear-none
 #+end_h-content
-** Positioning: Left
+
+** Background images (position left)
 :PROPERTIES:
 :REVEAL_EXTRA_ATTR: class="h-slide pl-10 notitle"
- :reveal_background: ./personal/images/bg-1.jpg
+ :reveal_background: ./src/images/bg-1.jpg
  :reveal_background_size: 70%
- :reveal_background_position: left 
+ :reveal_background_position: left
  :CUSTOM_ID: 13-3
 :END:
-#+ATTR_HTML: :class iborder-3x bg-color w-slide-03 mt-60 px-4 float-right flex flex-col items-end justify-center text-body
+#+ATTR_HTML: :class iborder bg-inner-box -slide-03 mt-60 px-4 float-right flex flex-col items-end justify-center text-body
 #+begin_h-content-03
+Background 1
+
 */Potosí, Bolivia/*
 
 [[https://www.pexels.com/photo/grayscale-photo-of-mountain-6320857/][Photo]] by: [[https://www.pexels.com/@murilo-fonseca-14867612/][Murillo Fonseca]]
 #+end_h-content-03
-#+begin_notes
-- A custom class =notitle= was used to hide the title of the slide
-- For the picture caption a class =float-right= was used to align it to the right of the slide
-  - To move the box to the bottom a =mt-60= was used
-- The utilities =px-4=, =items-end=, =justify-center=, and =text-body= affect the caption text
-#+end_notes
-** Positioning: Percentage x & y axis
+
+
+** Background images (position left) [code]
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="notitle"
-:reveal_background: ./personal/images/bg-2.jpg
-:reveal_background_size: 50%
-:reveal_background_position: 10% 55%
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 13-4
 :END:
-#+ATTR_HTML: :class float-right flex flex-col justify-evenly iborder-3x text-body bg-gradient-to-b from-sky-900/70 to-lime-900/40 via-yellow-600/40 w-slide-045 -mt-14
+#+ATTR_HTML: :class grid bg-inner-box iborder-3x content-center text-body
+#+begin_h-content
+- The code below is for the use of a background image placed at the left side of the slide.
+  - Note that in the original code there is a single HTML attribute, =ATTR_HTML= (lines 9-11).
+#+caption: Code for the use of background images (=postioning-left=)
+#+label: code:positioning-left
+#+name: code:positioning-left
+#+begin_src org -n
+  ,** Positioning: left
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: class="h-slide pl-10 notitle"
+   :reveal_background: ./src/images/bg-1.jpg
+   :reveal_background_size: 70%
+   :reveal_background_position: left
+   :CUSTOM_ID: 13-3
+  :END:
+  ,#+ATTR_HTML: :class iborder bg-inner-box -slide-03 mt-60 px-4
+  ,#+ATTR_HTML: :class float-right flex flex-col items-end 
+  ,#+ATTR_HTML: :class justify-center text-body
+  ,#+begin_h-content-03
+  Background 1
+  
+  ,*/Potosí, Bolivia/*
+
+  [[https://www.pexels.com/photo/grayscale-photo-of-mountain-6320857/][Photo]] by: [[https://www.pexels.com/@murilo-fonseca-14867612/][Murillo Fonseca]]
+  ,#+end_h-content-03
+#+end_src
+#+end_h-content
+** Background images (position on x and y axis)
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="notitle"
+:reveal_background: ./src/images/bg-2.jpg
+:reveal_background_size: 40%
+:reveal_background_position: 30% 55%
+:CUSTOM_ID: 13-5
+:END:
+#+ATTR_HTML: :class float-right flex flex-col justify-evenly iborder-3x text-body bg-gradient-to-b from-sky-900/70 to-lime-900/40 via-yellow-600/40 w-slide-04 -mt-32
 #+begin_h-slide
+Background 2
+
 */Oruro, Bolivia/*
 
 [[https://www.pexels.com/photo/the-sun-sets-over-a-desert-landscape-with-mountains-in-the-background-16889399/][Photo]] by: [[https://www.pexels.com/@marko_aim-537690234/][marko_aim]]
 #+end_h-slide
 #+begin_notes
-Note that the height of the 'caption' box is that of the slide (=h-slide=) and to vertically center a negative margin was used (=-mt-14=)
+Note that the height of the 'caption' box is that of the slide (=h-slide=) and to vertically center a negative margin was used (=-mt-32=)
 #+end_notes
+** Background images (position on x and y axis) [code]
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-sm"
+:CUSTOM_ID: 13-6
+:END:
+#+ATTR_HTML: :class grid  bg-inner-box iborder-3x content-center text-body
+#+begin_h-content
+- The code below is for the use of a background image placed at a particular position on the x- and y-axis.
+  - Note that in the original code there is a single HTML attribute, =ATTR_HTML= (lines 9-12).
+    #+caption: Code for specifying the x and y position of a background image
+#+label: code:x-y-positioning
+#+name: code:x-y-positioning
+#+begin_src org -n
+  ,** Background images (position on x and y axis)
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: class="notitle"
+  :reveal_background: ./src/images/bg-2.jpg
+  :reveal_background_size: 40%
+  :reveal_background_position: 30% 55%
+  :CUSTOM_ID: 13-5
+  :END:
+  ,#+ATTR_HTML: :class float-right flex flex-col justify-evenly
+  ,#+ATTR_HTML: :class iborder-3x text-body bg-gradient-to-b
+  ,#+ATTR_HTML: :class from-sky-900/70 to-lime-900/40 
+  ,#+ATTR_HTML: :class via-yellow-600/40 w-slide-04 -mt-32
+  ,#+begin_h-slide
+  Background 2
+  
+  ,*/Oruro, Bolivia/*
+
+  [[https://www.pexels.com/photo/the-sun-sets-over-a-desert-landscape-with-mountains-in-the-background-16889399/][Photo]] by: [[https://www.pexels.com/@marko_aim-537690234/][marko_aim]]
+  ,#+end_h-slide
+#+end_src
+#+end_h-content
+** Background videos
+:PROPERTIES:
+:CUSTOM_ID: 13-7
+:REVEAL_EXTRA_ATTR: data-background-video="./src/videos/silver-lights-sparkles.mp4" data-background-video-loop data-background-video-muted
+:END:
+#+ATTR_HTML: :class grid bg-inner-box iborder-3x content-center text-body-lg
+#+begin_h-content-04
+- Abstract video with silver bokeh lights and sparkles ([[https://www.vecteezy.com/video/11358562-abstract-video-with-silver-bokeh-lights-and-sparkles][Link]])
+  - Artist: [[https://www.vecteezy.com/members/kjpargeter2018][Kirsty Pargeter]]
+  - Attribution: [[https://www.vecteezy.com/free-videos/abstract][Abstract Stock Videos by Vecteezy]]
+#+end_h-content-04
+** Background videos [code]
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-sm"
+:CUSTOM_ID: 13-8
+:END:
+#+ATTR_HTML: :class grid  bg-inner-box iborder-3x content-evenly text-body
+#+begin_h-content
+- The code below is for the use of a background video that loops and has sound muted.
+  - Note that in the original code there is a single Reveal attribute =REVEAL_EXTRA_ATTR= (lines 3-4).
+#+caption: Code for inserting a background video
+#+label: code:background-video
+#+name: code:background-video
+#+begin_src org -n
+  ,** Background videos
+  :PROPERTIES:
+  :REVEAL_EXTRA_ATTR: data-background-video="./src/videos/silver-lights-sparkles.mp4"
+  :REVEAL_EXTRA_ATTR: data-background-video-loop data-background-video-muted
+  :END:
+  ,#+ATTR_HTML: :class grid bg-inner-box iborder-3x content-center text-body-lg
+  ,#+begin_h-content-04
+  - Abstract video with silver bokeh lights and sparkles ([[https://www.vecteezy.com/video/11358562-abstract-video-with-silver-bokeh-lights-and-sparkles][Link]])
+    - Artist: [[https://www.vecteezy.com/members/kjpargeter2018][Kirsty Pargeter]]
+    - Attribution: [[https://www.vecteezy.com/free-videos/abstract][Abstract Stock Videos by Vecteezy]]
+  ,#+end_h-content-04
+#+end_src
+#+end_h-content
 * Layouts
 :PROPERTIES:
 :CUSTOM_ID: 14
@@ -1097,700 +1418,750 @@ Note that the height of the 'caption' box is that of the slide (=h-slide=) and t
 #+begin_export html
 <i class="fas fa-columns text-section textCol-link"></i>
 #+end_export
-* Title and single content
+* Title and single box
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-md"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x"
 :CUSTOM_ID: 15
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly bg-gray iborder-3x
+#+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-center content-center text-body-lg
 #+begin_h-content
 Box 1
 #+end_h-content
 ** List vertically centered
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x  title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 15-2
 :END:
-#+ATTR_HTML: :class bg-gray flex flex-col iborder-3x
+#+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-evenly content-start text-body
 #+begin_h-content
-#+ATTR_HTML: :class grow content-center leading-relaxed text-body
-- The parent element was set to =flex= and =flex-col=
-- The attributes to the list were set to =grow=, =content-center=, =leading-relaxed=
-  - =grow= will take the whole vertical space (defined as =h-content=)
-  - =content-center= will vertically center the list.
+#+ATTR_HTML: :class leading-relaxed
+- This slide was produced with the snippet =slide_1box_flex_col= which sets the parent element to =flex= and =flex-col=
+- The attributes to the list were set to =leading-relaxed=
   - =leading-relaxed= will increase the space between items.
-    - A custom value can be used such as =leading-[2.5]=but this has to be tested to avoid overflow.
+    - A custom value can be used such as =leading-[2.5]= but this has to be tested to avoid overflow.
       - From a brief test values <=3.3 would work for this amount of text/items.
 #+end_h-content
 ** Evenly spaced list
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 15-3
 :END:
-#+ATTR_HTML: :class grid justify-start bg-gray iborder-3x
+#+ATTR_HTML: :class grid bg-inner-box iborder-3x content-evenly text-body
 #+begin_h-content
-#+ATTR_HTML: :class flex-list  grow  justify-evenly text-body
+#+ATTR_HTML: :class flex-list grow justify-evenly h-content
 - For a list (*without* nested items) it is possible to evenly space the items using a custom class =flex-list=.
 - The class should be equivalent to using the utilities =flex= and =flex-col= but these doesn't work.
-- This list was defined using: =flex-list=  =grow=  =justify-evenly= =text-body=.
-- =grow= will take all the vertical space whereas, =justify-evenly= will spread the items.
+- This list was defined using: =flex-list=  =grow=  =justify-evenly= =h-content=.
+- Importantly =grow= will take all the vertical space defined with the custom class =h-content=.
 #+end_h-content
-* Title and horizontal 2 elements
+* Title and 2 horizontal boxes
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-md"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x"
 :CUSTOM_ID: 16
 :END:
-#+ATTR_HTML: :class grid-cols-2 gap-x-4 iborder-3x
+#+ATTR_HTML: :class grid-cols-2 gap-x-4 text-body-lg
 #+begin_grid
-#+ATTR_HTML: :class bg-gray iborder-3x
-#+begin_h-content
-Box 1
-#+end_h-content
+# ----- [Left box] -----
+#+ATTR_HTML: :class h-content iborder-3x content-evenly
+#+begin_bg-inner-box
+Left box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class bg-gray iborder-3x
-#+begin_h-content
-Box 2
-#+end_h-content
+# ----- [Right box] -----
+#+ATTR_HTML: :class h-content iborder-3x content-evenly
+#+begin_bg-inner-box
+Right box
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_grid
-** Image and a list (Grid)
+** =slide_2hboxes_grid=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 16-2
 :END:
-#+ATTR_HTML: :class grid-cols-2 gap-x-4 iborder-3x
+#+ATTR_HTML: :class grid-cols-2 gap-x-4 text-body
 #+begin_grid
-#+ATTR_HTML: :class bg-gray iborder-3x text-body-xs flex flex-col justify-evenly
-#+begin_h-content
+# ----- [Left box] -----
+#+ATTR_HTML: :class h-content iborder-3x content-evenly
+#+begin_bg-inner-box
 #+ATTR_HTML: :class h-content-05
 #+caption: Two columns layout
-[[file:personal/images/slide-2cols.jpg]]
-#+end_h-content
+[[./src/images/slide-2cols.png]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class bg-gray iborder-3x text-body
-#+begin_h-content
-#+ATTR_HTML: :class leading-relaxed
-- This 2 column layout is obtained with the utility =grid= and =grid-cols-2=
-- The gap between columns (horizontal) is defined with the utility =gap-x-4=
-- These are applied to the parent element containing the columns
-#+end_h-content
+# ----- [Right box] -----
+#+ATTR_HTML: :class h-content iborder-3x content-evenly
+#+begin_bg-inner-box
+#+ATTR_HTML: :class leading-[1.9]
+- The slide was produced using the snippet =slide_2hboxes_grid=.
+- It sets the display of the parent element as: =grid-cols-2=.
+- A utility for the vertical alignment of the elements is presented while inserting the template, =content-<option>=.
+- This will be applied to both columns but can be changed manually later.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_grid
-** Image and a list (Flex)
+** =slide_2hboxes_flex=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 16-3
 :END:
-#+ATTR_HTML: :class flex justify-evenly flex-wrap gap-4
-#+begin_flex-row
-#+ATTR_HTML: :class grow max-w-slide-045 h-content iborder-3x flex flex-col justify-evenly text-body-xs
-#+begin_bg-gray
+#+ATTR_HTML: :class flex flex-row flex-wrap justify-evenly gap-4 text-body 
+#+begin_h-content
+# ----- [Left box] -----
+#+ATTR_HTML: :class grow iborder-3x content-evenly
+#+begin_bg-inner-box
 #+ATTR_HTML: :class h-content-05
 #+caption: Two columns layout
-[[file:personal/images/slide-2cols.jpg]]
-#+end_bg-gray
+[[file:src/images/slide-2cols.png]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow max-w-slide-045 h-content iborder-3x text-body
-#+begin_bg-gray
-#+ATTR_HTML: :class leading-relaxed
-- This 2 column layout is obtained with the utility =flex=, =flex-row= and =max-w-slide-045=.
-- The last utility above was used to limit the width of the columns to roughly half of the slide's width however, it can be modified to have columns of different width.
-  - These should be applied to the element containing the column, not its parent element.
-#+end_bg-gray
-#+end_flex-row
-* Title and 2 vertical elements
+# ----- [Right box] -----
+#+ATTR_HTML: :class grow iborder-3x max-w-slide-04 content-evenly text-body-sm
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content flex-list grow justify-evenly
+- This slide was produced using the snippet, =slide_2hboxes_flex=.
+- It sets the display of the parent element as: =flex= =flex-row= =flex-wrap=.
+- A custom utility is presented to set the maximum width of both 'columns'  (row elements).
+  - By default is set to =w-slide-049= and its applied to both elements.
+  - For this slide it was deleted for the first column and set to =w-slide-04=, allowing the image to take more space.
+  - Larger values would cause the second column to be placed on a new row.
+#+end_bg-inner-box
+# ----- [End of slide] -----
+#+end_h-content
+* Title and 2 vertical boxes
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-md"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x"
 :CUSTOM_ID: 17
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly  gap-4
+#+ATTR_HTML: :class grid grid-rows-2 gap-4 text-body-lg
 #+begin_h-content
-#+ATTR_HTML: :class grow max-h-content-045 iborder-3x
-#+begin_bg-gray
+# ----- [Top box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
 Box 1
-#+end_bg-gray
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow max-h-content-045  iborder-3x
-#+begin_bg-gray
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
 Box 2
-#+end_bg-gray
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
 
-** Image and a list (Grid)
+** =slide_2vboxes_grid=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x "
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 17-2
 :END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-4 
+#+ATTR_HTML: :class grid grid-rows-2 gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
+# ----- [Top box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
 #+ATTR_HTML: :class h-content-035
 #+caption: Two rows layout
-[[file:personal/images/slide-2rows.jpg]]
-#+end_bg-gray
+[[file:src/images/slide-2rows.png]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x text-body-lg text-left
-#+begin_bg-gray
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly text-body-sm
+#+begin_bg-inner-box
 #+ATTR_HTML: :class leading-relaxed
-- This layout is obtained with the utility =grid= and =grid-rows-2=
-- These are applied to the parent element containing the columns
-- As with other grid layouts the height is the same for all the elements
-- The height of the image above was set to =h-content-035=
-- The font size for this list was set to =text-body-lg=
-#+end_bg-gray
+- This slide was produced using the snippet, =slide_2vboxes_grid=. It sets the display to =grid= and =grid-rows-2=.
+- The utility, =content-<position>= is presented to specify the vertical position of the content within each box.
+- For this slide, the height of image on the top box was set using the custom utility, =h-content-035=.
+- The bottom box was modified with the following utilities, =content-start=, =text-left= and =pl-4= and =pt-2= and =text-body-sm=.
+  - =text-left= will place the list on the left side.
+  - =pl-4= and =pt-2= will add some padding distance to the left and top sides, respectively.
+  - =text-body-sm= will reduce the font size to accommodate the list within the box.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-
-** Image and a list (Flex)
+** =slide_2vboxes_flex=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x "
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 17-3
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly  gap-4
+#+ATTR_HTML: :class flex flex-col gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class grow max-h-content-07 w-slide iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-06
+# ----- [Top box] -----
+#+ATTR_HTML: :class grow iborder-3x content-evenly
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-05
 #+caption: Two rows layout
-[[file:personal/images/slide-2rows.jpg]]
-#+end_bg-gray
+[[file:src/images/slide-2rows.png]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow max-h-content-025 w-slide iborder-3x text-body-sm text-left
-#+begin_bg-gray
-#+ATTR_HTML: :class leading-relaxed
-- This layout is obtained with the utility =flex= and =flex-col=.
-- Two elements of full width (=w-slide=) are defined as rows.
-- Their height is variable and defined with: =grow= =max-h-content-07= and =max-h-content-025= for the top and bottom rows, respectively.
-- The font size for this list was set to =text-body-sm=
-#+end_bg-gray
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class grow iborder-3x content-evenly text-body-sm
+#+begin_bg-inner-box
+- This slide was produced using the snippet, =slide_2vboxes_flex=. It sets the display to =flex= and =flex-col=
+- For each box, the utility =grow= is used so it occupies the whole width.
+- Because the boxes can have different heights a larger value for the image's height was selected =h-content-05=
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-* Title and 3 elements (Row span right)
+* Title and 3 boxes (Row span right) 
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-md"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 18
 :END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
+#+ATTR_HTML: :class grid grid-rows-2 grid-flow-col gap-4 text-body-lg
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 1
-#+end_bg-gray
+# ----- [Top left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+Top left box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 2
-#+end_bg-gray
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+Bottom left box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x row-span-2
-#+begin_bg-gray
-Box 3
-#+end_bg-gray
+# ----- [Right box] -----
+#+ATTR_HTML: :class iborder-3x row-span-2 content-evenly
+#+begin_bg-inner-box
+Right box
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-** 2 elements and long description (Grid)
+** =slide_3boxes_rspan_right_grid=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 18-2
 :END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
+#+ATTR_HTML: :class grid grid-rows-2 grid-flow-col gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x text-body-sm flex flex-col
-#+begin_bg-gray
-#+ATTR_HTML: :class leading-relaxed
-- The layout of this slide was set using grid with 2 rows with the third box spanning two rows.
-- The text on the right is 630 characters long (~92 words).
-- Text was aligned using =text-justify= and =px-3=.
-- The height of the image below was set to =h-content-035=. 
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
+# ----- [Top left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
 #+ATTR_HTML: :class h-content-035
 #+caption: Landscape 1
-[[file:personal/images/landscape-1.jpg]]
-#+end_bg-gray
+[[./src/images/landscape-1.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x row-span-2 text-body text-justify px-3
-#+begin_bg-gray
-Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus. Nullam libero mauris, consequat quis, varius et, dictum id, arcu. Mauris mollis tincidunt felis. Aliquam feugiat tellus ut neque.
-#+end_bg-gray
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class iborder-3x content-start
+#+begin_bg-inner-box
+- The height of the image above was set with, =h-content-035= to allow it (and the caption) to fit inside the box
+#+end_bg-inner-box
+
+# ----- [Right box] -----
+#+ATTR_HTML: :class iborder-3x row-span-2 w-slide-06 content-start
+#+begin_bg-inner-box
+#+ATTR_HTML: :class flex-list h-content justify-evenly
+- The slide was produced using the snippet, =slide_3boxes_rspan_right_grid=
+- It sets the display for the parent element to, =grid=, =grid-rows-2=, =grid-flow-col=
+- For this box to span two rows the utility, =row-span-2= is used in the template.
+- A related snippet for having a left box spanning two rows is, =slide_3boxes_rspan_left_grid=
+- For both snippets the width of the column will be fixed.
+- The utility, =w-slide-<value>=  is presented with a default value of =049= that results in both columns having roughly the same width.
+  - For this slide it was set to =w-slide-06=.
+- The utilities to set the width are specially needed if both of the boxes on the left contain images.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-** 2 elements and long description (Flex)
+** =slide_3boxes_rspan_right_flex=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 18-3
 :END:
-#+ATTR_HTML: :class flex flex-col justify-evenly flex-wrap gap-4
+#+ATTR_HTML: :class flex flex-col flex-wrap content-around gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class grow max-w-slide-05 max-h-content-04 iborder-3x text-box-sm
-#+begin_bg-gray
- - The layout of this slide was set using flexbox orientation column with the last box allowed to grow to the height of the content
-- The height of the image below was set to =h-content-045= as its container its allowed to grow.
-#+end_bg-gray
-
-#+ATTR_HTML: :class grow max-w-slide-05 max-h-content-06 iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-045
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-center
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-04
 #+caption: Landscape 1
-[[file:personal/images/landscape-1.jpg]]
-#+end_bg-gray
+[[./src/images/landscape-1.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow max-h-content max-w-slide-045 iborder-3x text-body text-justify px-3
-#+begin_bg-gray
-Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus. Nullam libero mauris, consequat quis, varius et, dictum id, arcu. Mauris mollis tincidunt felis. Aliquam feugiat tellus ut neque.
-#+end_bg-gray
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-start
+#+begin_bg-inner-box
+- The height of the image above was set with, =h-content-055= as the height of the boxes can vary according to the content.
+#+end_bg-inner-box
+
+# ----- [Right box] -----
+#+ATTR_HTML: :class grow h-content iborder-3x w-slide-049 content-evenly text-body-sm px-3
+#+begin_bg-inner-box
+#+ATTR_HTML: :class flex-list grow justify-evenly h-content
+- The slide was produce using the snippet, =slide_3boxes_rspan_right_grid=.
+- It sets the display of the parent element to =flex=, =flex-col= =flex-wrap=
+- The utility, =w-slide-<value>=  is presented with a default value of =049= which results in columns of the same width.
+- To better display the text in this box a padding was applied with =px-3= and the content was vertically center with =content-evenly=.
+- The list items were better spaced using =#+ATTR_HTML: :class flex-list grow justify-evenly h-content=
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-** Long description and 2 elements (Grid)
+* Title and 3 boxes (Column spanning at bottom)
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
-:CUSTOM_ID: 18-4
-:END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-col
-#+begin_h-content
-#+ATTR_HTML: :class iborder-3x row-span-2 text-body text-justify px-3
-#+begin_bg-gray
-Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus. Nullam libero mauris, consequat quis, varius et, dictum id, arcu. Mauris mollis tincidunt felis. Aliquam feugiat tellus ut neque.
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-sm text-left
-#+begin_bg-gray
-#+ATTR_HTML: :class leading-relaxed
-- This is a variation of the grid layout above where the first box was set to span 2 rows.
-- This list was aligned using =text-left= and spaced using =leading-relaxed=.
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-sm text-right
-#+begin_bg-gray
-- Font sizes were defined as follows:
-  - Title: =title-sm=.
-  - Left box: =text-body=.
-  - This and box above: =text-body-sm=
-- This list was aligned using =text-right=
-#+end_bg-gray
-#+end_h-content
-
-** Long description and 2 elements (Flex)
-:PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
-:CUSTOM_ID: 18-5
-:END:
-#+ATTR_HTML: :class flex flex-col justify-evenly flex-wrap gap-4
-#+begin_h-content
-#+ATTR_HTML: :class grow max-w-slide-06 max-h-content iborder-3x  text-body text-justify px-3
-#+begin_bg-gray
-Pellentesque dapibus suscipit ligula. Donec posuere augue in quam. Etiam vel tortor sodales tellus ultricies commodo. Suspendisse potenti. Aenean in sem ac leo mollis blandit. Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi. Phasellus lacus. Etiam laoreet quam sed arcu. Phasellus at dui in ligula mollis ultricies. Integer placerat tristique nisl. Praesent augue. Fusce commodo. Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus. Nullam libero mauris, consequat quis, varius et, dictum id, arcu. Mauris mollis tincidunt felis. Aliquam feugiat tellus ut neque.
-#+end_bg-gray
-
-#+ATTR_HTML: :class grow max-w-slide-035 max-h-content-06 iborder-3x text-body-sm text-left
-#+begin_bg-gray
-- In this layout the width of the first box was set to up to 60% of the slide's width (=max-w-slide-06=)
-- Accordingly, the two boxes on the right were set to up to 40% of the width (=max-w-slide-035=)
-- Similarly, this box was set to a maximum height of 60% of the content's height (=max-h-content-06=)
-- The changes above can not be done (at least easily) with the grid layout.
-#+end_bg-gray
-
-#+ATTR_HTML: :class grow max-w-slide-035 max-h-content-04 iborder-3x text-body-sm text-center
-#+begin_bg-gray
-/The text in this box was aligned with =text-center=. This could be useful for quoted text/
-#+end_bg-gray
-#+end_h-content
-* Title and 3 elements (Col. span bottom)
-:PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-sm"
 :CUSTOM_ID: 19
 :END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-row
+#+ATTR_HTML: :class grid grid-rows-2 grid-flow-row gap-4 text-body-lg
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 1
-#+end_bg-gray
+# ----- [Top left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+Top left box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 2
-#+end_bg-gray
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+Top right box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x col-span-2 p-2 h-content-05
-#+begin_bg-gray
-Box 3
-#+end_bg-gray
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x col-span-2 content-evenly
+#+begin_bg-inner-box
+Column spanning box
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-** 2 images and description (Grid)
+
+** =slide_3boxes_cspan_bottom_grid=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-sm"
 :CUSTOM_ID: 19-2
 :END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-row
+#+ATTR_HTML: :class grid grid-rows-2 grid-flow-row gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
+# ----- [Top left box] -----
+#+ATTR_HTML: :class iborder-3x w-slide-065 content-evenly
+#+begin_bg-inner-box
+- The height of the image on the right box was set with, =h-content-035=
+#+end_bg-inner-box
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x w-slide-03 content-evenly
+#+begin_bg-inner-box
 #+ATTR_HTML: :class h-content-035
 #+caption: Landscape 5
-[[file:personal/images/landscape-5.jpg]]
-#+end_bg-gray
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 6
-[[file:personal/images/landscape-6.jpg]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x col-span-2 p-2 flex flex-col text-body
-#+begin_bg-gray
-#+ATTR_HTML: :class leading-relaxed
-- Rows in a grid layout as implemented in tailwind are of the same height
-- Height of images was set as =h-content-035= (if higher overflows)
-- Image caption was set as:
-  - =text-body-xs=
-#+end_bg-gray
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class iborder-3x col-span-2 text-left content-evenly text-box-sm
+#+begin_bg-inner-box
+#+ATTR_HTML: :class flex-list grow justify-evenly h-content-045
+- The slide was produced using the snippet, =slide_3boxes_cspan_bottom_grid=.
+- It sets the display of the parent element to, =grid= =grid-rows-2= =grid-flow-row=.
+- The utility, =w-slide-<value>=  is presented with a default value of =049= for the top boxes {{{icon(note-sticky)}}}.
+- For the bottom box to span two columns, the utility, =col-span-2= was used. To align the text to the left, the utility =text-left= was used
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-** 2 images and description (Flexbox)
+#+begin_notes
+- If the content of the two top boxes is long enough to occupy the whole width, it is not necessary to use this utility and the top boxes will have the same width. However, if images are inserted it may be necessary to set a fixed width.
+#+end_notes
+** =slide_3boxes_cspan_bottom_flex=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-sm"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-sm"
 :CUSTOM_ID: 19-3
 :END:
-#+ATTR_HTML: :class flex flex-row justify-evenly flex-wrap gap-2
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x max-w-slide-05 text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-055
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-box
+- The height of the image on the right box was set with, =h-content-045=.
+- The width of this box was set with =w-slide-049=.
+#+end_bg-inner-box
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-045
 #+caption: Landscape 5
-[[file:personal/images/landscape-5.jpg]]
-#+end_bg-gray
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x max-w-slide-05 text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-06
-#+caption: Landscape 6
-[[file:personal/images/landscape-6.jpg]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class grow max-h-content-05 iborder-3x p-2 text-body flex
-#+begin_bg-gray
-- Height of the images above were set as Left: =h-content-055= Right: =h-content-06=.
-- To align this list the utility =flex= was used, alternatively =text-left= can be used.
-#+end_bg-gray
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class w-slide iborder-3x content-evenly text-left pl-3
+#+begin_bg-inner-box
+- The slide was produced using the snippet, =slide_3boxes_cspan_bottom_flex=.
+- It sets the display to the parent element to, =flex=, =flex-row=, =flex-wrap=.
+- The utility, =w-slide-<value>=  is presented with a default value of =049= for the top boxes {{{icon(note-sticky)}}}.
+- For this box to span two 'columns' the custom utility, =w-slide= is used in the template.
+#+end_bg-inner-box
+#+begin_notes
+- Setting the value of =w-slide-<value>=  is required only if the box contains text or images. In the first case it will prevent it from taking the whole width while in the second, It will 'force' to have a fixed width.
+#+end_notes
+# ----- [End of slide] -----
 #+end_h-content
-** Description and 2 images (Grid)
+
+** Related layouts
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x text-body"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 19-4
 :END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-4 grid-flow-row
+#+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-evenly content-start text-body-lg
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x col-span-2 p-2 flex flex-col
-#+begin_bg-gray
-#+ATTR_HTML: :class flex-list grow justify-evenly h-content-045
-- This is a variation of the grid layout above where the first box was set to span 2 columns.
-- The list was set to =flex-list grow justify-evenly=.
-- The height of the list was set to =h-content-045= so the contents will be spaced properly.
-- Images below were set to a height of =h-content-045= 
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 5
-[[file:personal/images/landscape-5.jpg]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 6
-[[file:personal/images/landscape-6.jpg]]
-#+end_bg-gray
+#+ATTR_HTML: :class flex-list grow justify-evenly
+- Related layouts where the box spanning two columns is at the top are also available:
+  #+ATTR_HTML: :class leading-[2]
+  - =slide_3boxes_cspan_top_grid=
+  - =slide_3boxes_cspan_top_flex=
+- The notes made above are applicable to these
 #+end_h-content
-* Title and 4 elements (Grid)
+* Title and 4 boxes
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-md"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 20
 :END:
-#+ATTR_HTML: :class grid grid-cols-2 grid-flow-cols gap-4 
+#+ATTR_HTML: :class grid grid-cols-2 grid-flow-cols gap-4 text-body-lg
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 1
-#+end_bg-gray
+# ----- [Top left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+Top left box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 2
-#+end_bg-gray
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+Top right box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 3
-#+end_bg-gray
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+Bottom left box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 4
-#+end_bg-gray
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+Bottom right box
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-
-** Title and 4 elements (Flexbox)
+** =slide_4boxes_grid=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 20-2
 :END:
-#+ATTR_HTML: :class flex flex-row flex-wrap max-w-full gap-4
+#+ATTR_HTML: :class grid grid-cols-2 grid-flow-cols gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class grow min-w-slide-04 max-w-slide-05 max-h-content-045 iborder-3x
-#+begin_bg-gray
-Box 1
-#+end_bg-gray
+# ----- [Top left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+- The slide was produced using the snippet, =slide_4boxes_grid=
+- It sets the display of the parent element to, =grid= =grid-cols-2= =grid-flow-cols=
+- The template does not specify width or height for the boxes.
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow min-w-slide-04 max-w-slide-05 max-h-content-045 iborder-3x
-#+begin_bg-gray
-Box 2
-#+end_bg-gray
-
-#+ATTR_HTML: :class grow min-w-slide-04 max-w-slide-05 max-h-content-045 iborder-3x
-#+begin_bg-gray
-Box 3
-#+end_bg-gray
-
-#+ATTR_HTML: :class grow min-w-slide-04 max-w-slide-05 max-h-content-045 iborder-3x
-#+begin_bg-gray
-Box 4
-#+end_bg-gray
-#+end_h-content
-
-** 2 images and descriptions (Flex-row)
-:PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 20-3
-:END:
-#+ATTR_HTML: :class flex flex-row flex-wrap max-w-full gap-4 text-body-xs
-#+begin_h-content
-#+ATTR_HTML: :class grow max-w-slide-035 max-h-content-05 iborder-3x
-#+begin_bg-gray
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
 #+ATTR_HTML: :class h-content-035
 #+caption: Landscape-4
-[[file:personal/images/landscape-4.jpg]]
-#+end_bg-gray
+[[file:src/images/landscape-4.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow min-w-slide-04 max-w-slide-065 max-h-content-05 iborder-3x
-#+begin_bg-color
-#+ATTR_HTML: :class leading-relaxed text-body
-- The background of this box and the one below were set with custom classes =bg-color= and =bg-grey=, respectively.
-- The height of both  images were set with =h-content-035= to allow space for the caption.
-- Font size for the parent container was set to =text-body-xs= but overridden for this and the box below to =text-body=.
-#+end_bg-color
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+- The height is determined by the content of the boxes.
+- Note that the content may overflow if its big or too long.
+- For this slide that would be the image on the top-right box.
+- The width is the same for both columns. 
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow max-w-slide-05 max-h-content-05 iborder-3x
-#+begin_bg-color
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 3
-[[file:personal/images/landscape-3.jpg]]
-#+end_bg-color
-
-#+ATTR_HTML: :class grow min-w-slide-04 max-w-slide-05 max-h-content-05 iborder-3x
-#+begin_bg-gray
-#+ATTR_HTML: :class leading-relaxed text-body
-- The width of this text box was limited to half of the slide's width,  =max-w-slide-05=.
-- The box above was set to, =max-w-slide-065=.
-#+end_bg-gray
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class iborder-3x content-evenly
+#+begin_bg-inner-box
+- The height of the image above was set to, =h-content-035=
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-** 2 images and descriptions (Flex-col)
+
+** =slide_4boxes_flex_row=
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 20-3
+:END:
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 text-body
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow max-w-slide-055 iborder-3x content-evenly
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-045
+#+caption: Landscape 5
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-box
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class grow w-slide-04 iborder-3x content-evenly text-body-sm
+#+begin_bg-inner-box
+#+ATTR_HTML: :class flex-list grow justify-evenly h-content-06
+- The slide was produced using the snippet, =slide_4boxes_flex-row=.
+- It sets the display of the parent element to, =flex=, =flex-row=, =flex-wrap=.
+- The utility, =w-slide-<value>=  is presented with a default value of =049= for all boxes
+#+end_bg-inner-box
+
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class grow w-slide-03 iborder-3x content-evenly text-body-sm
+#+begin_bg-inner-box
+- The height of the image above was set with, =h-content-045=
+#+end_bg-inner-box
+
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class grow w-slide-065 iborder-3x content-evenly text-body-sm
+#+begin_bg-inner-box
+- For this slide the width of the top-left box was set to =w-slide-055=, the top-right to =w-slide-04=, the bottom-left to =w-slide-035= and the bottom-right to =w-slide-065=.
+#+end_bg-inner-box
+# ----- [End of slide] -----
+#+end_h-content
+** =slide_4boxes_flex_col=
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 20-4
 :END:
-#+ATTR_HTML: :class flex flex-col flex-wrap max-w-slide-049 gap-3 text-body-xs
+#+ATTR_HTML: :class flex flex-col flex-wrap max-w-slide-049 gap-4 text-body
 #+begin_h-content
-#+ATTR_HTML: :class grow max-h-content-055 iborder-3x
-#+begin_bg-gray
-#+caption: Landscape 2
-#+ATTR_HTML: :class h-content-04
-[[file:personal/images/landscape-2.jpg]]
-#+end_bg-gray
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow iborder-3x content-evenly
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-05
+#+caption: Landscape 5
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow max-h-content-045 iborder-3x
-#+begin_bg-gray
-#+ATTR_HTML: :class flex-list justify-evenly h-content-04
-- To ensure the two columns have the same width the container's max width was set to =max-w-slide-049=.
-- The above is a custom class that was set after trial and error to occupy the whole width of the slide, considering the gap size (=gap-3=)
-- The height of the image above was set as: =h-content-04=.
-#+end_bg-gray
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class grow iborder-3x content-evenly
+#+begin_bg-inner-box
+- The height of the image above was set with, =h-content-05=
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow max-h-content-070 iborder-3x
-#+begin_bg-gray
-#+caption: Landscape 1
-[[file:personal/images/landscape-1.jpg]]
-#+end_bg-gray
+# ----- [Top right box] -----
+#+ATTR_HTML: :class grow iborder-3x content-evenly
+#+begin_bg-inner-box
+#+ATTR_HTML: :class leading-[1.9]
+- The slide was produced using the snippet, =slide_4boxes_flex-col=.
+- It sets the display of the parent element to, =flex=, =flex-col=, =flex-wrap=.
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class grow iborder-3x px-4
-#+begin_bg-gray
-No width was set for the above image so it takes most of the column's width however, the content of this box (/i.e./ amount of text) should be limited to prevent it from overflowing.
-#+end_bg-gray
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class grow iborder-3x content-evenly
+#+begin_bg-inner-box
+- The utility, =w-slide-<value>=  is presented for the parent element with a default of =049=.
+  - It ensures that columns are of the same width but it can be tweaked to have columns of different width.
+- For each box the utility =content-evenly= is set by default.
+- It will set the vertical position of the content.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-* Title and 6 elements (Grid)
+* Title and 6 boxes
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x title-md"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x"
 :CUSTOM_ID: 21
 :END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-2 grid-flow-col max-w-full
+#+ATTR_HTML: :class grid grid-cols-3 gap-2 text-body-lg
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 1
-#+end_bg-gray
+# ----- [Top left box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-box
+Top left box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 2
-#+end_bg-gray
+# ----- [Top center box] -----
+#+ATTR_HTML: :class h-content-05 iborder-3x content-center
+#+begin_bg-inner-box
+Top center box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 3
-#+end_bg-gray
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-box
+Top right box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 4
-#+end_bg-gray
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-box
+Bottom left box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 5
-#+end_bg-gray
+# ----- [Bottom center box] -----
+#+ATTR_HTML: :class h-content-05 iborder-3x content-center
+#+begin_bg-inner-box
+Bottom center box
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x
-#+begin_bg-gray
-Box 6
-#+end_bg-gray
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-box
+Bottom right box
+#+end_bg-inner-box
+# ----- [End of slide] -----
+#+end_h-content
+** =slide_6boxes_grid=
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 21-2
+:END:
+#+ATTR_HTML: :class grid grid-cols-3 gap-2 text-body
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class h-content-05 iborder-3x content-center
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035
+#+caption: Landscape 1
+[[file:src/images/landscape-1.jpg]]
+#+end_bg-inner-box
+
+# ----- [Top center box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035
+#+caption: Landscape 3
+[[file:src/images/landscape-3.jpg]]
+#+end_bg-inner-box
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035
+#+caption: Landscape 5
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-box
+
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class h-content-05 iborder-3x content-center
+#+begin_bg-inner-box
+#+ATTR_HTML: :class leading-[1.9]
+- The slide was produced using the snippet, =slide_6boxes_grid=.
+- It sets the display of the parent element to, =grid= and =grid-cols-3=
+#+end_bg-inner-box
+
+# ----- [Bottom center box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-box
+- The utility, =h-content--<value>=  is presented for the top-left and bottom-left boxes to setup the height of the whole row.
+#+end_bg-inner-box
+
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-box
+- The height of the images in the top row were set with, =h-content-035=.
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
 ** Example
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
-:CUSTOM_ID: 21-2
-:END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-2 grid-flow-col max-w-full
-#+begin_h-content
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 1
-[[file:personal/images/landscape-1.jpg]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 2
-[[file:personal/images/landscape-2.jpg]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 3
-[[file:personal/images/landscape-3.jpg]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 4
-[[file:personal/images/landscape-4.jpg]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 5
-[[file:personal/images/landscape-5.jpg]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-body-xs
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-035
-#+caption: Landscape 6
-[[file:personal/images/landscape-6.jpg]]
-#+end_bg-gray
-#+end_h-content
-#+begin_notes
-The default snippet was modified by:
-- Adding a text utility =text-body-xs= to reduce the caption
-  - The Emacs package =expand-region= is useful
-- Images were including using the snippet =reveal_image=
-#+end_notes
-** Image credits
-:PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-color iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
 :CUSTOM_ID: 21-3
 :END:
-#+ATTR_HTML: :class grid grid-rows-2 gap-2 grid-flow-col max-w-full text-body-xs
+#+ATTR_HTML: :class grid grid-cols-3 gap-2 text-body
 #+begin_h-content
-#+ATTR_HTML: :class iborder-3x text-left
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-03 rounded-3xl
-[[file:personal/images/landscape-1.jpg]]
+# ----- [Top left box] -----
+#+ATTR_HTML: :class h-content-05 iborder-3x content-center text-body-xs
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035 rounded-3xl
+#+caption: Landscape 1
+[[file:src/images/landscape-1.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class leading-relaxed
-- Landscape 1 ([[https://www.pexels.com/es-es/foto/globos-de-aire-caliente-en-el-cielo-2325446/][Link]])
-- Artist: [[https://www.pexels.com/es-es/@francesco-ungaro/][Francesco Ungaro]]
-#+end_bg-gray
+# ----- [Top center box] -----
+#+ATTR_HTML: :class iborder-3x content-center text-body-xs
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035 rounded-3xl
+#+caption: Landscape 2
+[[file:src/images/landscape-2.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x text-left
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-03 rounded-3xl
-[[file:personal/images/landscape-2.jpg]]
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x content-center text-body-xs
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035 rounded-3xl
+#+caption: Landscape 3
+[[file:src/images/landscape-3.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class leading-relaxed
-- Landscape 2 ([[https://www.pexels.com/es-es/foto/monte-fuji-japon-1108701/][Link]])
-- Artist: [[https://www.pexels.com/es-es/@liger-pham-232622/][Liger Pham]]
-#+end_bg-gray
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class h-content-05 iborder-3x content-center text-body-xs
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035 rounded-3xl
+#+caption: Landscape 4
+[[file:src/images/landscape-4.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class iborder-3x text-left
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-03 rounded-3xl
-[[file:personal/images/landscape-3.jpg]]
+# ----- [Bottom center box] -----
+#+ATTR_HTML: :class iborder-3x content-center text-body-xs
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035 rounded-3xl
+#+caption: Landscape 5
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-box
 
-#+ATTR_HTML: :class leading-relaxed
-- Landscape 3 ([[https://www.pexels.com/es-es/foto/fotografia-aerea-de-una-montana-640809/][Link]])
-- Artist: [[https://www.pexels.com/es-es/@eberhardgross/][eberhard grossgasteiger]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-left
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-03 rounded-3xl
-[[file:personal/images/landscape-4.jpg]]
-
-#+ATTR_HTML: :class leading-relaxed
-- Landscape 4 ([[https://www.pexels.com/es-es/foto/campo-de-hierba-verde-y-arboles-bajo-un-cielo-azul-3996362/][Link]])
-- Artist: [[https://www.pexels.com/es-es/@chavdar-lungov-2332494/][Chavdar Lungov]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-left
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-03 rounded-3xl
-[[file:personal/images/landscape-5.jpg]]
-
-#+ATTR_HTML: :class leading-relaxed
-- Landscape 5 ([[https://www.pexels.com/es-es/foto/foto-secuencial-de-la-aurora-boreal-1933316/][Link]])
-- Artist: [[https://www.pexels.com/es-es/@therato/][stein egil liland]]
-#+end_bg-gray
-
-#+ATTR_HTML: :class iborder-3x text-left
-#+begin_bg-gray
-#+ATTR_HTML: :class h-content-03 rounded-3xl
-[[file:personal/images/landscape-6.jpg]]
-
-#+ATTR_HTML: :class leading-relaxed
-- Landscape 6 ([[https://www.pexels.com/es-es/foto/lago-rodeado-de-montanas-durante-la-hora-dorada-1126382/][Link]])
-- Artist: [[https://www.pexels.com/es-es/@jplenio/][Johannes Plenio]]
-#+end_bg-gray
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class iborder-3x content-center text-body-xs
+#+begin_bg-inner-box
+#+ATTR_HTML: :class h-content-035 rounded-3xl
+#+caption: Landscape 6
+[[file:src/images/landscape-6.jpg]]
+#+end_bg-inner-box
+# ----- [End of slide] -----
 #+end_h-content
-#+begin_notes
-- To align the list items to the left the utility =text-left= was used in the parent container =bg-gray=
-- The top container set the font size to =text-body-xs=
-#+end_notes
+
+* Media credits
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
+:CUSTOM_ID: 22
+:END:
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 text-body-md
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-start
+#+begin_bg-inner-box
+#+ATTR_HTML: :class flex-list h-content-07 justify-evenly 
+- Landscape 1 ([[https://www.pexels.com/es-es/foto/globos-de-aire-caliente-en-el-cielo-2325446/][Link]])
+  - Artist: [[https://www.pexels.com/es-es/@francesco-ungaro/][Francesco Ungaro]]
+- Landscape 2 ([[https://www.pexels.com/es-es/foto/monte-fuji-japon-1108701/][Link]])
+  - Artist: [[https://www.pexels.com/es-es/@liger-pham-232622/][Liger Pham]]
+- Landscape 3 ([[https://www.pexels.com/es-es/foto/fotografia-aerea-de-una-montana-640809/][Link]])
+  - Artist: [[https://www.pexels.com/es-es/@eberhardgross/][eberhard grossgasteiger]]
+- Landscape 4 ([[https://www.pexels.com/es-es/foto/campo-de-hierba-verde-y-arboles-bajo-un-cielo-azul-3996362/][Link]])
+  - Artist: [[https://www.pexels.com/es-es/@chavdar-lungov-2332494/][Chavdar Lungov]]
+- Landscape 5 ([[https://www.pexels.com/es-es/foto/foto-secuencial-de-la-aurora-boreal-1933316/][Link]])
+  - Artist: [[https://www.pexels.com/es-es/@therato/][stein egil liland]]        
+#+end_bg-inner-box
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-start
+#+begin_bg-inner-box
+#+ATTR_HTML: :class flex-list h-content-07 justify-evenly 
+- Landscape 6 ([[https://www.pexels.com/es-es/foto/lago-rodeado-de-montanas-durante-la-hora-dorada-1126382/][Link]])
+  - Artist: [[https://www.pexels.com/es-es/@jplenio/][Johannes Plenio]]
+- Landscape 7 ([[https://www.pexels.com/photo/bare-tree-on-desert-land-259526/][Link]])
+  - Artist: [[https://www.pexels.com/@pixabay/][Pixabay]]
+- Background 1 ([[https://www.pexels.com/photo/grayscale-photo-of-mountain-6320857/][Link]])
+  - Artist: [[https://www.pexels.com/@murilo-fonseca-14867612/][Murillo Fonseca]]
+- Background 2 ([[https://www.pexels.com/photo/the-sun-sets-over-a-desert-landscape-with-mountains-in-the-background-16889399/][Link]])
+  - Artist: [[https://www.pexels.com/@marko_aim-537690234/][marko_aim]]
+- Video ([[https://www.vecteezy.com/video/11358562-abstract-video-with-silver-bokeh-lights-and-sparkles][Link]])
+  - Artist: [[https://www.vecteezy.com/members/kjpargeter2018][Kirsty Pargeter]]
+#+end_bg-inner-box
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class w-slide iborder-3x content-start
+#+begin_bg-inner-box
+*License / Attribution*
+#+ATTR_HTML: :class w-slide-09
+- Images:  [[https://www.pexels.com/][Pexels]] ([[https://www.pexels.com/license/][License]])
+- Video: [[https://www.vecteezy.com/][Vecteezy]] (Attribution: [[https://www.vecteezy.com/free-videos/abstract][Abstract Stock Videos by Vecteezy]])
+#+end_bg-inner-box
+# ----- [End of slide] -----
+#+end_h-content
 * /Thank you/
 :PROPERTIES:
-:CUSTOM_ID: 22
+:CUSTOM_ID: 23
 :END:
 #+begin_export html
 <i class="fas fa-smile text-section textCol-link"></i>
