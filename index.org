@@ -1260,7 +1260,7 @@ ipalette
 #+end_bg-inner-boxB
 
 # ----- [Top right box] -----
-#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+ATTR_HTML: :class grow iborder-3x w-slide-0475 content-evenly
 #+begin_bg-inner-boxB
 #+ATTR_HTML: :class h-content-045
 #+caption: Landscape 5
@@ -1291,7 +1291,7 @@ ipalette
 #+end_bg-inner-boxC
 
 # ----- [Top right box] -----
-#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+ATTR_HTML: :class grow iborder-3x w-slide-0475 content-evenly
 #+begin_bg-inner-boxC
 #+ATTR_HTML: :class h-content-045
 #+caption: Landscape 5
@@ -1323,7 +1323,7 @@ ipalette
 #+end_bg-inner-boxD
 
 # ----- [Top right box] -----
-#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+ATTR_HTML: :class grow iborder-3x w-slide-0475 content-evenly
 #+begin_bg-inner-boxD
 #+ATTR_HTML: :class h-content-045
 #+caption: Landscape 5
@@ -1355,7 +1355,7 @@ ipalette
 #+end_bg-inner-boxE
 
 # ----- [Top right box] -----
-#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+ATTR_HTML: :class grow iborder-3x w-slide-0475 content-evenly
 #+begin_bg-inner-boxE
 #+ATTR_HTML: :class h-content-045
 #+caption: Landscape 5
@@ -1599,7 +1599,7 @@ Box 1
 #+end_h-content
 * Title and 2 horizontal boxes
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x"
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
 :CUSTOM_ID: 16
 :END:
 #+ATTR_HTML: :class grid-cols-2 gap-x-4 text-body-lg
@@ -1917,7 +1917,7 @@ Column spanning box
 #+end_bg-inner-box
 
 # ----- [Top right box] -----
-#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+ATTR_HTML: :class grow iborder-3x w-slide-0475 content-evenly
 #+begin_bg-inner-box
 #+ATTR_HTML: :class h-content-045
 #+caption: Landscape 5
