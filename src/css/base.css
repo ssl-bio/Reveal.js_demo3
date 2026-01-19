@@ -121,13 +121,45 @@
     @apply bg-radial from-grad-LinkBg-4 to-grad-LinkBg-2
 }
 
-/* @utility bg-outer-box { */
-/*     /\* @apply  bg-ana-A-2/45 *\/ */
-/* } */
+@utility bg-outer-box {
+    @apply  bg-mix-LinkBg-2/60
+}
 
-/* @utility bg-inner-box { */
-/*     /\* @apply bg-grad-MainBg-2/50 *\/ */
-/* } */
+@utility bg-outer-boxB {
+    @apply  bg-grad-LinkBg-2/75
+}
+
+@utility bg-outer-boxC {
+    @apply  bg-ana-A-2/45
+}
+
+@utility bg-outer-boxD {
+    @apply  bg-des-Link-2/50
+}
+
+@utility bg-outer-boxE {
+    @apply  bg-ana-A-4/25
+}
+
+@utility bg-inner-box {
+    @apply bg-grad-MainBg-3/100
+}
+
+@utility bg-inner-boxB {
+    @apply  bg-grad-MainBg-3/75
+}
+
+@utility bg-inner-boxC {
+    @apply  bg-grad-MainBg-2/50
+}
+
+@utility bg-inner-boxD {
+    @apply  bg-mix-LinkBg-3/75
+}
+
+@utility bg-inner-boxE {
+    @apply  bg-opp-Link-5/30
+}
 
 /* Text utilities */
 
@@ -399,8 +431,8 @@
 /* .bg-colortheme { background-color: var(--r-main-color); } */
 
 /* Backgrounds */
-.bg-outer-box { background-color: var(--bg-outBox, var(--clr-ana-A-2)); }
-.bg-inner-box { background-color: var(--bg-innBox, var(--clr-grad-MainBg-2)); }
+/* .bg-outer-box { background-color: var(--bg-outBox, var(--clr-ana-A-2)); } */
+/* .bg-inner-box { background-color: var(--bg-innBox, var(--clr-grad-MainBg-2)); } */
 /* .textCol { color: var(--clr-grad-A-5);} */
 
 /* ============================== */

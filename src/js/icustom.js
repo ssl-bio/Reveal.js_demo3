@@ -26,13 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log("Page loaded");
     let state = {};
     setPalettes();
-    setState();
-    setColors();
-    if (!opacitySlider || !opacityDisplayedValue) {
-	updateCSSVar("inner");
-	updateCSSVar("outer");
-    } else {
-	initColorPicker();
+    if (checkUtil("inner") && checkUtil("outer")){
+	setState();
+	setColors();
+	if (!opacitySlider || !opacityDisplayedValue) {
+	    updateCSSVar("inner");
+	    updateCSSVar("outer");
+	} else {
+	    initColorPicker();
+	}
     }
 });
 
@@ -46,7 +48,11 @@ const observer = new MutationObserver((mutations) => {
         
         node.onload = function() {
             console.log('Theme changed');
-            updateColors();
+	    if (checkUtil("inner") && checkUtil("outer")){
+		updateColors();
+	    } else {
+		setPalettes();
+	    }
         };
       }
     });

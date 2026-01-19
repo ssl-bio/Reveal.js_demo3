@@ -620,7 +620,7 @@ Click and hold on any colored box to hide it. This causes the layout to change
 :END:
 #+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-evenly items-center text-body-md
 #+begin_h-content
-#+ATTR_HTML: :class bg-inner-box w-slide-045 content-center iborder-3x text-body-lg
+#+ATTR_HTML: :class bg-inner-boxC w-slide-045 content-center iborder-3x text-body-lg
 #+begin_h-content-015
 =p<direction>-<size>=
 #+end_h-content-015
@@ -671,7 +671,7 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec hendrerit tempor
 :END:
 #+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-evenly items-center text-body-md
 #+begin_h-content
-#+ATTR_HTML: :class bg-inner-box w-slide-045 content-center iborder-3x text-body-lg
+#+ATTR_HTML: :class bg-inner-boxC w-slide-045 content-center iborder-3x text-body-lg
 #+begin_h-content-015
 =m<direction>-<size>=
 #+end_h-content-015
@@ -755,34 +755,34 @@ This slide used the =slide_2vboxes_grid= template but was modified as follows:
 #+begin_export html
 <i class="fas fa-border-style text-subsection textCol-link"></i>
 #+end_export
-*** Syntax
+** Syntax
 :PROPERTIES:
 :REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
-:CUSTOM_ID: 11-1
+:CUSTOM_ID: 11-2
 :END:
 #+ATTR_HTML: :class flex flex-row flex-wrap bg-inner-box iborder-3x justify-evenly items-center text-body-md gap-2
 #+begin_h-content
-#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC content-center iborder-3x px-2
 #+begin_h-content-015
 =border-<side>-<size>=
 #+end_h-content-015
 
-#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC content-center iborder-3x px-2
 #+begin_h-content-015
 =border-<style>=
 #+end_h-content-015
 
-#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC content-center iborder-3x px-2
 #+begin_h-content-015
 =border-<color>=
 #+end_h-content-015
 
-#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC content-center iborder-3x px-2
 #+begin_h-content-015
 =border-<color>/<level>=
 #+end_h-content-015
 
-#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC content-center iborder-3x px-2
 #+begin_h-content-015
 =rounded-<radius>=
 #+end_h-content-015
@@ -812,7 +812,7 @@ This slide used the =slide_1box_flex_row= template with the following utilities.
 ** Examples: size and style
 :PROPERTIES:
 :REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
-:CUSTOM_ID: 11-2
+:CUSTOM_ID: 11-3
 :END:
 #+ATTR_HTML: :class flex flex-row flex-wrap gap-2 bg-inner-box iborder-3x justify-evenly content-center text-body
 #+begin_h-content
@@ -872,7 +872,7 @@ This slide used the =slide_1box_flex_row= template but was modified as follows:
 ** Examples: radius and opacity
 :PROPERTIES:
 :REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
-:CUSTOM_ID: 11-3
+:CUSTOM_ID: 11-4
 :END:
 #+ATTR_HTML: :class flex flex-row flex-wrap gap-2 bg-inner-box iborder-3x justify-evenly content-center text-body
 #+begin_h-content
@@ -933,22 +933,22 @@ This slide used the =slide_1box_flex_row= template but was modified in a similar
 :END:
 #+ATTR_HTML: :class flex flex-row flex-wrap bg-inner-box iborder-3x justify-evenly content-center text-body-md gap-2
 #+begin_h-content
-#+ATTR_HTML: :class bg-inner-box text-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC text-center iborder-3x px-2
 #+begin_bg-color
 =bg-<color>=
 #+end_bg-color
 
-#+ATTR_HTML: :class bg-inner-box text-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC text-center iborder-3x px-2
 #+begin_bg-color
 =border-opacity-<level>=
 #+end_bg-color
 
-#+ATTR_HTML: :class bg-inner-box text-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC text-center iborder-3x px-2
 #+begin_bg-color
 =shadow-<size>=
 #+end_bg-color
 
-#+ATTR_HTML: :class bg-inner-box text-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC text-center iborder-3x px-2
 #+begin_bg-color
 =bg-gradient-to-<direction> from-<color> to-<color>=
 #+end_bg-color
@@ -1210,23 +1210,166 @@ ipalette
 #+CALL: iheader-custom(height="01")
 #+CALL: iheader-custom(height="01")
 
-#+CALL: ipalette-custom-5(label="Gradient Link-Bg",height="01",value="grad-LinkBg",class="")
-#+CALL: ipalette-custom-5(label="Gradient Link-Main",height="01",value="grad-LinkMain",class="")
+#+CALL: ipalette-custom-5(label="grad-LinkBg",height="01",value="grad-LinkBg",class="")
+#+CALL: ipalette-custom-5(label="grad-LinkMain",height="01",value="grad-LinkMain",class="")
 
-#+CALL: ipalette-custom-4(label="Gradient Main-Bg",height="01",value="grad-MainBg",class="")
-#+CALL: ipalette-custom-5(label="Gradient Link Dark-Light",height="01",,value="grad-Link",class="")
+#+CALL: ipalette-custom-4(label="grad-MainBg",height="01",value="grad-MainBg",class="")
+#+CALL: ipalette-custom-5(label="grad-Link",height="01",,value="grad-Link",class="")
 
-#+CALL: ipalette-custom-4(label="Analogous 15-30",height="01",value="ana-A",class="")
-#+CALL: ipalette-custom-4(label="Analogous 45-60",height="01",value="ana-B",class="")
+#+CALL: ipalette-custom-5(label="ana-A",height="01",value="ana-A",class="")
+#+CALL: ipalette-custom-5(label="ana-B",height="01",value="ana-B",class="")
 
-#+CALL: ipalette-custom-4(label="Analogous 75-90",height="01",value="ana-C",class="")
-#+CALL: ipalette-custom-5(label="Opposite 120-150",height="01",value="opp-Link",class="")
+#+CALL: ipalette-custom-5(label="ana-C",height="01",value="ana-C",class="")
+#+CALL: ipalette-custom-5(label="opp-Link",height="01",value="opp-Link",class="")
 
-#+CALL: ipalette-custom-2(label="Desaturate Link",height="01",value="des-Link",class="")
+#+CALL: ipalette-custom-2(label="dess-Link",height="01",value="des-Link",class="")
 #+CALL: ipalette-custom-2(label="Empty",height="01",value="des-B",class="")
 
-#+CALL: ipalette-custom-5(label="Mix Link-Bg",height="01",value="mix-LinkBg",class="")
-#+CALL: ipalette-custom-5(label="Mix Link-Main",height="01",value="mix-LinkMain",class="")
+#+CALL: ipalette-custom-5(label="mix-LinkBg",height="01",value="mix-LinkBg",class="")
+#+CALL: ipalette-custom-5(label="mix-LinkMain",height="01",value="mix-LinkMain",class="")
+#+end_h-content
+** Example of custom utilities
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 12-7
+:END:
+#+ATTR_HTML: :class flex flex-col bg-inner-box iborder-3x justify-evenly content-center text-body-md
+#+begin_h-content
+#+ATTR_HTML: :class flex-list h-content-09 justify-evenly 
+- In the slides below different combinations of the theme-based colors are used to customize the outer and inner boxes.
+- These combinations were specified in the =base.css= file as the following custom utilities
+  #+ATTR_HTML: :class leading-[2]
+  - =bg-outer-boxB= and =bg-inner-boxB=
+  - =bg-outer-boxC= and =bg-inner-boxC=
+  - =bg-outer-boxD= and =bg-inner-boxD=
+  - =bg-outer-boxE= and =bg-inner-boxE=
+- Note that the above utilities can be used in the same slide as in: [[* Example: Different =inner-box= utilities]]
+#+end_h-content
+** =bg-outer-boxB= and =bg-inner-boxB=
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-boxB iborder-2x title-sm"
+:CUSTOM_ID: 12-8
+:END:
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 text-body
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-boxB
+- The color of the outer box was specified with the custom utility, =bg-outer-boxB=.
+- The color of the inner box with, =bg-inner-boxB=.
+#+end_bg-inner-boxB
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-boxB
+#+ATTR_HTML: :class h-content-045
+#+caption: Landscape 5
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-boxB
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class w-slide iborder-3x content-evenly text-left pl-3
+#+begin_bg-inner-boxB
+- The color combination was manually chosen based on how it would be render with other themes.
+- URLs will look as follows:
+  - Image Source: https://www.pexels.com/es-es/foto/foto-secuencial-de-la-aurora-boreal-1933316/
+#+end_bg-inner-boxB
+# ----- [End of slide] -----
+#+end_h-content
+** =bg-outer-boxC= and =bg-inner-boxC=
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-boxC iborder-2x title-sm"
+:CUSTOM_ID: 12-9
+:END:
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 text-body
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-boxC
+- The color of the outer box was specified with the custom utility, =bg-outer-boxC=.
+- The color of the inner box with, =bg-inner-boxC=
+#+end_bg-inner-boxC
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-boxC
+#+ATTR_HTML: :class h-content-045
+#+caption: Landscape 5
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-boxC
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class w-slide iborder-3x content-evenly text-left pl-3
+#+begin_bg-inner-boxC
+- The color combination was manually chosen based on how it would be render with other themes.
+- URLs will look as follows:
+  - Image Source: https://www.pexels.com/es-es/foto/foto-secuencial-de-la-aurora-boreal-1933316/
+#+end_bg-inner-boxC
+# ----- [End of slide] -----
+#+end_h-content
+
+** =bg-outer-boxD= and =bg-inner-boxD=
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-boxD iborder-2x title-sm"
+:CUSTOM_ID: 12-10
+:END:
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 text-body
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-boxD
+- The color of the outer box was specified with the custom utility, =bg-outer-boxD=.
+- The color of the inner box with, =bg-inner-boxD=
+#+end_bg-inner-boxD
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-boxD
+#+ATTR_HTML: :class h-content-045
+#+caption: Landscape 5
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-boxD
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class w-slide iborder-3x content-evenly text-left pl-3
+#+begin_bg-inner-boxD
+- The color combination was manually chosen based on how it would be render with other themes.
+- URLs will look as follows:
+  - Image Source: https://www.pexels.com/es-es/foto/foto-secuencial-de-la-aurora-boreal-1933316/
+#+end_bg-inner-boxD
+# ----- [End of slide] -----
+#+end_h-content
+
+** =bg-outer-boxE= and =bg-inner-boxE=
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-boxE iborder-2x title-sm"
+:CUSTOM_ID: 12-11
+:END:
+#+ATTR_HTML: :class flex flex-row flex-wrap gap-4 text-body
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-boxE
+- The color of the outer box was specified with the custom utility, =bg-outer-boxE=.
+- The color of the inner box with, =bg-inner-boxE=.
+#+end_bg-inner-boxE
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class grow iborder-3x w-slide-049 content-evenly
+#+begin_bg-inner-boxE
+#+ATTR_HTML: :class h-content-045
+#+caption: Landscape 5
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-boxE
+
+# ----- [Bottom box] -----
+#+ATTR_HTML: :class w-slide iborder-3x content-evenly text-left pl-3
+#+begin_bg-inner-boxE
+- The color combination was manually chosen based on how it would be render with other themes.
+- URLs will look as follows:
+  - Image Source: https://www.pexels.com/es-es/foto/foto-secuencial-de-la-aurora-boreal-1933316/
+#+end_bg-inner-boxE
+# ----- [End of slide] -----
 #+end_h-content
 
 * Background images, floats and videos
@@ -1243,22 +1386,22 @@ ipalette
 :END:
 #+ATTR_HTML: :class flex flex-row flex-wrap bg-inner-box iborder-3x justify-evenly items-center text-body-md gap-2
 #+begin_h-content
-#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC content-center iborder-3x px-2
 #+begin_h-content-015
 =bg-<position>=
 #+end_h-content-015
 
-#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC content-center iborder-3x px-2
 #+begin_h-content-015
 =bg-<tiling>=
 #+end_h-content-015
 
-#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC content-center iborder-3x px-2
 #+begin_h-content-015
 =bg-clip-<location>>=
 #+end_h-content-015
 
-#+ATTR_HTML: :class bg-inner-box content-center iborder-3x px-2
+#+ATTR_HTML: :class bg-inner-boxC content-center iborder-3x px-2
 #+begin_h-content-015
 =float-<placement>=
 #+end_h-content-015
@@ -1278,7 +1421,7 @@ ipalette
  :reveal_background_position: left
  :CUSTOM_ID: 13-3
 :END:
-#+ATTR_HTML: :class iborder bg-inner-box -slide-03 mt-60 px-4 float-right flex flex-col items-end justify-center text-body
+#+ATTR_HTML: :class iborder bg-inner-boxD -slide-03 mt-60 px-4 float-right flex flex-col items-end justify-center text-body
 #+begin_h-content-03
 Background 1
 
@@ -1309,7 +1452,7 @@ Background 1
    :reveal_background_position: left
    :CUSTOM_ID: 13-3
   :END:
-  ,#+ATTR_HTML: :class iborder bg-inner-box -slide-03 mt-60 px-4
+  ,#+ATTR_HTML: :class iborder bg-inner-boxD -slide-03 mt-60 px-4
   ,#+ATTR_HTML: :class float-right flex flex-col items-end 
   ,#+ATTR_HTML: :class justify-center text-body
   ,#+begin_h-content-03
@@ -2053,10 +2196,61 @@ Bottom right box
 #+end_bg-inner-box
 # ----- [End of slide] -----
 #+end_h-content
-** Example
+** Example: Different =inner-box= utilities
 :PROPERTIES:
-:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x "
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-xs"
 :CUSTOM_ID: 21-3
+:END:
+#+ATTR_HTML: :class grid grid-cols-3 gap-2 text-body
+#+begin_h-content
+# ----- [Top left box] -----
+#+ATTR_HTML: :class h-content-05 iborder-3x content-center
+#+begin_bg-inner-boxB
+#+ATTR_HTML: :class h-content-035
+#+caption: Landscape 1
+[[file:src/images/landscape-1.jpg]]
+#+end_bg-inner-boxB
+
+# ----- [Top center box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-boxD
+#+ATTR_HTML: :class h-content-035
+#+caption: Landscape 3
+[[file:src/images/landscape-3.jpg]]
+#+end_bg-inner-boxD
+
+# ----- [Top right box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-boxE
+#+ATTR_HTML: :class h-content-035
+#+caption: Landscape 5
+[[file:src/images/landscape-5.jpg]]
+#+end_bg-inner-boxE
+
+# ----- [Bottom left box] -----
+#+ATTR_HTML: :class h-content-05 iborder-3x content-center
+#+begin_bg-inner-boxB
+#+ATTR_HTML: :class leading-[1.9]
+- This an the above box use the utility =bg-inner-boxB=
+#+end_bg-inner-boxB
+
+# ----- [Bottom center box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-boxD
+- This an the above box use the utility =bg-inner-boxD=
+#+end_bg-inner-boxD
+
+# ----- [Bottom right box] -----
+#+ATTR_HTML: :class iborder-3x content-center
+#+begin_bg-inner-boxE
+- This an the above box use the utility =bg-inner-boxE=
+#+end_bg-inner-boxE
+# ----- [End of slide] -----
+#+end_h-content
+** Example: Six images
+:PROPERTIES:
+:REVEAL_EXTRA_ATTR: class="h-slide bg-outer-box iborder-2x title-md"
+:CUSTOM_ID: 21-4
 :END:
 #+ATTR_HTML: :class grid grid-cols-3 gap-2 text-body
 #+begin_h-content

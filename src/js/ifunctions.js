@@ -223,6 +223,29 @@ function setPalettes() {
   });
 }
 
+function checkUtil(position) {
+  // Checks whether bg-<position>-box is a CSS class
+  // or a TailwindCSS utility based on the
+  // first characters of the backgroundColor property
+  // Returns true if it is a CSS class.
+  // position: e.g., 'outer' or 'inner'
+
+  if (position === "outer") {
+    var cssClass = ".bg-outer-box";
+  } else {
+    var cssClass = ".bg-inner-box";
+  }
+  let box = document.querySelector(cssClass);
+  let style = getComputedStyle(box);
+  if (style.backgroundColor.startsWith("rgb")) {
+    console.log("Looks like CSS class");
+    return true;
+  } else {
+    console.log("Looks like TailwindCSS Utility");
+    return false;
+  }
+}
+
 function setState() {
   // Defines the attributes of the State object
   // which are used to update the colors
